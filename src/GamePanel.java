@@ -70,7 +70,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         Graphics2D g2D = (Graphics2D) g;
         g2D.setColor(Color.PINK);
-        g2D.fillRect(x, y, 100, 100);
+        g2D.fillRect(x, y, 10, 10);
     }
 
     private void setUpWindow() {
