@@ -2,9 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
-    public static int tile_size = 12; // default tile size is 12
-    public static final int MAX_SCREEN_COL = 128; // used for how to draw tiles
-    public static final int MAX_SCREEN_ROW = 72;
+    public static int tile_size = 24; // default tile size is 12
+    public static final int MAX_SCREEN_COL = 164; // used for how to draw tiles
+    public static final int MAX_SCREEN_ROW = 36;
 
     // GAME LOOP
     private Thread gameThread;
@@ -16,7 +16,7 @@ public class GamePanel extends JPanel implements Runnable {
     public GamePanel() {
         // setting up size of the panel
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
-        this.setBackground(Color.BLACK);
+        this.setBackground(Color.WHITE);
         this.setDoubleBuffered(true);
 
         keyH = new KeyHandler();
@@ -70,7 +70,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         Graphics2D g2D = (Graphics2D) g;
         g2D.setColor(Color.PINK);
-        g2D.fillRect(x, y, 10, 10);
+        g2D.fillRect(x, y, 24, 24);
     }
 
     private void setUpWindow() {
