@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 24; // default tile size is 12
-    public static final int MAX_SCREEN_COL = 164; // used for how to draw tiles
+    public static final int MAX_SCREEN_COL = 64; // used for how to draw tiles
     public static final int MAX_SCREEN_ROW = 36;
 
     // GAME LOOP
