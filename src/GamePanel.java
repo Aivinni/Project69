@@ -2,11 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
-    public static int tile_size = 48; // default tile size is 48
-    private int scale; // plans to use this to allow for window resizing
-
-    public static final int MAX_SCREEN_COL = 16; // used for how to draw tiles
-    public static final int MAX_SCREEN_ROW = 12;
+    public static int tile_size = 12; // default tile size is 12
+    public static final int MAX_SCREEN_COL = 128; // used for how to draw tiles
+    public static final int MAX_SCREEN_ROW = 72;
 
     // GAME LOOP
     private Thread gameThread;
@@ -25,10 +23,8 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
 
-
         startGameThread();
         setUpWindow();
-
     }
 
     @Override
@@ -80,7 +76,6 @@ public class GamePanel extends JPanel implements Runnable {
     private void setUpWindow() {
         JFrame window = new JFrame("2D GAME");
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        window.setSize(1470, 956);
         window.add(this);
         window.pack();
         window.setVisible(true);
