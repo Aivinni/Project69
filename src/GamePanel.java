@@ -47,16 +47,16 @@ public class GamePanel extends JPanel implements Runnable {
             if (delta >= 0.5) {
                 // delta being 1 or greater means 1/60 of a second;
                 repaint();
-                if (keyH.isWKeyPressed()) {
+                if (keyH.isWKeyPressed()||keyH.isUpKeyPressed()) {
                     y--;
                 }
-                if (keyH.isSKeyPressed()) {
+                if (keyH.isSKeyPressed()||keyH.isDownKeyPressed()) {
                     y++;
                 }
-                if (keyH.isDKeyPressed()) {
+                if (keyH.isDKeyPressed()||keyH.isRightKeyPressed()) {
                     x++;
                 }
-                if (keyH.isAKeyPressed()) {
+                if (keyH.isAKeyPressed()||keyH.isLeftKeyPressed()) {
                     x--;
                 }
                 delta = 0;
