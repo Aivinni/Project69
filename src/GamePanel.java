@@ -47,7 +47,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             previousTime = currentTime;
                 // delta being 1 or greater means 1/60 of a second;
-            if (delta >= 1) {
+            if (delta >= 1.2) {
                 repaint();
                 if (keyH.isWKeyPressed()) {
                     y--;
