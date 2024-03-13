@@ -11,8 +11,10 @@ public class GamePanel extends JPanel implements Runnable {
     // TRACKING INPUT
     KeyHandler keyH;
     // TEST VARIABLES
-    int x = 0;
-    int y = 0;
+    int x = 20;
+    int x2 = 100;
+    int y2 = 100;
+    int y = 20;
     public GamePanel() {
         // setting up size of the panel
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
@@ -44,20 +46,32 @@ public class GamePanel extends JPanel implements Runnable {
             delta += (double) (currentTime - previousTime) / drawInterval;
 
             previousTime = currentTime;
-            if (delta >= 0.5) {
                 // delta being 1 or greater means 1/60 of a second;
+            if (delta >= 1) {
                 repaint();
-                if (keyH.isWKeyPressed()||keyH.isUpKeyPressed()) {
+                if (keyH.isWKeyPressed()) {
                     y--;
                 }
-                if (keyH.isSKeyPressed()||keyH.isDownKeyPressed()) {
+                if (keyH.isUpKeyPressed()){
+                    y2--;
+                }
+                if (keyH.isSKeyPressed()) {
                     y++;
                 }
-                if (keyH.isDKeyPressed()||keyH.isRightKeyPressed()) {
+                if (keyH.isDownKeyPressed()){
+                    y2++;
+                }
+                if (keyH.isDKeyPressed()) {
                     x++;
                 }
-                if (keyH.isAKeyPressed()||keyH.isLeftKeyPressed()) {
+                if (keyH.isRightKeyPressed()){
+                    x2++;
+                }
+                if (keyH.isAKeyPressed()) {
                     x--;
+                }
+                if (keyH.isLeftKeyPressed()){
+                    x2--;
                 }
                 delta = 0;
             }
@@ -71,6 +85,8 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2D = (Graphics2D) g;
         g2D.setColor(Color.PINK);
         g2D.fillRect(x, y, 12, 12);
+        g2D.setColor(Color.BLACK);
+        g2D.fillRect(x2, y2, 12, 12);
     }
 
     private void setUpWindow() {

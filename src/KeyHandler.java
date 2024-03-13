@@ -44,7 +44,17 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_W -> wKeyPressed = true;
+            case KeyEvent.VK_S -> sKeyPressed = true;
+            case KeyEvent.VK_A -> aKeyPressed = true;
+            case KeyEvent.VK_D -> dKeyPressed = true;
+            case KeyEvent.VK_F -> fKeyPressed = true;
+            case KeyEvent.VK_UP -> upKeyPressed = true;
+            case KeyEvent.VK_DOWN -> downKeyPressed = true;
+            case KeyEvent.VK_LEFT -> leftKeyPressed = true;
+            case KeyEvent.VK_RIGHT -> rightKeyPressed = true;
+        }
     }
 
     @Override
