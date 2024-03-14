@@ -3,8 +3,8 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 12; // default tile size is 12
-    public static final int MAX_SCREEN_COL = 128; // used for how to draw tiles
-    public static final int MAX_SCREEN_ROW = 72;
+    public static final int MAX_SCREEN_COL = 110; // used for how to draw tiles
+    public static final int MAX_SCREEN_ROW = 70;
 
     // GAME LOOP
     private Thread gameThread;
@@ -56,7 +56,7 @@ public class GamePanel extends JPanel implements Runnable {
                 repaint();
                 if (keyH.isWKeyPressed()) {
                     for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd")) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd") && sprites[i].getPosition()[0] > 0) {
                             sprites[i].setPosition(sprites[i].getPosition()[0] - 1, sprites[i].getPosition()[1]);
                         }
                     }
@@ -64,7 +64,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 if (keyH.isSKeyPressed()) {
                     for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd")) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd") && sprites[i].getPosition()[0] < MAX_SCREEN_ROW - 1) {
                             sprites[i].setPosition(sprites[i].getPosition()[0] + 1, sprites[i].getPosition()[1]);
                         }
                     }
@@ -72,7 +72,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 if (keyH.isDKeyPressed()) {
                     for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd")) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd") && sprites[i].getPosition()[1] < MAX_SCREEN_COL - 1) {
                             sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] + 1);
                         }
                     }
@@ -80,7 +80,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 if (keyH.isAKeyPressed()) {
                     for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd")) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd") && sprites[i].getPosition()[1] > 0) {
                             sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] - 1);
                         }
                     }
@@ -89,7 +89,7 @@ public class GamePanel extends JPanel implements Runnable {
 
                 if (keyH.isUpKeyPressed()){
                     for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")  && sprites[i].getPosition()[0] > 0) {
                             sprites[i].setPosition(sprites[i].getPosition()[0] - 1, sprites[i].getPosition()[1]);
                         }
                     }
@@ -97,7 +97,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 if (keyH.isDownKeyPressed()){
                     for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows") && sprites[i].getPosition()[0] < MAX_SCREEN_ROW - 1) {
                             sprites[i].setPosition(sprites[i].getPosition()[0] + 1, sprites[i].getPosition()[1]);
                         }
                     }
@@ -105,7 +105,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 if (keyH.isRightKeyPressed()){
                     for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows") && sprites[i].getPosition()[1] < MAX_SCREEN_COL - 1) {
                             sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] + 1);
                         }
                     }
@@ -113,7 +113,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 if (keyH.isLeftKeyPressed()){
                     for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows") && sprites[i].getPosition()[1] > 0) {
                             sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] - 1);
                         }
                     }
