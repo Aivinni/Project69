@@ -11,11 +11,16 @@ public class GamePanel extends JPanel implements Runnable {
     // TRACKING INPUT
     KeyHandler keyH;
     // TEST VARIABLES
-    int x = 20;
-    int x2 = 100;
-    int y2 = 100;
-    int y = 20;
+    private TaskForce[] sprites;
+//    int x = 20;
+//    int x2 = 100;
+//    int y2 = 100;
+//    int y = 20;
     public GamePanel() {
+        TaskForce char1 = new TaskForce("wasd", new int[]{0, 0});
+        TaskForce char2 = new TaskForce("arrows", new int[]{2, 0});
+        sprites = new TaskForce[]{char1, char2};
+
         // setting up size of the panel
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
         this.setBackground(Color.WHITE);
@@ -42,7 +47,7 @@ public class GamePanel extends JPanel implements Runnable {
             // system.nanotime is java's very accurate clock or something (i dont 100% remember)
             currentTime = System.nanoTime();
 
-            // the time between now and the least time this looped
+            // the time between now and the last time this looped
             delta += (double) (currentTime - previousTime) / drawInterval;
 
             previousTime = currentTime;
@@ -50,28 +55,69 @@ public class GamePanel extends JPanel implements Runnable {
             if (delta >= 1.2) {
                 repaint();
                 if (keyH.isWKeyPressed()) {
-                    y--;
-                }
-                if (keyH.isUpKeyPressed()){
-                    y2--;
+                    for (int i = 0; i < sprites.length; i++) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd")) {
+                            sprites[i].setPosition(sprites[i].getPosition()[0] - 1, sprites[i].getPosition()[1]);
+                        }
+                    }
+//                    y--;
                 }
                 if (keyH.isSKeyPressed()) {
-                    y++;
-                }
-                if (keyH.isDownKeyPressed()){
-                    y2++;
+                    for (int i = 0; i < sprites.length; i++) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd")) {
+                            sprites[i].setPosition(sprites[i].getPosition()[0] + 1, sprites[i].getPosition()[1]);
+                        }
+                    }
+//                    y++;
                 }
                 if (keyH.isDKeyPressed()) {
-                    x++;
-                }
-                if (keyH.isRightKeyPressed()){
-                    x2++;
+                    for (int i = 0; i < sprites.length; i++) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd")) {
+                            sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] + 1);
+                        }
+                    }
+//                    x++;
                 }
                 if (keyH.isAKeyPressed()) {
-                    x--;
+                    for (int i = 0; i < sprites.length; i++) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd")) {
+                            sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] - 1);
+                        }
+                    }
+//                    x--;
+                }
+
+                if (keyH.isUpKeyPressed()){
+                    for (int i = 0; i < sprites.length; i++) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")) {
+                            sprites[i].setPosition(sprites[i].getPosition()[0] - 1, sprites[i].getPosition()[1]);
+                        }
+                    }
+//                    y2--;
+                }
+                if (keyH.isDownKeyPressed()){
+                    for (int i = 0; i < sprites.length; i++) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")) {
+                            sprites[i].setPosition(sprites[i].getPosition()[0] + 1, sprites[i].getPosition()[1]);
+                        }
+                    }
+//                    y2++;
+                }
+                if (keyH.isRightKeyPressed()){
+                    for (int i = 0; i < sprites.length; i++) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")) {
+                            sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] + 1);
+                        }
+                    }
+//                    x2++;
                 }
                 if (keyH.isLeftKeyPressed()){
-                    x2--;
+                    for (int i = 0; i < sprites.length; i++) {
+                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")) {
+                            sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] - 1);
+                        }
+                    }
+//                    x2--;
                 }
                 delta = 0;
             }
@@ -83,10 +129,13 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
 
         Graphics2D g2D = (Graphics2D) g;
+
+
         g2D.setColor(Color.PINK);
-        g2D.fillRect(x, y, 12, 12);
+        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, 12, 12);
+
         g2D.setColor(Color.BLACK);
-        g2D.fillRect(x2, y2, 12, 12);
+        g2D.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, 12, 12);
     }
 
     private void setUpWindow() {
