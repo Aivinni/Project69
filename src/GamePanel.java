@@ -3,19 +3,15 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 12; // default tile size is 12
-    public static final int MAX_SCREEN_COL = 110; // used for how to draw tiles
+    public static final int MAX_SCREEN_COL = 122;
     public static final int MAX_SCREEN_ROW = 70;
 
     // GAME LOOP
     private Thread gameThread;
     // TRACKING INPUT
     KeyHandler keyH;
-    // TEST VARIABLES
     private TaskForce[] sprites;
-//    int x = 20;
-//    int x2 = 100;
-//    int y2 = 100;
-//    int y = 20;
+
     public GamePanel() {
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0});
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0});
@@ -32,6 +28,11 @@ public class GamePanel extends JPanel implements Runnable {
 
         startGameThread();
         setUpWindow();
+    }
+
+    public static int[] getSizeMap() {
+        int[] arr = {MAX_SCREEN_ROW, MAX_SCREEN_COL};
+        return arr;
     }
 
     @Override
@@ -60,7 +61,6 @@ public class GamePanel extends JPanel implements Runnable {
                             sprites[i].setPosition(sprites[i].getPosition()[0] - 1, sprites[i].getPosition()[1]);
                         }
                     }
-//                    y--;
                 }
                 if (keyH.isSKeyPressed()) {
                     for (int i = 0; i < sprites.length; i++) {
@@ -68,7 +68,6 @@ public class GamePanel extends JPanel implements Runnable {
                             sprites[i].setPosition(sprites[i].getPosition()[0] + 1, sprites[i].getPosition()[1]);
                         }
                     }
-//                    y++;
                 }
                 if (keyH.isDKeyPressed()) {
                     for (int i = 0; i < sprites.length; i++) {
@@ -76,7 +75,6 @@ public class GamePanel extends JPanel implements Runnable {
                             sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] + 1);
                         }
                     }
-//                    x++;
                 }
                 if (keyH.isAKeyPressed()) {
                     for (int i = 0; i < sprites.length; i++) {
@@ -84,7 +82,6 @@ public class GamePanel extends JPanel implements Runnable {
                             sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] - 1);
                         }
                     }
-//                    x--;
                 }
 
                 if (keyH.isUpKeyPressed()){
@@ -93,7 +90,6 @@ public class GamePanel extends JPanel implements Runnable {
                             sprites[i].setPosition(sprites[i].getPosition()[0] - 1, sprites[i].getPosition()[1]);
                         }
                     }
-//                    y2--;
                 }
                 if (keyH.isDownKeyPressed()){
                     for (int i = 0; i < sprites.length; i++) {
@@ -101,7 +97,6 @@ public class GamePanel extends JPanel implements Runnable {
                             sprites[i].setPosition(sprites[i].getPosition()[0] + 1, sprites[i].getPosition()[1]);
                         }
                     }
-//                    y2++;
                 }
                 if (keyH.isRightKeyPressed()){
                     for (int i = 0; i < sprites.length; i++) {
@@ -109,7 +104,6 @@ public class GamePanel extends JPanel implements Runnable {
                             sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] + 1);
                         }
                     }
-//                    x2++;
                 }
                 if (keyH.isLeftKeyPressed()){
                     for (int i = 0; i < sprites.length; i++) {
@@ -117,7 +111,6 @@ public class GamePanel extends JPanel implements Runnable {
                             sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] - 1);
                         }
                     }
-//                    x2--;
                 }
                 delta = 0;
             }
