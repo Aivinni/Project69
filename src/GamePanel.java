@@ -2,9 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
-    public static int tile_size = 12; // default tile size is 12
-    public static final int MAX_SCREEN_COL = 122; // used for how to draw tiles
-    public static final int MAX_SCREEN_ROW = 70;
+    public static int tile_size = 24; // default tile size is 12
+    public static final int MAX_SCREEN_COL = 61; // used for how to draw tiles
+    public static final int MAX_SCREEN_ROW = 35;
 
     // GAME LOOP
     private Thread gameThread;
@@ -110,10 +110,10 @@ public class GamePanel extends JPanel implements Runnable {
 
 
         g2D.setColor(Color.PINK);
-        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, 12, 12);
+        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, 24, 24);
 
         g2D.setColor(Color.BLACK);
-        g2D.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, 12, 12);
+        g2D.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, 24, 24);
     }
 
     private void setUpWindow() {
