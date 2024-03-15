@@ -1,11 +1,8 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Point2D;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.*;
 import java.io.*;
-import java.net.FileNameMap;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 48; // default tile size is 12
