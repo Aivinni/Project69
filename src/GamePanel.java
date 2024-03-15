@@ -35,10 +35,17 @@ public class GamePanel extends JPanel implements Runnable {
         setUpWindow();
     }
 
-    public static int[] getSizeMap() {
+    public int[] getSizeMap() {
         return new int[]{MAX_SCREEN_ROW, MAX_SCREEN_COL};
     }
 
+    private void setUpWindow() {
+        JFrame window = new JFrame("2D GAME");
+        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window.add(this);
+        window.pack();
+        window.setVisible(true);
+    }
     @Override
     public void run() {
         // variables needed to ensure its locked at 60 fps and below
@@ -116,19 +123,22 @@ public class GamePanel extends JPanel implements Runnable {
         ImageIcon bg = new ImageIcon("HMS Jervis badge.jpeg");
         Image bgImage = bg.getImage();
         g.drawImage(bgImage, sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size, null);
+
     }
 
-    private void setUpWindow() {
-        JFrame window = new JFrame("2D GAME");
-        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        window.add(this);
-        window.pack();
-        window.setVisible(true);
-    }
 
     private void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
     }
 
+//    private BufferedImage loadSprite() {
+//        try {
+//            BufferedImage image = ImageIO.read(new File("resources/Naval_Ensign_of_the_United_Kingdom.svg.png"));
+//            return image;
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//    }
 }
