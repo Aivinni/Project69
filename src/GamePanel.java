@@ -1,5 +1,13 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+import java.awt.image.ColorModel;
+import java.io.*;
+import java.net.FileNameMap;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 24; // default tile size is 12
@@ -12,7 +20,6 @@ public class GamePanel extends JPanel implements Runnable {
     KeyHandler keyH;
     // TEST VARIABLES
     private TaskForce[] sprites;
-
     public GamePanel() {
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0});
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0});
@@ -26,7 +33,6 @@ public class GamePanel extends JPanel implements Runnable {
         keyH = new KeyHandler();
         this.addKeyListener(keyH);
         this.setFocusable(true);
-
         startGameThread();
         setUpWindow();
     }
@@ -108,8 +114,9 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2D = (Graphics2D) g;
 
         g2D.setColor(Color.PINK);
-        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, 24, 24);
-
+        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, 48, 24);
+        g2D.setColor(Color.RED);
+        g2D.fillRect((sprites[0].getPosition()[1] * tile_size)+21, sprites[0].getPosition()[0] * tile_size, 5, 24);
         g2D.setColor(Color.BLACK);
         g2D.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, 24, 24);
     }
@@ -125,5 +132,15 @@ public class GamePanel extends JPanel implements Runnable {
     private void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
+    }
+
+    private BufferedImage loadSprite() {
+        try {
+            BufferedImage image = ImageIO.read(new File("resources/Naval_Ensign_of_the_United_Kingdom.svg.png"));
+            return image;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
