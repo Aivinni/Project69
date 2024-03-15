@@ -18,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
-        this.setBackground(Color.BLUE);
+        this.setBackground(Color.WHITE);
         this.setDoubleBuffered(true);
 
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0});
@@ -114,11 +114,17 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
 
         Graphics2D g2D = (Graphics2D) g;
-        g2D.setColor(Color.PINK);
+        g2D.setColor(Color.BLACK);
         g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);
-
-        ImageIcon bg = new ImageIcon("HMS_Jervis_badge.png");
+        ImageIcon bg = new ImageIcon("HMS_Hardy_badge.png");
         Image bgImage = bg.getImage();
+        g.drawImage(bgImage, sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size, null);
+
+
+        g.setColor(Color.PINK);
+        g.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size);
+        bg = new ImageIcon("HMS_Jervis_badge.png");
+        bgImage = bg.getImage();
         g.drawImage(bgImage, sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size, null);
 
 
