@@ -6,6 +6,10 @@ public class Game {
     }
 
     public void makeMap() {
-
+        for (Space[] list : map){
+            for (int i = 0; i<list.length; i++){
+                list[i] = new Water();
+            }
+        }
     }
 }

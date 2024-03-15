@@ -4,6 +4,7 @@ public class TaskForce extends Space {
 
 
     public TaskForce(String keyLink, int[] position) {
+        super("player");
         this.keyLink = keyLink;
         this.position = position;
     }
