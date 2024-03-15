@@ -12,23 +12,18 @@ public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread;
     private KeyHandler keyH;
 
-    private Game game;
+
     private TaskForce[] sprites;
-    private Space[][] map;
 
 
-    public GamePanel(Game game) {
+    public GamePanel() {
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
-        this.setBackground(Color.WHITE);
+        this.setBackground(Color.BLUE);
         this.setDoubleBuffered(true);
-
-        this.game = game;
 
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0});
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0});
         sprites = new TaskForce[]{char1, char2};
-
-        map = game.getMap();
 
         keyH = new KeyHandler();
         this.addKeyListener(keyH);
@@ -122,7 +117,7 @@ public class GamePanel extends JPanel implements Runnable {
         g2D.setColor(Color.PINK);
         g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);
 
-        ImageIcon bg = new ImageIcon("HMS Jervis badge.jpeg");
+        ImageIcon bg = new ImageIcon("HMS_Jervis_badge.png");
         Image bgImage = bg.getImage();
         g.drawImage(bgImage, sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size, null);
 
