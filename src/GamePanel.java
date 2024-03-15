@@ -32,8 +32,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public static int[] getSizeMap() {
-        int[] arr = {MAX_SCREEN_ROW, MAX_SCREEN_COL};
-        return arr;
+        return new int[]{MAX_SCREEN_ROW, MAX_SCREEN_COL};
     }
 
     @Override
@@ -107,7 +106,6 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
 
         Graphics2D g2D = (Graphics2D) g;
-
 
         g2D.setColor(Color.PINK);
         g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, 24, 24);
