@@ -20,9 +20,6 @@ public class GamePanel extends JPanel implements Runnable {
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0});
         sprites = new TaskForce[]{char1, char2};
 
-        Game game = new Game();
-        game.makeMap();
-
         // setting up size of the panel
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
         this.setBackground(Color.WHITE);
