@@ -5,6 +5,7 @@ public class Game {
     public Game() {
         panel = new GamePanel();
         map = new Space[panel.getSizeMap()[0]][panel.getSizeMap()[1]];
+        makeMap();
     }
 
     public void makeMap() {
@@ -13,5 +14,11 @@ public class Game {
                 list[i] = new Water();
             }
         }
+    }
+    public void addToMap(Space space, int x, int y){
+        map[x][y] = space;
+    }
+    public Space[][] getMap(){
+        return map;
     }
 }
