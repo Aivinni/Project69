@@ -3,16 +3,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
-import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
-import java.awt.image.ColorModel;
+import java.awt.image.*;
 import java.io.*;
 import java.net.FileNameMap;
 
 public class GamePanel extends JPanel implements Runnable {
-    public static int tile_size = 24; // default tile size is 12
-    public static final int MAX_SCREEN_COL = 61; // used for how to draw tiles
-    public static final int MAX_SCREEN_ROW = 35;
+    public static int tile_size = 48; // default tile size is 12
+    public static final int MAX_SCREEN_COL = 31; // used for how to draw tiles
+    public static final int MAX_SCREEN_ROW = 18;
 
     // GAME LOOP
     private Thread gameThread;
@@ -59,7 +57,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             previousTime = currentTime;
                 // delta being 1 or greater means 1/60 of a second;
-            if (delta >= 1.2) {
+            if (delta >= 5) {
                 repaint();
                 if (keyH.isWKeyPressed()) {
                     move("Up", 0);
@@ -113,12 +111,13 @@ public class GamePanel extends JPanel implements Runnable {
 
         Graphics2D g2D = (Graphics2D) g;
 
-        g2D.setColor(Color.PINK);
-        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, 48, 24);
+        ImageIcon bg = new ImageIcon("HMS Jervis badge.jpeg");
+        Image bgImage = bg.getImage();
+        g.drawImage(bgImage,sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size, null);
+
         g2D.setColor(Color.RED);
-        g2D.fillRect((sprites[0].getPosition()[1] * tile_size)+21, sprites[0].getPosition()[0] * tile_size, 5, 24);
         g2D.setColor(Color.BLACK);
-        g2D.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, 24, 24);
+        g2D.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size);
     }
 
     private void setUpWindow() {
