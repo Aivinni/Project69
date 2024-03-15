@@ -118,7 +118,7 @@ public class GamePanel extends JPanel implements Runnable {
         g2D.setColor(Color.PINK);
         g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, 48, 24);
         g2D.setColor(Color.RED);
-        g2D.fillRect((sprites[0].getPosition()[1] * tile_size)+20, sprites[0].getPosition()[0] * tile_size, 5, 24);
+        g2D.fillRect((sprites[0].getPosition()[1] * tile_size)+21, sprites[0].getPosition()[0] * tile_size, 5, 24);
         g2D.setColor(Color.BLACK);
         g2D.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, 24, 24);
     }
