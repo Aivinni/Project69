@@ -12,7 +12,6 @@ public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread;
     private KeyHandler keyH;
 
-
     private TaskForce[] sprites;
 
 
@@ -34,6 +33,9 @@ public class GamePanel extends JPanel implements Runnable {
 
     public int[] getSizeMap() {
         return new int[]{MAX_SCREEN_ROW, MAX_SCREEN_COL};
+    }
+    public Space[] getPlayers(){
+        return sprites;
     }
 
     private void setUpWindow() {
