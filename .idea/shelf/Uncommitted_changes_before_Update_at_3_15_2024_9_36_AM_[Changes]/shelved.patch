@@ -1,0 +1,17 @@
+Index: src/TaskForces.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class TaskForces extends Space {\r\n    private int[] position;\r\n\r\n    public TaskForces(String keyLink) {\r\n\r\n    }\r\n\r\n    public int[] getPosition() {\r\n\r\n    }\r\n    public void setPosition() {\r\n\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/TaskForces.java b/src/TaskForces.java
+--- a/src/TaskForces.java	
++++ b/src/TaskForces.java	
+@@ -6,7 +6,7 @@
+     }
+ 
+     public int[] getPosition() {
+-
++        return new int[0];
+     }
+     public void setPosition() {
+ 
