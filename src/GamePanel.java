@@ -9,21 +9,26 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int MAX_SCREEN_COL = 31; // used for how to draw tiles
     public static final int MAX_SCREEN_ROW = 18;
 
-    // GAME LOOP
     private Thread gameThread;
-    // TRACKING INPUT
-    KeyHandler keyH;
-    // TEST VARIABLES
+    private KeyHandler keyH;
+
+    private Game game;
     private TaskForce[] sprites;
-    public GamePanel() {
+    private Space[][] map;
+
+
+    public GamePanel(Game game) {
+        this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
+        this.setBackground(Color.WHITE);
+        this.setDoubleBuffered(true);
+
+        this.game = game;
+
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0});
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0});
         sprites = new TaskForce[]{char1, char2};
 
-        // setting up size of the panel
-        this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
-        this.setBackground(Color.WHITE);
-        this.setDoubleBuffered(true);
+        map = game.getMap();
 
         keyH = new KeyHandler();
         this.addKeyListener(keyH);
@@ -121,6 +126,7 @@ public class GamePanel extends JPanel implements Runnable {
         Image bgImage = bg.getImage();
         g.drawImage(bgImage, sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size, null);
 
+
     }
 
 
@@ -129,13 +135,4 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread.start();
     }
 
-//    private BufferedImage loadSprite() {
-//        try {
-//            BufferedImage image = ImageIO.read(new File("resources/Naval_Ensign_of_the_United_Kingdom.svg.png"));
-//            return image;
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//    }
 }
