@@ -1,8 +1,10 @@
 public class Game {
     private Space[][] map;
+    private GamePanel panel;
 
     public Game() {
-        map = new Space[GamePanel.getSizeMap()[0]][GamePanel.getSizeMap()[1]];
+        panel = new GamePanel();
+        map = new Space[panel.getSizeMap()[0]][panel.getSizeMap()[1]];
     }
 
     public void makeMap() {
