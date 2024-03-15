@@ -55,72 +55,55 @@ public class GamePanel extends JPanel implements Runnable {
             if (delta >= 1.2) {
                 repaint();
                 if (keyH.isWKeyPressed()) {
-                    for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd") && sprites[i].getPosition()[0] > 0) {
-                            sprites[i].setPosition(sprites[i].getPosition()[0] - 1, sprites[i].getPosition()[1]);
-                        }
-                    }
+                    move("w", 0);
 //                    y--;
                 }
                 if (keyH.isSKeyPressed()) {
-                    for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd") && sprites[i].getPosition()[0] < MAX_SCREEN_ROW - 1) {
-                            sprites[i].setPosition(sprites[i].getPosition()[0] + 1, sprites[i].getPosition()[1]);
-                        }
-                    }
+                    move("S", 0);
 //                    y++;
                 }
                 if (keyH.isDKeyPressed()) {
-                    for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd") && sprites[i].getPosition()[1] < MAX_SCREEN_COL - 1) {
-                            sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] + 1);
-                        }
-                    }
+                    move("D", 0);
 //                    x++;
                 }
                 if (keyH.isAKeyPressed()) {
-                    for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("wasd") && sprites[i].getPosition()[1] > 0) {
-                            sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] - 1);
-                        }
-                    }
+                    move("A", 0);
 //                    x--;
                 }
 
                 if (keyH.isUpKeyPressed()){
-                    for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows")  && sprites[i].getPosition()[0] > 0) {
-                            sprites[i].setPosition(sprites[i].getPosition()[0] - 1, sprites[i].getPosition()[1]);
-                        }
-                    }
+                    move("w", 1);
 //                    y2--;
                 }
                 if (keyH.isDownKeyPressed()){
-                    for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows") && sprites[i].getPosition()[0] < MAX_SCREEN_ROW - 1) {
-                            sprites[i].setPosition(sprites[i].getPosition()[0] + 1, sprites[i].getPosition()[1]);
-                        }
-                    }
+                    move("S", 1);
 //                    y2++;
                 }
                 if (keyH.isRightKeyPressed()){
-                    for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows") && sprites[i].getPosition()[1] < MAX_SCREEN_COL - 1) {
-                            sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] + 1);
-                        }
-                    }
+                    move("D", 1);
 //                    x2++;
                 }
                 if (keyH.isLeftKeyPressed()){
-                    for (int i = 0; i < sprites.length; i++) {
-                        if (sprites[i].getKeyLink().equalsIgnoreCase("arrows") && sprites[i].getPosition()[1] > 0) {
-                            sprites[i].setPosition(sprites[i].getPosition()[0], sprites[i].getPosition()[1] - 1);
-                        }
-                    }
+                    move("A", 1);
 //                    x2--;
                 }
                 delta = 0;
             }
+        }
+    }
+    private void move(String direction, int sprite){
+        TaskForce a = sprites[sprite];
+        if (direction.toUpperCase().equals("W")&& a.getPosition()[0] > 0) {
+            a.setPosition(a.getPosition()[0]-1, a.getPosition()[1]);
+        }
+        if (direction.toUpperCase().equals("A")&& a.getPosition()[1] > 0) {
+            a.setPosition(a.getPosition()[0], a.getPosition()[1] - 1);
+        }
+        if (direction.toUpperCase().equals("S")&& a.getPosition()[0] < MAX_SCREEN_ROW - 1) {
+            a.setPosition(a.getPosition()[0] + 1, a.getPosition()[1]);
+        }
+        if (direction.toUpperCase().equals("D")&& a.getPosition()[1] < MAX_SCREEN_COL - 1) {
+            a.setPosition(a.getPosition()[0], a.getPosition()[1] + 1);
         }
     }
 
