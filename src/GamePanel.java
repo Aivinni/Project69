@@ -76,6 +76,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 if (keyH.isFKeyPressed()){
                     System.out.println("SONAR USED\n");
+                    sprites[0].updateSonar(true);
                 }
 
                 if (keyH.isUpKeyPressed()){
@@ -121,9 +122,16 @@ public class GamePanel extends JPanel implements Runnable {
                 g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
             }
         }
-        g2D.setPaint(Color.GREEN);
-        g2D.drawOval(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);
-    //todo: make the fucking sonar work when you press f
+        if (sprites[0].usingSonar()) {
+            g2D.setPaint(Color.GREEN);
+            int x = sprites[0].getPosition()[1] * tile_size;
+            int y = sprites[0].getPosition()[0] * tile_size;
+            for (int i = 1; i<6; i++) {
+                g2D.drawOval(x, y, tile_size*i, tile_size*i);
+                //todo: make the fucking sonar work when you press f
+            }
+            sprites[0].updateSonar(false);
+        }
     }
 
 
