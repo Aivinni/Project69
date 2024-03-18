@@ -1,17 +1,12 @@
 public class Game {
     private static Space[][] map;
-    private GamePanel panel;
+    private TaskForce[] players;
 
-    public Game() {
-        panel = new GamePanel();
-        map = new Space[panel.getSizeMap()[0]][panel.getSizeMap()[1]];
+    public Game(int mapX, int mapY, TaskForce[] players) {
+        map = new Space[mapY][mapX];
         makeMap();
-        addToMap(panel.getPlayers(), 0);
-        for (Space[] list: map){
-            for (Space space : list){
-                System.out.print(space.getSymbol() + " ");
-            }
-            System.out.println();
+        for (TaskForce player : players) {
+            addToMap(player);
         }
     }
 
@@ -22,15 +17,11 @@ public class Game {
             }
         }
     }
-    public void addToMap(Space space, int x, int y) {
-        map[x][y] = space;
+    public void addToMap(TaskForce taskForce) {
+        int[] position = taskForce.getPosition();
+        map[position[1]][position[0]] = taskForce;
     }
-    public void addToMap(Space[] list, int x){
-        for (int i = 0; i < list.length; i++) {
-            map[x][i] = list[i];
-        }
-    }
-    public static Space[][] getMap() {
+    public Space[][] getMap() {
         return map;
     }
 }

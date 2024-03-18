@@ -12,12 +12,14 @@ public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread;
     private KeyHandler keyH;
 
+    private Game game;
+    private Space[][] map;
     private TaskForce[] sprites;
 
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
-        this.setBackground(Color.WHITE);
+        this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
 
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0}, "HMS_Hardy_badge.png");
@@ -29,13 +31,9 @@ public class GamePanel extends JPanel implements Runnable {
         this.setFocusable(true);
         startGameThread();
         setUpWindow();
-    }
 
-    public int[] getSizeMap() {
-        return new int[]{MAX_SCREEN_ROW, MAX_SCREEN_COL};
-    }
-    public Space[] getPlayers(){
-        return sprites;
+        game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW, sprites);
+        map = game.getMap();
     }
 
     private void setUpWindow() {
@@ -67,38 +65,45 @@ public class GamePanel extends JPanel implements Runnable {
                 repaint();
                 if (keyH.isWKeyPressed()) {
                     move("Up", 0);
+                    System.out.println("Up");
                 }
                 if (keyH.isSKeyPressed()) {
                     move("Down", 0);
+                    System.out.println("Down");
                 }
                 if (keyH.isDKeyPressed()) {
                     move("Right", 0);
+                    System.out.println("Right");
                 }
                 if (keyH.isAKeyPressed()) {
                     move("Left", 0);
+                    System.out.println("Left");
                 }
 
                 if (keyH.isUpKeyPressed()){
                     move("Up", 1);
+                    System.out.println("Up");
                 }
                 if (keyH.isDownKeyPressed()){
                     move("Down", 1);
+                    System.out.println("Down");
                 }
                 if (keyH.isRightKeyPressed()){
                     move("Right", 1);
+                    System.out.println("Right");
                 }
                 if (keyH.isLeftKeyPressed()){
                     move("Left", 1);
+                    System.out.println("Left");
                 }
                 delta = 0;
             }
         }
     }
-
     private void move(String direction, int sprite){
         TaskForce a = sprites[sprite];
         if (direction.equalsIgnoreCase("Up")&& a.getPosition()[0] > 0) {
-            a.setPosition(a.getPosition()[0]-1, a.getPosition()[1]);
+            a.setPosition(a.getPosition()[0] - 1, a.getPosition()[1]);
         }
         if (direction.equalsIgnoreCase("Left")&& a.getPosition()[1] > 0) {
             a.setPosition(a.getPosition()[0], a.getPosition()[1] - 1);
@@ -110,29 +115,31 @@ public class GamePanel extends JPanel implements Runnable {
             a.setPosition(a.getPosition()[0], a.getPosition()[1] + 1);
         }
     }
-
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-
-
         Graphics2D g2D = (Graphics2D) g;
 
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
+            }
+        }
+//        System.out.println("test");
 
-
-        g2D.setColor(Color.BLACK);
-        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);
-        ImageIcon bg = new ImageIcon("HMS_Hardy_badge.png");
-        Image bgImage = bg.getImage();
-        g.drawImage(bgImage, sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size, null);
-
-
-        g.setColor(Color.PINK);
-        g.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size);
-        bg = new ImageIcon("HMS_Jervis_badge.png");
-        bgImage = bg.getImage();
-        g.drawImage(bgImage, sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size, null);
+//        g2D.setColor(Color.BLACK);
+//        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);
+//        ImageIcon bg = new ImageIcon("HMS_Hardy_badge.png");
+//        Image bgImage = bg.getImage();
+//        g.drawImage(bgImage, sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size, null);
+//
+//
+//        g.setColor(Color.PINK);
+//        g.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size);
+//        bg = new ImageIcon("HMS_Jervis_badge.png");
+//        bgImage = bg.getImage();
+//        g.drawImage(bgImage, sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size, null);
 
 
     }
