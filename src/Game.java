@@ -1,6 +1,5 @@
 public class Game {
     private static Space[][] map;
-    private TaskForce[] players;
 
     public Game(int mapX, int mapY, TaskForce[] players) {
         map = new Space[mapY][mapX];
@@ -8,6 +7,10 @@ public class Game {
         for (TaskForce player : players) {
             addToMap(player);
         }
+    }
+
+    public Space[][] getMap() {
+        return map;
     }
 
     public void makeMap() {
@@ -19,9 +22,17 @@ public class Game {
     }
     public void addToMap(TaskForce taskForce) {
         int[] position = taskForce.getPosition();
-        map[position[1]][position[0]] = taskForce;
+        map[position[0]][position[1]] = taskForce;
     }
-    public Space[][] getMap() {
+    public Space[][] updateMap(TaskForce[] players) {
+        for (Space[] list : map) {
+            for (int i = 0; i < list.length; i++) {
+                list[i] = new Water("Ocean.png");
+            }
+        }
+        for (TaskForce player : players) {
+            addToMap(player);
+        }
         return map;
     }
 }
