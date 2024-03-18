@@ -1,8 +1,5 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.*;
-import java.io.*;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 48; // default tile size is 12
@@ -119,7 +116,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        Graphics2D g2D = (Graphics2D) g;
+//        Graphics2D g2D = (Graphics2D) g;
 
         map = game.updateMap(sprites);
         for (int i = 0; i < map.length; i++) {
@@ -127,22 +124,6 @@ public class GamePanel extends JPanel implements Runnable {
                 g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
             }
         }
-//        System.out.println("test");
-
-//        g2D.setColor(Color.BLACK);
-//        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);
-//        ImageIcon bg = new ImageIcon("HMS_Hardy_badge.png");
-//        Image bgImage = bg.getImage();
-//        g.drawImage(bgImage, sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size, null);
-//
-//
-//        g.setColor(Color.PINK);
-//        g.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size);
-//        bg = new ImageIcon("HMS_Jervis_badge.png");
-//        bgImage = bg.getImage();
-//        g.drawImage(bgImage, sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size, null);
-
-
     }
 
 
