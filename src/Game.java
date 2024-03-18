@@ -18,7 +18,7 @@ public class Game {
     public void makeMap() {
         for (Space[] list : map) {
             for (int i = 0; i < list.length; i++) {
-                list[i] = new Water();
+                list[i] = new Water("Ocean.png");
             }
         }
     }
@@ -26,7 +26,7 @@ public class Game {
         map[x][y] = space;
     }
     public void addToMap(Space[] list, int x){
-        for (int i = 0; i<list.length; i++){
+        for (int i = 0; i < list.length; i++) {
             map[x][i] = list[i];
         }
     }

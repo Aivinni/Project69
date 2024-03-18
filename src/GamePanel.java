@@ -20,8 +20,8 @@ public class GamePanel extends JPanel implements Runnable {
         this.setBackground(Color.WHITE);
         this.setDoubleBuffered(true);
 
-        TaskForce char1 = new TaskForce("wasd", new int[]{0, 0});
-        TaskForce char2 = new TaskForce("arrows", new int[]{2, 0});
+        TaskForce char1 = new TaskForce("wasd", new int[]{0, 0}, "HMS_Hardy_badge.png");
+        TaskForce char2 = new TaskForce("arrows", new int[]{2, 0}, "HMS_Jervis_badge.png");
         sprites = new TaskForce[]{char1, char2};
 
         keyH = new KeyHandler();
@@ -115,7 +115,12 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+
+
         Graphics2D g2D = (Graphics2D) g;
+
+
+
         g2D.setColor(Color.BLACK);
         g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);
         ImageIcon bg = new ImageIcon("HMS_Hardy_badge.png");
