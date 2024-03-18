@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Arc2D;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 48; // default tile size is 12
@@ -21,7 +22,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0}, "HMS_Hardy_badge.png");
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0}, "HMS_Jervis_badge.png");
-        sprites = new TaskForce[]{char1, char2};
+        Enemy enemy = new Enemy("enemy", new int[]{5, 7}, "Ocean.png");
+        sprites = new TaskForce[]{char1, char2, enemy};
 
         game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW, sprites);
         map = game.getMap();
@@ -62,36 +64,31 @@ public class GamePanel extends JPanel implements Runnable {
                 repaint();
                 if (keyH.isWKeyPressed()) {
                     move("Up", 0);
-                    System.out.println("Up");
                 }
                 if (keyH.isSKeyPressed()) {
                     move("Down", 0);
-                    System.out.println("Down");
                 }
                 if (keyH.isDKeyPressed()) {
                     move("Right", 0);
-                    System.out.println("Right");
                 }
                 if (keyH.isAKeyPressed()) {
                     move("Left", 0);
-                    System.out.println("Left");
+                }
+                if (keyH.isFKeyPressed()){
+                    System.out.println("SONAR USED\n");
                 }
 
                 if (keyH.isUpKeyPressed()){
                     move("Up", 1);
-                    System.out.println("Up");
                 }
                 if (keyH.isDownKeyPressed()){
                     move("Down", 1);
-                    System.out.println("Down");
                 }
                 if (keyH.isRightKeyPressed()){
                     move("Right", 1);
-                    System.out.println("Right");
                 }
                 if (keyH.isLeftKeyPressed()){
                     move("Left", 1);
-                    System.out.println("Left");
                 }
                 delta = 0;
             }
@@ -116,7 +113,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-//        Graphics2D g2D = (Graphics2D) g;
+       Graphics2D g2D = (Graphics2D) g;
 
         map = game.updateMap(sprites);
         for (int i = 0; i < map.length; i++) {
@@ -124,7 +121,11 @@ public class GamePanel extends JPanel implements Runnable {
                 g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
             }
         }
+        g2D.setPaint(Color.GREEN);
+        g2D.drawOval(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);
+    //todo: make the fucking sonar work when you press f
     }
+
 
 
     private void startGameThread() {

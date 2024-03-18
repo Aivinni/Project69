@@ -2,17 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TaskForce extends Space {
-    private String keyLink;
+    private String name;
     private int[] position;
 
-    public TaskForce(String keyLink, int[] position, String fileName) {
-        super("player", fileName);
-        this.keyLink = keyLink;
+    public TaskForce(String name, int[] position, String fileName) {
+        super(name, fileName);
+        this.name = name;
         this.position = position;
     }
 
-    public String getKeyLink() {
-        return keyLink;
+    public String getName() {
+        return name;
     }
     public int[] getPosition() {
         return position;
