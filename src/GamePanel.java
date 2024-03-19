@@ -13,6 +13,8 @@ public class GamePanel extends JPanel implements Runnable {
     private Game game;
     private Space[][] map;
     private TaskForce[] sprites;
+    private static int x;
+    private static int y;
 
 
     public GamePanel() {
@@ -103,6 +105,8 @@ public class GamePanel extends JPanel implements Runnable {
                 if (keyH.isFKeyPressed()) {
                     sprites[0].toggleSonar();
                     sprites[0].setSonarReady(false);
+                    x = sprites[0].getPosition()[1] * tile_size;
+                    y = sprites[0].getPosition()[0] * tile_size;
                 }
             }
 
@@ -141,9 +145,6 @@ public class GamePanel extends JPanel implements Runnable {
             float alpha = 1 - ((float) sprites[0].getSonarScale() / 7);
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
-            int x = sprites[0].getPosition()[1] * tile_size;
-            int y = sprites[0].getPosition()[0] * tile_size;
-
             g2D.drawOval((int) (x - ((tile_size * sprites[0].getSonarScale()) / 2)) + (tile_size / 2), (int) (y - ((tile_size * sprites[0].getSonarScale()) / 2)) + (tile_size / 2), (int) (tile_size * sprites[0].getSonarScale()), (int) (tile_size * sprites[0].getSonarScale()));
             sprites[0].incrementSonarScale();
         }

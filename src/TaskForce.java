@@ -43,6 +43,12 @@ public class TaskForce extends Space {
             sonarScale = 0;
         }
     }
+    public void passiveSonarScale(){
+        sonarScale += (0.3 - Math.sqrt(sonarScale / 75));
+        if (sonarScale >= 5.0) {
+            sonarScale = 0;
+        }
+    }
 
     public void setPosition(int posY, int posX) {
         position[0] = posY;
