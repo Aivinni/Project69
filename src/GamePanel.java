@@ -60,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable {
             delta += (double) (currentTime - previousTime) / drawInterval;
 
             // delta being 1 or greater means 1/60 of a second;
-            if (delta >= 1.2) {
+            if (delta >= 2) {
                 repaint();
                 if (keyH.isWKeyPressed()) {
                     move("Up", 0);
@@ -92,7 +92,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             sonarTime += (double) (currentTime - previousTime) / drawInterval;
 
-            if (sonarTime >= 60.0) {
+            if (sonarTime >= 30.0) {
                 sprites[0].setSonarReady(true);
                 sonarTime = 0;
             }
