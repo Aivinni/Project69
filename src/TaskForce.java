@@ -37,8 +37,8 @@ public class TaskForce extends Space {
         return sonarScale;
     }
     public void incrementSonarScale() {
-        sonarScale += (0.3 - Math.sqrt(sonarScale / 100));
-        if (sonarScale > 3.0) {
+        sonarScale += (0.35 - Math.sqrt(sonarScale / 75));
+        if (sonarScale >= 5.0) {
             usingSonar = false;
             sonarScale = 0;
         }
