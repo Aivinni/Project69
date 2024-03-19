@@ -146,6 +146,7 @@ public class GamePanel extends JPanel implements Runnable {
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
             g2D.drawOval((int) (x - ((tile_size * active) / 2)) + (tile_size / 2), (int) (y - ((tile_size * active) / 2)) + (tile_size / 2), (int) (tile_size * active), (int) (tile_size * active));
+            sprites[0].incrementSonarScale();
         } else {
             double passive = sprites[0].getPassiveSonarScale();
             float alpha = 1 - ((float) passive / 4);
