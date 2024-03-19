@@ -48,6 +48,7 @@ public class GamePanel extends JPanel implements Runnable {
         long currentTime = System.nanoTime();
         long previousTime = currentTime;
         double delta = 0.0;
+        double sonarTime = 0.0;
         int FPS = 60;
         double drawInterval = 1000000000.0 / FPS;
 
@@ -58,9 +59,8 @@ public class GamePanel extends JPanel implements Runnable {
             // the time between now and the last time this looped
             delta += (double) (currentTime - previousTime) / drawInterval;
 
-            previousTime = currentTime;
-                // delta being 1 or greater means 1/60 of a second;
-            if (delta >= 5) {
+            // delta being 1 or greater means 1/60 of a second;
+            if (delta >= 1.2) {
                 repaint();
                 if (keyH.isWKeyPressed()) {
                     move("Up", 0);
@@ -73,10 +73,6 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 if (keyH.isAKeyPressed()) {
                     move("Left", 0);
-                }
-                if (keyH.isFKeyPressed()){
-                    System.out.println("SONAR USED\n");
-                    sprites[0].updateSonar(true);
                 }
 
                 if (keyH.isUpKeyPressed()){
@@ -93,6 +89,22 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 delta = 0;
             }
+
+            sonarTime += (double) (currentTime - previousTime) / drawInterval;
+
+            if (sonarTime >= 60.0) {
+                sprites[0].setSonarReady(true);
+                sonarTime = 0;
+            }
+
+            if (sprites[0].isSonarReady()) {
+                if (keyH.isFKeyPressed()) {
+                    sprites[0].toggleSonar();
+                    sprites[0].setSonarReady(false);
+                }
+            }
+
+            previousTime = currentTime;
         }
     }
     private void move(String direction, int sprite){
@@ -122,15 +134,15 @@ public class GamePanel extends JPanel implements Runnable {
                 g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
             }
         }
-        if (sprites[0].usingSonar()) {
+        if (sprites[0].isUsingSonar()) {
             g2D.setPaint(Color.GREEN);
             int x = sprites[0].getPosition()[1] * tile_size;
             int y = sprites[0].getPosition()[0] * tile_size;
-            for (int i = 1; i<6; i++) {
-                g2D.drawOval(x, y, tile_size*i, tile_size*i);
-                //todo: make the fucking sonar work when you press f
-            }
-            sprites[0].updateSonar(false);
+
+            g2D.drawOval((int) (x - ((tile_size * sprites[0].getSonarScale()) / 2)) + (tile_size / 2), (int) (y - ((tile_size * sprites[0].getSonarScale()) / 2)) + (tile_size / 2), (int) (tile_size * sprites[0].getSonarScale()), (int) (tile_size * sprites[0].getSonarScale()));
+            sprites[0].incrementSonarScale();
+            //todo: make the fucking sonar work when you press f
+
         }
     }
 

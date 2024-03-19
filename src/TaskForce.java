@@ -4,7 +4,9 @@ import java.awt.*;
 public class TaskForce extends Space {
     private String name;
     private int[] position;
+    private boolean sonarReady;
     private boolean usingSonar;
+    private double sonarScale;
 
     public TaskForce(String name, int[] position, String fileName) {
         super(name, fileName);
@@ -19,11 +21,27 @@ public class TaskForce extends Space {
     public int[] getPosition() {
         return position;
     }
-    public boolean usingSonar(){
+    public void setSonarReady(boolean sonarReady) {
+        this.sonarReady = sonarReady;
+    }
+    public boolean isSonarReady() {
+        return sonarReady;
+    }
+    public boolean isUsingSonar(){
         return usingSonar;
     }
-    public void updateSonar(boolean a){
-        usingSonar = a;
+    public void toggleSonar(){
+        usingSonar = !usingSonar;
+    }
+    public double getSonarScale() {
+        return sonarScale;
+    }
+    public void incrementSonarScale() {
+        sonarScale += 0.05;
+        if (sonarScale > 2.0) {
+            usingSonar = false;
+            sonarScale = 0;
+        }
     }
 
     public void setPosition(int posY, int posX) {

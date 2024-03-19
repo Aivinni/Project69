@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="did some unhelpful shit">
+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="Redundancies eliminated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TaskForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskForce.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,14 +190,7 @@
       <option name="project" value="LOCAL" />
       <updated>1710770701045</updated>
     </task>
-    <task id="LOCAL-00015" summary="did some unhelpful shit">
-      <created>1710773695204</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1710773695204</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -211,7 +206,6 @@
     <MESSAGE value="refactoring" />
     <MESSAGE value="Movement changes" />
     <MESSAGE value="Exceptions eliminated" />
-    <MESSAGE value="did some unhelpful shit" />
-    <option name="LAST_COMMIT_MESSAGE" value="did some unhelpful shit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exceptions eliminated" />
   </component>
 </project>

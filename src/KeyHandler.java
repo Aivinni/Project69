@@ -7,6 +7,11 @@ public class KeyHandler implements KeyListener {
     private boolean fKeyPressed; // interact key
     private boolean upKeyPressed, downKeyPressed, leftKeyPressed, rightKeyPressed; // attack keys
     public KeyHandler(){}
+
+    public void releaseF() {
+        fKeyPressed = false;
+    }
+
     public boolean isUpKeyPressed() {
         return upKeyPressed;
     }
