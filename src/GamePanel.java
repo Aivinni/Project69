@@ -59,7 +59,6 @@ public class GamePanel extends JPanel implements Runnable {
             // the time between now and the last time this looped
             delta += (double) (currentTime - previousTime) / drawInterval;
 
-            // delta being 1 or greater means 1/60 of a second;
             if (delta % (int) delta >= 0.999995) {
                 repaint();
             }
@@ -95,7 +94,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             sonarTime += (double) (currentTime - previousTime) / drawInterval;
 
-            if (sonarTime >= 30.0) {
+            if (sonarTime >= 60.0) {
                 sprites[0].setSonarReady(true);
                 sonarTime = 0;
             }
