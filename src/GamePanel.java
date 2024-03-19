@@ -140,13 +140,12 @@ public class GamePanel extends JPanel implements Runnable {
                 g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
             }
         }
-
         if (sprites[0].isUsingSonar()) {
-            float alpha = 1 - ((float) sprites[0].getSonarScale() / 7);
+            double active = sprites[0].getSonarScale();
+            float alpha = 1 - ((float) active / 7);
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
-            g2D.drawOval((int) (x - ((tile_size * sprites[0].getSonarScale()) / 2)) + (tile_size / 2), (int) (y - ((tile_size * sprites[0].getSonarScale()) / 2)) + (tile_size / 2), (int) (tile_size * sprites[0].getSonarScale()), (int) (tile_size * sprites[0].getSonarScale()));
-            sprites[0].incrementSonarScale();
+            g2D.drawOval((int) (x - ((tile_size * active) / 2)) + (tile_size / 2), (int) (y - ((tile_size * active) / 2)) + (tile_size / 2), (int) (tile_size * active), (int) (tile_size * active));
         } else {
             double passive = sprites[0].getPassiveSonarScale();
             float alpha = 1 - ((float) passive / 4);
