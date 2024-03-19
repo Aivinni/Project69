@@ -4,8 +4,8 @@ import java.awt.geom.Arc2D;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 48; // default tile size is 12
-    public static final int MAX_SCREEN_COL = 31; // used for how to draw tiles
-    public static final int MAX_SCREEN_ROW = 18;
+    public static final int MAX_SCREEN_COL = 40; //previously 31
+    public static final int MAX_SCREEN_ROW = 21; //previously 18
 
     private Thread gameThread;
     private KeyHandler keyH;
