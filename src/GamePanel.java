@@ -141,11 +141,9 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
-        double active = sprites[0].getSonarScale();
-        double passive = sprites[0].getPassiveSonarScale();
 
         if (sprites[0].isUsingSonar()) {
-            active = sprites[0].getSonarScale();
+            double active = sprites[0].getSonarScale();
             float alpha = 1 - ((float) active / 7);
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
@@ -158,7 +156,7 @@ public class GamePanel extends JPanel implements Runnable {
 //                System.out.println(e.getMessage());
 //            }
         } else {
-            passive = sprites[0].getPassiveSonarScale();
+            double passive = sprites[0].getPassiveSonarScale();
             float alpha = 1 - ((float) passive / 4);
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
