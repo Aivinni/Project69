@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="made the screen bigger">
+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="repaint and key handler separation">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaskForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskForce.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,35 +207,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710855603173</updated>
     </task>
-    <task id="LOCAL-00017" summary="passive sonar">
-      <created>1710859113578</created>
+    <task id="LOCAL-00017" summary="fade">
+      <option name="closed" value="true" />
+      <created>1710857251774</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1710859113578</updated>
+      <updated>1710857251774</updated>
     </task>
-    <task id="LOCAL-00018" summary="passive &amp; active sonar enabled">
-      <created>1710860149612</created>
+    <task id="LOCAL-00018" summary="repaint and key handler separation">
+      <option name="closed" value="true" />
+      <created>1710857657262</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1710860149612</updated>
+      <updated>1710857657262</updated>
     </task>
-    <task id="LOCAL-00019" summary="passive &amp; active sonar enabled">
-      <created>1710860242514</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1710860242514</updated>
-    </task>
-    <task id="LOCAL-00020" summary="made the screen bigger">
-      <created>1710860313537</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1710860313537</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -249,9 +241,8 @@
     <MESSAGE value="Exceptions eliminated" />
     <MESSAGE value="Sonar working. (don't ask how)" />
     <MESSAGE value="sonar expansion" />
-    <MESSAGE value="passive sonar" />
-    <MESSAGE value="passive &amp; active sonar enabled" />
-    <MESSAGE value="made the screen bigger" />
-    <option name="LAST_COMMIT_MESSAGE" value="made the screen bigger" />
+    <MESSAGE value="fade" />
+    <MESSAGE value="repaint and key handler separation" />
+    <option name="LAST_COMMIT_MESSAGE" value="repaint and key handler separation" />
   </component>
 </project>

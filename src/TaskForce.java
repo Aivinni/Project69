@@ -1,6 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
-
 public class TaskForce extends Space {
     private String name;
     private int[] position;
@@ -40,6 +37,7 @@ public class TaskForce extends Space {
     public double getPassiveSonarScale(){
         return sonarScalePassive;
     }
+
     public void incrementSonarScale() {
         sonarScale += (0.3 - Math.sqrt(sonarScale / 75));
         if (sonarScale >= 5.0) {
@@ -48,10 +46,13 @@ public class TaskForce extends Space {
         }
     }
     public void incrementPassiveSonarScale(){
-        sonarScalePassive += (0.2 - Math.sqrt(sonarScalePassive / 80));
+        sonarScalePassive += (0.2 - Math.sqrt(sonarScalePassive / 100));
         if (sonarScalePassive >= 3.0) {
             sonarScalePassive = 0;
         }
+    }
+    public void resetPassiveSonarScale() {
+        sonarScalePassive = 0;
     }
 
     public void setPosition(int posY, int posX) {
