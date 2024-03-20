@@ -24,8 +24,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0}, "HMS_Hardy_badge.png");
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0}, "HMS_Jervis_badge.png");
-        Enemy enemy = new Enemy("enemy", new int[]{5, 7}, "Ocean.png");
-        sprites = new TaskForce[]{char1, char2, enemy};
+        //Enemy enemy = new Enemy("enemy", new int[]{5, 7}, "Ocean.png");
+        sprites = new TaskForce[]{char1, char2};
 
         game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW, sprites);
         map = game.getMap();
@@ -114,7 +114,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
     private void move(String direction, int sprite){
-        TaskForce a = sprites[sprite];
+        Interactive a = sprites[sprite];
         if (direction.equalsIgnoreCase("Up")&& a.getPosition()[0] > 0) {
             a.setPosition(a.getPosition()[0] - 1, a.getPosition()[1]);
         }

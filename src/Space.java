@@ -11,7 +11,7 @@ public class Space {
         image = imageFile.getImage();
     }
 
-    public String getSymbol() {
+    public String getName() {
         return symbol;
     }
     public Image getImage() {

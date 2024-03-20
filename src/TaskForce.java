@@ -1,24 +1,14 @@
-public class TaskForce extends Space {
-    private String name;
-    private int[] position;
+public class TaskForce extends Interactive {
     private boolean sonarReady;
     private boolean usingSonar;
     private double sonarScale;
     private double sonarScalePassive;
 
     public TaskForce(String name, int[] position, String fileName) {
-        super(name, fileName);
-        this.name = name;
-        this.position = position;
+        super(name, position, fileName);
         usingSonar = false;
     }
 
-    public String getName() {
-        return name;
-    }
-    public int[] getPosition() {
-        return position;
-    }
     public void setSonarReady(boolean sonarReady) {
         this.sonarReady = sonarReady;
     }
@@ -55,8 +45,4 @@ public class TaskForce extends Space {
         sonarScalePassive = 0;
     }
 
-    public void setPosition(int posY, int posX) {
-        position[0] = posY;
-        position[1] = posX;
-    }
 }
