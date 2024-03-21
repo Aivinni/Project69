@@ -141,8 +141,8 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
-        double active = sprites[0].getSonarScale();
-        double passive = sprites[0].getPassiveSonarScale();
+        double active;
+        double passive;
 
         if (sprites[0].isUsingSonar()) {
             active = sprites[0].getSonarScale();
@@ -165,6 +165,8 @@ public class GamePanel extends JPanel implements Runnable {
             g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
             sprites[0].incrementPassiveSonarScale();
         }
+
+
     }
 
 

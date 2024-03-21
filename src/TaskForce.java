@@ -1,8 +1,12 @@
 public class TaskForce extends Space {
     private String name;
     private int[] position;
+
     private boolean sonarReady;
     private boolean usingSonar;
+
+    private boolean activeSonarPulse;
+
     private double sonarScale;
     private double sonarScalePassive;
 
@@ -13,9 +17,6 @@ public class TaskForce extends Space {
         usingSonar = false;
     }
 
-    public String getName() {
-        return name;
-    }
     public int[] getPosition() {
         return position;
     }
