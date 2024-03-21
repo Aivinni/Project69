@@ -1,10 +1,10 @@
 public class Game {
     private static Space[][] map;
 
-    public Game(int mapX, int mapY, TaskForce[] players) {
+    public Game(int mapX, int mapY, Interactive[] players) {
         map = new Space[mapY][mapX];
         makeMap();
-        for (TaskForce player : players) {
+        for (Interactive player : players) {
             addToMap(player);
         }
     }
@@ -20,20 +20,20 @@ public class Game {
             }
         }
     }
-    public void addToMap(TaskForce taskForce) {
+    public void addToMap(Interactive taskForce) {
         int[] position = taskForce.getPosition();
         map[position[0]][position[1]] = taskForce;
     }
     public void addToMap(Space space, int[] position){
         map[position[0]][position[1]] = space;
     }
-    public Space[][] updateMap(TaskForce[] players) {
+    public Space[][] updateMap(Interactive[] players) {
         for (Space[] list : map) {
             for (int i = 0; i < list.length; i++) {
                 list[i] = new Water("Ocean.png");
             }
         }
-        for (TaskForce player : players) {
+        for (Interactive player : players) {
             addToMap(player);
         }
         return map;

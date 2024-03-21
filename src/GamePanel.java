@@ -24,8 +24,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0}, "HMS_Hardy_badge.png");
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0}, "HMS_Jervis_badge.png");
-        Enemy enemy = new Enemy("enemy", new int[]{5, 7}, "Ocean.png");
-        sprites = new TaskForce[]{char1, char2, enemy};
+        //Enemy enemy = new Enemy("enemy", new int[]{5, 7}, "Ocean.png");
+        sprites = new TaskForce[]{char1, char2};
 
         game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW, sprites);
         map = game.getMap();
@@ -114,7 +114,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
     private void move(String direction, int sprite){
-        TaskForce a = sprites[sprite];
+        Interactive a = sprites[sprite];
         if (direction.equalsIgnoreCase("Up")&& a.getPosition()[0] > 0) {
             a.setPosition(a.getPosition()[0] - 1, a.getPosition()[1]);
         }
@@ -141,11 +141,11 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
-        double active;
-        double passive;
+        double active = sprites[0].getSonarScale();
+        double passive = sprites[0].getPassiveSonarScale();
 
         if (sprites[0].isUsingSonar()) {
-            active = sprites[0].getSonarScale();
+            double active = sprites[0].getSonarScale();
             float alpha = 1 - ((float) active / 7);
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
@@ -158,15 +158,13 @@ public class GamePanel extends JPanel implements Runnable {
 //                System.out.println(e.getMessage());
 //            }
         } else {
-            passive = sprites[0].getPassiveSonarScale();
+            double passive = sprites[0].getPassiveSonarScale();
             float alpha = 1 - ((float) passive / 4);
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
             g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
             sprites[0].incrementPassiveSonarScale();
         }
-
-
     }
 
 
