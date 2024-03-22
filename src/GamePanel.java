@@ -16,6 +16,8 @@ public class GamePanel extends JPanel implements Runnable {
     private int x;
     private int y;
 
+    private long lastSonarUseTime;
+
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
@@ -96,7 +98,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             sonarTime += (double) (currentTime - previousTime) / drawInterval;
 
-            if (sonarTime >= 60.0) {
+            if (sonarTime >= 600.0) {
                 sprites[0].setSonarReady(true);
                 sonarTime = 0;
             }
@@ -145,25 +147,30 @@ public class GamePanel extends JPanel implements Runnable {
         double passive = sprites[0].getPassiveSonarScale();
 
         if (sprites[0].isUsingSonar()) {
-            double active = sprites[0].getSonarScale();
+            active = sprites[0].getSonarScale();
             float alpha = 1 - ((float) active / 7);
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
             g2D.drawOval((int) (x - ((tile_size * active) / 2)) + (tile_size / 2), (int) (y - ((tile_size * active) / 2)) + (tile_size / 2), (int) (tile_size * active), (int) (tile_size * active));
             sprites[0].incrementSonarScale();
+            if (sprites[0].isActiveSonarJustUsed()) {
+                lastSonarUseTime = System.nanoTime();
+            }
             sprites[0].resetPassiveSonarScale();
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                System.out.println(e.getMessage());
-//            }
         } else {
-            double passive = sprites[0].getPassiveSonarScale();
-            float alpha = 1 - ((float) passive / 4);
-            Color color = new Color(0, 1, 0, alpha);
-            g2D.setPaint(color);
-            g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
-            sprites[0].incrementPassiveSonarScale();
+            if (!sprites[0].isActiveSonarJustUsed()) {
+                passive = sprites[0].getPassiveSonarScale();
+                float alpha = 1 - ((float) passive / 4);
+                Color color = new Color(0, 1, 0, alpha);
+                g2D.setPaint(color);
+                g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
+                sprites[0].incrementPassiveSonarScale();
+            } else {
+                if (System.nanoTime() - lastSonarUseTime > 1000000000) {
+                    sprites[0].setActiveSonarJustUsed(false);
+                    System.out.println(sprites[0].isActiveSonarJustUsed());
+                }
+            }
         }
     }
 

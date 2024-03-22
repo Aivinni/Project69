@@ -2,7 +2,7 @@ public class TaskForce extends Interactive {
     private boolean sonarReady;
     private boolean usingSonar;
 
-    private boolean activeSonarPulse;
+    private boolean activeSonarJustUsed;
 
     private double sonarScale;
     private double sonarScalePassive;
@@ -31,10 +31,18 @@ public class TaskForce extends Interactive {
         return sonarScalePassive;
     }
 
+    public void setActiveSonarJustUsed(boolean activeSonarJustUsed) {
+        this.activeSonarJustUsed = activeSonarJustUsed;
+    }
+    public boolean isActiveSonarJustUsed() {
+        return activeSonarJustUsed;
+    }
+
     public void incrementSonarScale() {
         sonarScale += (0.3 - Math.sqrt(sonarScale / 75));
         if (sonarScale >= 5.0) {
             usingSonar = false;
+            activeSonarJustUsed = true;
             sonarScale = 0;
         }
     }
