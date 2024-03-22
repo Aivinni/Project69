@@ -17,6 +17,7 @@ public class GamePanel extends JPanel implements Runnable {
     private int y;
 
     private long lastSonarUseTime;
+    private long lastPassivePulseTime;
 
 
     public GamePanel() {
@@ -146,6 +147,9 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
+
+        double active;
+        double passive;
         if (sprites[0].isUsingSonar()) {
             active = sprites[0].getSonarScale();
             float alpha = 1 - ((float) active / 7);
@@ -159,16 +163,27 @@ public class GamePanel extends JPanel implements Runnable {
             sprites[0].resetPassiveSonarScale();
         } else {
             if (!sprites[0].isActiveSonarJustUsed()) {
-                passive = sprites[0].getPassiveSonarScale();
-                float alpha = 1 - ((float) passive / 4);
-                Color color = new Color(0, 1, 0, alpha);
-                g2D.setPaint(color);
-                g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
-                sprites[0].incrementPassiveSonarScale();
+                if (!sprites[0].isPassiveSonarJustUsed()) {
+                    passive = sprites[0].getPassiveSonarScale();
+                    float alpha = 1 - ((float) passive / 4);
+                    Color color = new Color(0, 1, 0, alpha);
+                    g2D.setPaint(color);
+                    g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
+                    sprites[0].incrementPassiveSonarScale();
+                    if (sprites[0].isPassiveSonarJustUsed()) {
+                        lastPassivePulseTime = System.nanoTime();
+                    }
+                } else {
+                    long passiveDelay = 500000000;
+                    if (System.nanoTime() - lastPassivePulseTime > passiveDelay) {
+                        sprites[0].setPassiveSonarJustUsed(false);
+                    }
+                }
+
             } else {
-                if (System.nanoTime() - lastSonarUseTime > 1000000000) {
+                long delay = 1000000000;
+                if (System.nanoTime() - lastSonarUseTime > delay) {
                     sprites[0].setActiveSonarJustUsed(false);
-                    System.out.println(sprites[0].isActiveSonarJustUsed());
                 }
             }
         }

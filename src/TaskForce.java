@@ -3,6 +3,7 @@ public class TaskForce extends Interactive {
     private boolean usingSonar;
 
     private boolean activeSonarJustUsed;
+    private boolean passiveSonarJustUsed;
 
     private double sonarScale;
     private double sonarScalePassive;
@@ -38,6 +39,13 @@ public class TaskForce extends Interactive {
         return activeSonarJustUsed;
     }
 
+    public void setPassiveSonarJustUsed(boolean passiveSonarJustUsed) {
+        this.passiveSonarJustUsed = passiveSonarJustUsed;
+    }
+    public boolean isPassiveSonarJustUsed() {
+        return passiveSonarJustUsed;
+    }
+
     public void incrementSonarScale() {
         sonarScale += (0.3 - Math.sqrt(sonarScale / 75));
         if (sonarScale >= 5.0) {
@@ -50,6 +58,7 @@ public class TaskForce extends Interactive {
         sonarScalePassive += (0.2 - Math.sqrt(sonarScalePassive / 100));
         if (sonarScalePassive >= 3.0) {
             sonarScalePassive = 0;
+            passiveSonarJustUsed = true;
         }
     }
     public void resetPassiveSonarScale() {
