@@ -17,4 +17,8 @@ public class Space {
     public Image getImage() {
         return image;
     }
+    public void updateImage(String fileName){
+        ImageIcon imageFile = new ImageIcon(fileName);
+        image = imageFile.getImage();
+    }
 }

@@ -26,10 +26,13 @@ public class GamePanel extends JPanel implements Runnable {
 
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0}, "HMS_Hardy_badge.png");
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0}, "HMS_Jervis_badge.png");
-        //Enemy enemy = new Enemy("enemy", new int[]{5, 7}, "Ocean.png");
+        Treasure treasure = new Treasure();
+        Enemy enemy = new Enemy("enemy", new int[]{5, 7});
         sprites = new TaskForce[]{char1, char2};
 
         game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW, sprites);
+        game.addToMap(treasure);
+        game.addToMap(enemy);
         map = game.getMap();
 
         keyH = new KeyHandler();
@@ -142,9 +145,6 @@ public class GamePanel extends JPanel implements Runnable {
                 g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
             }
         }
-
-        double active = sprites[0].getSonarScale();
-        double passive = sprites[0].getPassiveSonarScale();
 
         if (sprites[0].isUsingSonar()) {
             active = sprites[0].getSonarScale();
