@@ -15,6 +15,8 @@ public class GamePanel extends JPanel implements Runnable {
     private TaskForce[] sprites;
     private int x;
     private int y;
+    private int posX;
+    private int posY;
 
     private long lastSonarUseTime;
 
@@ -114,6 +116,8 @@ public class GamePanel extends JPanel implements Runnable {
             }
             x = sprites[0].getPosition()[1] * tile_size;
             y = sprites[0].getPosition()[0] * tile_size;
+            posX = sprites[1].getPosition()[1]*tile_size;
+            posY = sprites[1].getPosition()[0]*tile_size;
 
             previousTime = currentTime;
         }
@@ -147,7 +151,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
 
         if (sprites[0].isUsingSonar()) {
-            active = sprites[0].getSonarScale();
+            double active = sprites[0].getSonarScale();
             float alpha = 1 - ((float) active / 7);
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
@@ -159,19 +163,25 @@ public class GamePanel extends JPanel implements Runnable {
             sprites[0].resetPassiveSonarScale();
         } else {
             if (!sprites[0].isActiveSonarJustUsed()) {
-                passive = sprites[0].getPassiveSonarScale();
+                double passive = sprites[0].getPassiveSonarScale();
                 float alpha = 1 - ((float) passive / 4);
                 Color color = new Color(0, 1, 0, alpha);
                 g2D.setPaint(color);
                 g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
                 sprites[0].incrementPassiveSonarScale();
             } else {
-                if (System.nanoTime() - lastSonarUseTime > 1000000000) {
+                if (System.nanoTime() - lastSonarUseTime > 100000) {
                     sprites[0].setActiveSonarJustUsed(false);
                     System.out.println(sprites[0].isActiveSonarJustUsed());
                 }
             }
         }
+        double passive = sprites[1].getPassiveSonarScale();
+        float alpha = 1 - ((float) passive / 4);
+        Color color = new Color(0, 1, 0, alpha);
+        g2D.setPaint(color);
+        g2D.drawOval((int) (posX - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (posY - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
+        sprites[1].incrementPassiveSonarScale();
     }
 
 
@@ -180,5 +190,6 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread = new Thread(this);
         gameThread.start();
     }
+
 
 }
