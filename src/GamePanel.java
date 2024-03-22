@@ -104,7 +104,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             sonarTime += (double) (currentTime - previousTime) / drawInterval;
 
-            if (sonarTime >= 600.0) {
+            if (sonarTime >= 300.0) {
                 sprites[0].setSonarReady(true);
                 sonarTime = 0;
             }
