@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="repaint and key handler separation">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TaskForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskForce.java" afterDir="false" />
@@ -221,15 +223,7 @@
       <option name="project" value="LOCAL" />
       <updated>1710857657262</updated>
     </task>
-    <task id="LOCAL-00019" summary="better sonar times">
-      <option name="closed" value="true" />
-      <created>1711118067082</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1711118067082</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -249,7 +243,6 @@
     <MESSAGE value="sonar expansion" />
     <MESSAGE value="fade" />
     <MESSAGE value="repaint and key handler separation" />
-    <MESSAGE value="better sonar times" />
-    <option name="LAST_COMMIT_MESSAGE" value="better sonar times" />
+    <option name="LAST_COMMIT_MESSAGE" value="repaint and key handler separation" />
   </component>
 </project>
