@@ -1,5 +1,5 @@
 public class Enemy extends Interactive {
-    public Enemy(String name, int[] position, String fileName){
-        super(name, position, fileName);
+    public Enemy(String name, int[] position){
+        super(name, position, "Ocean.png");
     }
 }
