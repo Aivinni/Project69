@@ -141,9 +141,6 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
-        double active = sprites[0].getSonarScale();
-        double passive = sprites[0].getPassiveSonarScale();
-
         if (sprites[0].isUsingSonar()) {
             double active = sprites[0].getSonarScale();
             float alpha = 1 - ((float) active / 7);
