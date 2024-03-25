@@ -104,7 +104,8 @@ public class GamePanel extends JPanel implements Runnable {
 
             sonarTime += (double) (currentTime - previousTime) / drawInterval;
 
-            if (sonarTime >= 300.0) {
+            // Cooldown for active sonar
+            if (sonarTime >= 100.0) {
                 sprites[0].setSonarReady(true);
                 sonarTime = 0;
             }
@@ -185,9 +186,12 @@ public class GamePanel extends JPanel implements Runnable {
                 }
 
             } else {
-                long delay = 1000000000;
+                long delay = 2000000000;
                 if (System.nanoTime() - lastSonarUseTime > delay) {
                     sprites[0].setActiveSonarJustUsed(false);
+                } else {
+                    g.setColor(Color.CYAN);
+                    g.drawString(String.valueOf(System.nanoTime() - lastSonarUseTime), x + (tile_size/4), y - (tile_size/2));
                 }
             }
         }
