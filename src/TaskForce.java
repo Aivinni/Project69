@@ -22,8 +22,8 @@ public class TaskForce extends Interactive {
     public boolean isUsingSonar(){
         return usingSonar;
     }
-    public void toggleSonar(){
-        usingSonar = !usingSonar;
+    public void toggleSonarOn(){
+        usingSonar = true;
     }
     public double getSonarScale() {
         return sonarScale;
