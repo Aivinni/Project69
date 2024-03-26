@@ -110,9 +110,9 @@ public class GamePanel extends JPanel implements Runnable {
                 sonarTime = 0;
             }
 
-            if (sprites[0].isSonarReady()) {
+            if (sprites[0].isSonarReady() && !sprites[0].isActiveSonarJustUsed()) {
                 if (keyH.isFKeyPressed()) {
-                    sprites[0].toggleSonar();
+                    sprites[0].toggleSonarOn();
                     sprites[0].setSonarReady(false);
                 }
             }
@@ -186,12 +186,19 @@ public class GamePanel extends JPanel implements Runnable {
                 }
 
             } else {
-                long delay = 2000000000;
-                if (System.nanoTime() - lastSonarUseTime > delay) {
+                long delay = 3;
+                if ((System.nanoTime() - lastSonarUseTime) / 1000000000 > delay) {
                     sprites[0].setActiveSonarJustUsed(false);
                 } else {
                     g.setColor(Color.CYAN);
-                    g.drawString(String.valueOf(System.nanoTime() - lastSonarUseTime), x + (tile_size/4), y - (tile_size/2));
+                    g.setFont(new Font("SansSerif", Font.PLAIN, 18 ));
+                    if (sprites[0].getPosition()[0] > (MAX_SCREEN_ROW/2)-3) {
+                        //for cooldown above
+                        g.drawString(String.valueOf(3-(int)((System.nanoTime() - lastSonarUseTime) / 1000000000)), x + (tile_size/4) + (tile_size/5), y - (tile_size/4));
+                    } else {
+                        //for cooldown below
+                        g.drawString(String.valueOf(3 - (int) ((System.nanoTime() - lastSonarUseTime) / 1000000000)), x + (tile_size / 4) + (tile_size / 5), y + tile_size + (tile_size / 2));
+                    }
                 }
             }
         }
