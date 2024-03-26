@@ -1,0 +1,502 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_15_24,_10_56 AM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24,_10_56 AM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24,_10_56 AM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24,_10_56 AM_[Changes]/shelved.patch	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,48 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"edits\">\n      <change beforePath=\"$PROJECT_DIR$/src/GamePanel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GamePanel.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;Aivinni&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">\n    <option name=\"selectedUrlAndAccountId\">\n      <UrlAndAccount>\n        <option name=\"accountId\" value=\"5536e75f-eb7d-4787-b5af-22c60da04add\" />\n        <option name=\"url\" value=\"https://github.com/Aivinni/Project69.git\" />\n      </UrlAndAccount>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 2\n}</component>\n  <component name=\"ProjectId\" id=\"2dalF6p3BV9lRPd3COLJSXHR3FG\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\n      <module name=\"Project69\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"\" />\n      <created>1710253964652</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1710253964652</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"messing around\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710255501874</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710255501874</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"messing around\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710255607498</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710255607498</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"unknown changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710337073152</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710337073152</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"size change\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710339980689</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710339980689</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Add classes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710340920997</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710340920997</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710341631163</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710341631163</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"movement update\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710423393567</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710423393567</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710425902134</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710425902134</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"images\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710511071630</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710511071630</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"edits\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710512881377</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710512881377</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"11\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"messing around\" />\n    <MESSAGE value=\"unknown changes\" />\n    <MESSAGE value=\"size change\" />\n    <MESSAGE value=\"Add classes\" />\n    <MESSAGE value=\"commit\" />\n    <MESSAGE value=\"movement update\" />\n    <MESSAGE value=\"changes\" />\n    <MESSAGE value=\"images\" />\n    <MESSAGE value=\"edits\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"edits\" />\n  </component>\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision d3235ecfe0b48df7dc5e6bb4019796fdcc2e2f92)
+-+++ b/.idea/workspace.xml	(date 1710514235438)
+-@@ -4,8 +4,8 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="edits">
+--      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+-+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="transparent images">
+-+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -155,7 +155,15 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1710512881377</updated>
+-     </task>
+--    <option name="localTasksCounter" value="11" />
+-+    <task id="LOCAL-00011" summary="transparent images">
+-+      <option name="closed" value="true" />
+-+      <created>1710513470231</created>
+-+      <option name="number" value="00011" />
+-+      <option name="presentableId" value="LOCAL-00011" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1710513470231</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="12" />
+-     <servers />
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-@@ -168,6 +176,7 @@
+-     <MESSAGE value="changes" />
+-     <MESSAGE value="images" />
+-     <MESSAGE value="edits" />
+--    <option name="LAST_COMMIT_MESSAGE" value="edits" />
+-+    <MESSAGE value="transparent images" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="transparent images" />
+-   </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM__Changes_.xml	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM_[Changes]" date="1710512929915" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 3/15/2024 10:28 AM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM_[Changes]/shelved.patch	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,125 +0,0 @@
+-Index: src/GamePanel.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import javax.imageio.ImageIO;\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.image.*;\r\nimport java.io.*;\r\n\r\npublic class GamePanel extends JPanel implements Runnable {\r\n    public static int tile_size = 48; // default tile size is 12\r\n    public static final int MAX_SCREEN_COL = 31; // used for how to draw tiles\r\n    public static final int MAX_SCREEN_ROW = 18;\r\n\r\n    private Thread gameThread;\r\n    private KeyHandler keyH;\r\n\r\n    private Game game;\r\n    private TaskForce[] sprites;\r\n    private Space[][] map;\r\n\r\n\r\n    public GamePanel(Game game) {\r\n        this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));\r\n        this.setBackground(Color.WHITE);\r\n        this.setDoubleBuffered(true);\r\n\r\n        this.game = game;\r\n\r\n        TaskForce char1 = new TaskForce(\"wasd\", new int[]{0, 0});\r\n        TaskForce char2 = new TaskForce(\"arrows\", new int[]{2, 0});\r\n        sprites = new TaskForce[]{char1, char2};\r\n\r\n        map = game.getMap();\r\n\r\n        keyH = new KeyHandler();\r\n        this.addKeyListener(keyH);\r\n        this.setFocusable(true);\r\n        startGameThread();\r\n        setUpWindow();\r\n    }\r\n\r\n    public int[] getSizeMap() {\r\n        return new int[]{MAX_SCREEN_ROW, MAX_SCREEN_COL};\r\n    }\r\n\r\n    private void setUpWindow() {\r\n        JFrame window = new JFrame(\"2D GAME\");\r\n        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);\r\n        window.add(this);\r\n        window.pack();\r\n        window.setVisible(true);\r\n    }\r\n    @Override\r\n    public void run() {\r\n        // variables needed to ensure its locked at 60 fps and below\r\n        long currentTime = System.nanoTime();\r\n        long previousTime = currentTime;\r\n        double delta = 0.0;\r\n        int FPS = 60;\r\n        double drawInterval = 1000000000.0 / FPS;\r\n\r\n        while (gameThread != null) {\r\n            // system.nanotime is java's very accurate clock or something (i dont 100% remember)\r\n            currentTime = System.nanoTime();\r\n\r\n            // the time between now and the last time this looped\r\n            delta += (double) (currentTime - previousTime) / drawInterval;\r\n\r\n            previousTime = currentTime;\r\n                // delta being 1 or greater means 1/60 of a second;\r\n            if (delta >= 5) {\r\n                repaint();\r\n                if (keyH.isWKeyPressed()) {\r\n                    move(\"Up\", 0);\r\n                }\r\n                if (keyH.isSKeyPressed()) {\r\n                    move(\"Down\", 0);\r\n                }\r\n                if (keyH.isDKeyPressed()) {\r\n                    move(\"Right\", 0);\r\n                }\r\n                if (keyH.isAKeyPressed()) {\r\n                    move(\"Left\", 0);\r\n                }\r\n\r\n                if (keyH.isUpKeyPressed()){\r\n                    move(\"Up\", 1);\r\n                }\r\n                if (keyH.isDownKeyPressed()){\r\n                    move(\"Down\", 1);\r\n                }\r\n                if (keyH.isRightKeyPressed()){\r\n                    move(\"Right\", 1);\r\n                }\r\n                if (keyH.isLeftKeyPressed()){\r\n                    move(\"Left\", 1);\r\n                }\r\n                delta = 0;\r\n            }\r\n        }\r\n    }\r\n\r\n    private void move(String direction, int sprite){\r\n        TaskForce a = sprites[sprite];\r\n        if (direction.equalsIgnoreCase(\"Up\")&& a.getPosition()[0] > 0) {\r\n            a.setPosition(a.getPosition()[0]-1, a.getPosition()[1]);\r\n        }\r\n        if (direction.equalsIgnoreCase(\"Left\")&& a.getPosition()[1] > 0) {\r\n            a.setPosition(a.getPosition()[0], a.getPosition()[1] - 1);\r\n        }\r\n        if (direction.equalsIgnoreCase(\"Down\")&& a.getPosition()[0] < MAX_SCREEN_ROW - 1) {\r\n            a.setPosition(a.getPosition()[0] + 1, a.getPosition()[1]);\r\n        }\r\n        if (direction.equalsIgnoreCase(\"Right\")&& a.getPosition()[1] < MAX_SCREEN_COL - 1) {\r\n            a.setPosition(a.getPosition()[0], a.getPosition()[1] + 1);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void paintComponent(Graphics g) {\r\n        super.paintComponent(g);\r\n\r\n        Graphics2D g2D = (Graphics2D) g;\r\n        g2D.setColor(Color.PINK);\r\n        g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);\r\n\r\n        ImageIcon bg = new ImageIcon(\"HMS Jervis badge.jpeg\");\r\n        Image bgImage = bg.getImage();\r\n        g.drawImage(bgImage, sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size, null);\r\n\r\n\r\n    }\r\n\r\n\r\n    private void startGameThread() {\r\n        gameThread = new Thread(this);\r\n        gameThread.start();\r\n    }\r\n\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/GamePanel.java b/src/GamePanel.java
+---- a/src/GamePanel.java	(revision 9557ec67218de6e66355a1ebb93e4ebc176e6bdc)
+-+++ b/src/GamePanel.java	(date 1710513200424)
+-@@ -122,6 +122,8 @@
+-         g2D.setColor(Color.PINK);
+-         g2D.fillRect(sprites[0].getPosition()[1] * tile_size, sprites[0].getPosition()[0] * tile_size, tile_size, tile_size);
+- 
+-+        g2D.setColor(Color.BLACK);
+-+        g2D.fillRect(sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size);
+-         ImageIcon bg = new ImageIcon("HMS Jervis badge.jpeg");
+-         Image bgImage = bg.getImage();
+-         g.drawImage(bgImage, sprites[1].getPosition()[1] * tile_size, sprites[1].getPosition()[0] * tile_size, tile_size, tile_size, null);
+-Index: src/Water.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>public class Water extends Space {\r\n    public Water(){\r\n        super(\"water\");\r\n\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/Water.java b/src/Water.java
+---- a/src/Water.java	(revision 9557ec67218de6e66355a1ebb93e4ebc176e6bdc)
+-+++ b/src/Water.java	(date 1710512926907)
+-@@ -1,6 +1,5 @@
+- public class Water extends Space {
+-     public Water(){
+-         super("water");
+--
+-     }
+- }
+-Index: .idea/misc.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/misc.xml b/.idea/misc.xml
+---- a/.idea/misc.xml	(revision 9557ec67218de6e66355a1ebb93e4ebc176e6bdc)
+-+++ b/.idea/misc.xml	(date 1710513185110)
+-@@ -1,6 +1,6 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+--  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+-+  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+-     <output url="file://$PROJECT_DIR$/out" />
+-   </component>
+- </project>
+-\ No newline at end of file
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"images\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GamePanel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GamePanel.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Aivinni&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"5536e75f-eb7d-4787-b5af-22c60da04add\" />\r\n        <option name=\"url\" value=\"https://github.com/Aivinni/Project69.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2dalF6p3BV9lRPd3COLJSXHR3FG\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"Project69\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"\" />\r\n      <created>1710253964652</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1710253964652</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"messing around\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710255501874</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710255501874</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"messing around\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710255607498</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710255607498</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"unknown changes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710337073152</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710337073152</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"size change\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710339980689</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710339980689</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Add classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710340920997</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710340920997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710341631163</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710341631163</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"movement update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710423393567</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710423393567</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"changes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710425902134</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710425902134</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"images\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710511071630</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710511071630</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"10\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"messing around\" />\r\n    <MESSAGE value=\"unknown changes\" />\r\n    <MESSAGE value=\"size change\" />\r\n    <MESSAGE value=\"Add classes\" />\r\n    <MESSAGE value=\"commit\" />\r\n    <MESSAGE value=\"movement update\" />\r\n    <MESSAGE value=\"changes\" />\r\n    <MESSAGE value=\"images\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"images\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 9557ec67218de6e66355a1ebb93e4ebc176e6bdc)
+-+++ b/.idea/workspace.xml	(date 1710513364767)
+-@@ -4,9 +4,12 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="images">
+-+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="fixed compile error">
+-+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_21AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_21AM__Changes_.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/src/Water.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Water.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -148,9 +151,34 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1710511071630</updated>
+-     </task>
+--    <option name="localTasksCounter" value="10" />
+-+    <task id="LOCAL-00010" summary="fixed compile error">
+-+      <created>1710512421754</created>
+-+      <option name="number" value="00010" />
+-+      <option name="presentableId" value="LOCAL-00010" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1710512421754</updated>
+-+    </task>
+-+    <task id="LOCAL-00011" summary="fixed compile error">
+-+      <created>1710512432441</created>
+-+      <option name="number" value="00011" />
+-+      <option name="presentableId" value="LOCAL-00011" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1710512432441</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="12" />
+-     <servers />
+-   </component>
+-+  <component name="Vcs.Log.Tabs.Properties">
+-+    <option name="TAB_STATES">
+-+      <map>
+-+        <entry key="MAIN">
+-+          <value>
+-+            <State />
+-+          </value>
+-+        </entry>
+-+      </map>
+-+    </option>
+-+  </component>
+-   <component name="VcsManagerConfiguration">
+-     <MESSAGE value="messing around" />
+-     <MESSAGE value="unknown changes" />
+-@@ -160,6 +188,7 @@
+-     <MESSAGE value="movement update" />
+-     <MESSAGE value="changes" />
+-     <MESSAGE value="images" />
+--    <option name="LAST_COMMIT_MESSAGE" value="images" />
+-+    <MESSAGE value="fixed compile error" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="fixed compile error" />
+-   </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_56AM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_56AM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_56AM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_56AM__Changes_.xml	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_3_15_24,_10_56 AM_[Changes]" date="1710514602580" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24,_10_56 AM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 3/15/24, 10:56 AM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM_[Changes]/shelved.patch	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,53 +0,0 @@
+-Index: src/TaskForce.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import javax.swing.*;\r\nimport java.awt.*;\r\n\r\npublic class TaskForce extends Space {\r\n    private String name;\r\n    private int[] position;\r\n    private boolean sonarReady;\r\n    private boolean usingSonar;\r\n    private double sonarScale;\r\n\r\n    public TaskForce(String name, int[] position, String fileName) {\r\n        super(name, fileName);\r\n        this.name = name;\r\n        this.position = position;\r\n        usingSonar = false;\r\n    }\r\n\r\n    public String getName() {\r\n        return name;\r\n    }\r\n    public int[] getPosition() {\r\n        return position;\r\n    }\r\n    public void setSonarReady(boolean sonarReady) {\r\n        this.sonarReady = sonarReady;\r\n    }\r\n    public boolean isSonarReady() {\r\n        return sonarReady;\r\n    }\r\n    public boolean isUsingSonar(){\r\n        return usingSonar;\r\n    }\r\n    public void toggleSonar(){\r\n        usingSonar = !usingSonar;\r\n    }\r\n    public double getSonarScale() {\r\n        return sonarScale;\r\n    }\r\n    public void incrementSonarScale() {\r\n        sonarScale += (0.3 - Math.sqrt(sonarScale / 100));\r\n        if (sonarScale > 3.0) {\r\n            usingSonar = false;\r\n            sonarScale = 0;\r\n        }\r\n    }\r\n\r\n    public void setPosition(int posY, int posX) {\r\n        position[0] = posY;\r\n        position[1] = posX;\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/TaskForce.java b/src/TaskForce.java
+---- a/src/TaskForce.java	(revision 2eb100d63936dfa9bb1b001c86bdbe75b805a81d)
+-+++ b/src/TaskForce.java	(date 1710855814039)
+-@@ -38,7 +38,7 @@
+-     }
+-     public void incrementSonarScale() {
+-         sonarScale += (0.3 - Math.sqrt(sonarScale / 100));
+--        if (sonarScale > 3.0) {
+-+        if (sonarScale > 4.0) {
+-             usingSonar = false;
+-             sonarScale = 0;
+-         }
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"Sonar working. (don't ask how)\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GamePanel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GamePanel.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/TaskForce.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/TaskForce.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Aivinni&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"5536e75f-eb7d-4787-b5af-22c60da04add\" />\r\n        <option name=\"url\" value=\"https://github.com/Aivinni/Project69.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2dalF6p3BV9lRPd3COLJSXHR3FG\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"Project69\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"\" />\r\n      <created>1710253964652</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1710253964652</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"messing around\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710255501874</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710255501874</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"messing around\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710255607498</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710255607498</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"unknown changes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710337073152</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710337073152</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"size change\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710339980689</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710339980689</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Add classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710340920997</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710340920997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710341631163</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710341631163</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"movement update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710423393567</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710423393567</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"changes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710425902134</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710425902134</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"images\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710511071630</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710511071630</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"edits\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710512881377</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710512881377</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"changes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710723709192</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710723709192</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"refactoring\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710731132444</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710731132444</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Movement changes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710731367336</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710731367336</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Exceptions eliminated\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710770701045</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710770701045</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Sonar working. (don't ask how)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710819041887</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710819041887</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"16\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"messing around\" />\r\n    <MESSAGE value=\"unknown changes\" />\r\n    <MESSAGE value=\"size change\" />\r\n    <MESSAGE value=\"Add classes\" />\r\n    <MESSAGE value=\"commit\" />\r\n    <MESSAGE value=\"movement update\" />\r\n    <MESSAGE value=\"images\" />\r\n    <MESSAGE value=\"edits\" />\r\n    <MESSAGE value=\"changes\" />\r\n    <MESSAGE value=\"refactoring\" />\r\n    <MESSAGE value=\"Movement changes\" />\r\n    <MESSAGE value=\"Exceptions eliminated\" />\r\n    <MESSAGE value=\"Sonar working. (don't ask how)\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Sonar working. (don't ask how)\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 2eb100d63936dfa9bb1b001c86bdbe75b805a81d)
+-+++ b/.idea/workspace.xml	(date 1710856565473)
+-@@ -5,8 +5,22 @@
+-   </component>
+-   <component name="ChangeListManager">
+-     <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="Sonar working. (don't ask how)">
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_10_28_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_10_28_AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_10_44_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_10_44_AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_24__10_53AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_24__10_53AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_07_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_07_AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_9_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_9_36_AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_9_36_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_9_36_AM__Changes_1.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_9_50_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_9_50_AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_06AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_06AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_21AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_21AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_24AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_24AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_56AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_56AM__Changes_.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24__11_01AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24__11_01AM__Changes_.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/src/TaskForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskForce.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_18_24__11_01AM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24__11_01AM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24__11_01AM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24__11_01AM__Changes_.xml	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_3_18_24,_11_01 AM_[Changes]" date="1710774095562" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24,_11_01 AM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 3/18/24, 11:01 AM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM_[Changes]/shelved.patch	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,64 +0,0 @@
+-Index: src/Water.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>public class Water extends Space{\r\n    public Water(){\r\n        super(\"water\");\r\n\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/Water.java b/src/Water.java
+---- a/src/Water.java	(revision daaa89c7aeaf658d11857360c64433a5710b3509)
+-+++ b/src/Water.java	(date 1710512923541)
+-@@ -1,6 +1,5 @@
+- public class Water extends Space{
+-     public Water(){
+-         super("water");
+--
+-     }
+- }
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"fixed compile error\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/Game.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Game.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Aivinni&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"5536e75f-eb7d-4787-b5af-22c60da04add\" />\r\n        <option name=\"url\" value=\"https://github.com/Aivinni/Project69.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2dalF6p3BV9lRPd3COLJSXHR3FG\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"Project69\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"\" />\r\n      <created>1710253964652</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1710253964652</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"messing around\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710255501874</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710255501874</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"messing around\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710255607498</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710255607498</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"unknown changes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710337073152</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710337073152</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"size change\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710339980689</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710339980689</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Add classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710340920997</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710340920997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710341631163</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710341631163</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"movement update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710423393567</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710423393567</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"changes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710425902134</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710425902134</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"images\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1710511071630</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710511071630</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"fixed compile error\">\r\n      <created>1710512421754</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710512421754</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"fixed compile error\">\r\n      <created>1710512432441</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1710512432441</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"12\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"messing around\" />\r\n    <MESSAGE value=\"unknown changes\" />\r\n    <MESSAGE value=\"size change\" />\r\n    <MESSAGE value=\"Add classes\" />\r\n    <MESSAGE value=\"commit\" />\r\n    <MESSAGE value=\"movement update\" />\r\n    <MESSAGE value=\"changes\" />\r\n    <MESSAGE value=\"images\" />\r\n    <MESSAGE value=\"fixed compile error\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"fixed compile error\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision daaa89c7aeaf658d11857360c64433a5710b3509)
+-+++ b/.idea/workspace.xml	(date 1710512923582)
+-@@ -4,8 +4,8 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="fixed compile error">
+--      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+-+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="updated game things">
+-+      <change beforePath="$PROJECT_DIR$/src/Water.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Water.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -161,7 +161,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1710512432441</updated>
+-     </task>
+--    <option name="localTasksCounter" value="12" />
+-+    <task id="LOCAL-00012" summary="updated game things">
+-+      <created>1710512692712</created>
+-+      <option name="number" value="00012" />
+-+      <option name="presentableId" value="LOCAL-00012" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1710512692712</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="13" />
+-     <servers />
+-   </component>
+-   <component name="Vcs.Log.Tabs.Properties">
+-@@ -185,6 +192,7 @@
+-     <MESSAGE value="changes" />
+-     <MESSAGE value="images" />
+-     <MESSAGE value="fixed compile error" />
+--    <option name="LAST_COMMIT_MESSAGE" value="fixed compile error" />
+-+    <MESSAGE value="updated game things" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="updated game things" />
+-   </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM__Changes_.xml	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM_[Changes]" date="1710513577814" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 3/15/2024 10:38 AM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM__Changes_.xml	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM_[Changes]" date="1710857533146" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 3/19/2024 10:11 AM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_18_24,_11_01 AM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24,_11_01 AM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24,_11_01 AM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24,_11_01 AM_[Changes]/shelved.patch	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ /dev/null	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
+@@ -1,48 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"Exceptions eliminated\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;Aivinni&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">\n    <option name=\"selectedUrlAndAccountId\">\n      <UrlAndAccount>\n        <option name=\"accountId\" value=\"5536e75f-eb7d-4787-b5af-22c60da04add\" />\n        <option name=\"url\" value=\"https://github.com/Aivinni/Project69.git\" />\n      </UrlAndAccount>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 2\n}</component>\n  <component name=\"ProjectId\" id=\"2dalF6p3BV9lRPd3COLJSXHR3FG\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\n      <module name=\"Project69\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"\" />\n      <created>1710253964652</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1710253964652</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"messing around\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710255501874</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710255501874</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"messing around\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710255607498</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710255607498</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"unknown changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710337073152</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710337073152</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"size change\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710339980689</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710339980689</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Add classes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710340920997</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710340920997</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710341631163</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710341631163</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"movement update\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710423393567</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710423393567</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710425902134</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710425902134</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"images\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710511071630</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710511071630</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"edits\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710512881377</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710512881377</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710723709192</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710723709192</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"refactoring\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710731132444</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710731132444</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"Movement changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710731367336</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710731367336</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"Exceptions eliminated\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710770701045</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710770701045</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"15\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"messing around\" />\n    <MESSAGE value=\"unknown changes\" />\n    <MESSAGE value=\"size change\" />\n    <MESSAGE value=\"Add classes\" />\n    <MESSAGE value=\"commit\" />\n    <MESSAGE value=\"movement update\" />\n    <MESSAGE value=\"images\" />\n    <MESSAGE value=\"edits\" />\n    <MESSAGE value=\"changes\" />\n    <MESSAGE value=\"refactoring\" />\n    <MESSAGE value=\"Movement changes\" />\n    <MESSAGE value=\"Exceptions eliminated\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Exceptions eliminated\" />\n  </component>\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision c1522804a64c4b2727145db1845f9988a362250b)
+-+++ b/.idea/workspace.xml	(date 1710771830476)
+-@@ -4,7 +4,9 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="Exceptions eliminated" />
+-+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="Redundancies eliminated">
+-+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-+    </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-@@ -185,7 +187,15 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1710770701045</updated>
+-     </task>
+--    <option name="localTasksCounter" value="15" />
+-+    <task id="LOCAL-00015" summary="Redundancies eliminated">
+-+      <option name="closed" value="true" />
+-+      <created>1710771129084</created>
+-+      <option name="number" value="00015" />
+-+      <option name="presentableId" value="LOCAL-00015" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1710771129084</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="16" />
+-     <servers />
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-@@ -201,6 +211,7 @@
+-     <MESSAGE value="refactoring" />
+-     <MESSAGE value="Movement changes" />
+-     <MESSAGE value="Exceptions eliminated" />
+--    <option name="LAST_COMMIT_MESSAGE" value="Exceptions eliminated" />
+-+    <MESSAGE value="Redundancies eliminated" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="Redundancies eliminated" />
+-   </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"repaint and key handler separation\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM_[Changes]/shelved.patch\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM__Changes_.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/GamePanel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GamePanel.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/TaskForce.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/TaskForce.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;Aivinni&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">\n    <option name=\"selectedUrlAndAccountId\">\n      <UrlAndAccount>\n        <option name=\"accountId\" value=\"5536e75f-eb7d-4787-b5af-22c60da04add\" />\n        <option name=\"url\" value=\"https://github.com/Aivinni/Project69.git\" />\n      </UrlAndAccount>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 2\n}</component>\n  <component name=\"ProjectId\" id=\"2dalF6p3BV9lRPd3COLJSXHR3FG\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\n      <module name=\"Project69\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"\" />\n      <created>1710253964652</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1710253964652</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"messing around\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710255501874</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710255501874</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"messing around\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710255607498</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710255607498</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"unknown changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710337073152</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710337073152</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"size change\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710339980689</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710339980689</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Add classes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710340920997</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710340920997</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710341631163</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710341631163</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"movement update\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710423393567</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710423393567</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710425902134</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710425902134</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"images\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710511071630</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710511071630</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"edits\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710512881377</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710512881377</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710723709192</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710723709192</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"refactoring\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710731132444</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710731132444</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"Movement changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710731367336</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710731367336</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"Exceptions eliminated\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710770701045</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710770701045</updated>\n    </task>\n    <task id=\"LOCAL-00015\" summary=\"Sonar working. (don't ask how)\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710819041887</created>\n      <option name=\"number\" value=\"00015\" />\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710819041887</updated>\n    </task>\n    <task id=\"LOCAL-00016\" summary=\"sonar expansion\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710855603173</created>\n      <option name=\"number\" value=\"00016\" />\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710855603173</updated>\n    </task>\n    <task id=\"LOCAL-00017\" summary=\"fade\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710857251774</created>\n      <option name=\"number\" value=\"00017\" />\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710857251774</updated>\n    </task>\n    <task id=\"LOCAL-00018\" summary=\"repaint and key handler separation\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710857657262</created>\n      <option name=\"number\" value=\"00018\" />\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710857657262</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"19\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"messing around\" />\n    <MESSAGE value=\"unknown changes\" />\n    <MESSAGE value=\"size change\" />\n    <MESSAGE value=\"Add classes\" />\n    <MESSAGE value=\"commit\" />\n    <MESSAGE value=\"movement update\" />\n    <MESSAGE value=\"images\" />\n    <MESSAGE value=\"edits\" />\n    <MESSAGE value=\"changes\" />\n    <MESSAGE value=\"refactoring\" />\n    <MESSAGE value=\"Movement changes\" />\n    <MESSAGE value=\"Exceptions eliminated\" />\n    <MESSAGE value=\"Sonar working. (don't ask how)\" />\n    <MESSAGE value=\"sonar expansion\" />\n    <MESSAGE value=\"fade\" />\n    <MESSAGE value=\"repaint and key handler separation\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"repaint and key handler separation\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 89ff2f294dc14c2af55d63d7d4739f29efe1d571)
++++ b/.idea/workspace.xml	(date 1711463580883)
+@@ -4,12 +4,18 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="repaint and key handler separation">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_13_2024_9_40_AM__Changes_.xml" beforeDir="false" />
++    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="changes">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_28_AM__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2024_10_38_AM__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24,_10_56 AM_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_24__10_56AM__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24,_11_01 AM_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_18_24__11_01AM__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_11_AM__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/TaskForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskForce.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -223,7 +229,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1710857657262</updated>
+     </task>
+-    <option name="localTasksCounter" value="19" />
++    <task id="LOCAL-00019" summary="changes">
++      <option name="closed" value="true" />
++      <created>1711119142342</created>
++      <option name="number" value="00019" />
++      <option name="presentableId" value="LOCAL-00019" />
++      <option name="project" value="LOCAL" />
++      <updated>1711119142342</updated>
++    </task>
++    <option name="localTasksCounter" value="20" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+@@ -235,7 +249,6 @@
+     <MESSAGE value="movement update" />
+     <MESSAGE value="images" />
+     <MESSAGE value="edits" />
+-    <MESSAGE value="changes" />
+     <MESSAGE value="refactoring" />
+     <MESSAGE value="Movement changes" />
+     <MESSAGE value="Exceptions eliminated" />
+@@ -243,6 +256,7 @@
+     <MESSAGE value="sonar expansion" />
+     <MESSAGE value="fade" />
+     <MESSAGE value="repaint and key handler separation" />
+-    <option name="LAST_COMMIT_MESSAGE" value="repaint and key handler separation" />
++    <MESSAGE value="changes" />
++    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+   </component>
+ </project>
+\ No newline at end of file

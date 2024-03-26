@@ -201,6 +201,10 @@ public class GamePanel extends JPanel implements Runnable {
         g2D.setPaint(color);
         g2D.drawOval((int) (posX - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (posY - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
         sprites[1].incrementPassiveSonarScale();
+
+        Color color1 = new Color(0, 0, 0, 0);
+        g2D.setPaint(color1);
+        g2D.drawRect(((MAX_SCREEN_COL * tile_size) / 2) - (((MAX_SCREEN_COL / 5) * tile_size) / 2), tile_size, (MAX_SCREEN_COL / 5) * tile_size, (MAX_SCREEN_ROW / 6) * tile_size);
     }
 
 
