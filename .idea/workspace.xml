@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="draw rectangle">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_30_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_19_2024_10_30_AM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="pop up rectangle (need to make disappear most times)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
     </list>
@@ -230,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711465009676</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="pop up rectangle (need to make disappear most times)">
+      <option name="closed" value="true" />
+      <created>1711510523059</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1711510523059</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -251,6 +257,7 @@
     <MESSAGE value="fade" />
     <MESSAGE value="repaint and key handler separation" />
     <MESSAGE value="draw rectangle" />
-    <option name="LAST_COMMIT_MESSAGE" value="draw rectangle" />
+    <MESSAGE value="pop up rectangle (need to make disappear most times)" />
+    <option name="LAST_COMMIT_MESSAGE" value="pop up rectangle (need to make disappear most times)" />
   </component>
 </project>

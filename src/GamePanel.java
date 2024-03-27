@@ -204,18 +204,30 @@ public class GamePanel extends JPanel implements Runnable {
         sprites[1].incrementPassiveSonarScale();
 
 
-        Color black = new Color(0, 0, 0);
-        g2D.setPaint(black);
+        g2D.setPaint(Color.black);
 
         Stroke stroke = new BasicStroke(2.0f);
         g2D.setStroke(stroke);
 
-        g2D.drawRect(((MAX_SCREEN_COL * tile_size) / 2) - (((MAX_SCREEN_COL / 4) * tile_size) / 2) - 1, tile_size - 1, (MAX_SCREEN_COL / 4) * tile_size + 2, (MAX_SCREEN_ROW / 6) * tile_size + 2);
+
+        int rectWidth = (MAX_SCREEN_COL / 4) * tile_size;
+        int rectCenterX = (MAX_SCREEN_COL * tile_size) / 2;
+        int rectX = rectCenterX - (rectWidth / 2);
+
+        int rectHeight = (MAX_SCREEN_ROW / 6) * tile_size;
+        int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;
+        int rectY = rectCenterY - (rectHeight / 2);
+        // Draw border
+        g2D.drawRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);
 
         Color brownishBlack = new Color(35, 26, 26, 200);
         g2D.setPaint(brownishBlack);
 
-        g2D.fillRect(((MAX_SCREEN_COL * tile_size) / 2) - (((MAX_SCREEN_COL / 4) * tile_size) / 2), tile_size, (MAX_SCREEN_COL / 4) * tile_size, (MAX_SCREEN_ROW / 6) * tile_size);
+        // Transparent box
+        g2D.fillRect(rectX, rectY, rectWidth, rectHeight);
+
+        g2D.setPaint(Color.white);
+        g2D.drawString("Hello World", rectX, rectCenterY);
     }
 
 
