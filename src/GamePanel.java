@@ -4,8 +4,8 @@ import java.awt.geom.Arc2D;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 48; // default tile size is 12
-    public static final int MAX_SCREEN_COL = 40; //previously 31
-    public static final int MAX_SCREEN_ROW = 21; //previously 18
+    public static final int MAX_SCREEN_COL = 31; //previously 31
+    public static final int MAX_SCREEN_ROW = 18; //previously 18
 
     private Thread gameThread;
     private KeyHandler keyH;
@@ -104,13 +104,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             sonarTime += (double) (currentTime - previousTime) / drawInterval;
 
-            // Cooldown for active sonar
-            if (sonarTime >= 100.0) {
-                sprites[0].setSonarReady(true);
-                sonarTime = 0;
-            }
-
-            if (sprites[0].isSonarReady() && !sprites[0].isActiveSonarJustUsed()) {
+            if (!sprites[0].isActiveSonarJustUsed()) {
                 if (keyH.isFKeyPressed()) {
                     sprites[0].toggleSonarOn();
                     sprites[0].setSonarReady(false);
@@ -209,9 +203,19 @@ public class GamePanel extends JPanel implements Runnable {
         g2D.drawOval((int) (posX - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (posY - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
         sprites[1].incrementPassiveSonarScale();
 
-        Color color1 = new Color(0, 0, 0, 0);
-        g2D.setPaint(color1);
-        g2D.drawRect(((MAX_SCREEN_COL * tile_size) / 2) - (((MAX_SCREEN_COL / 5) * tile_size) / 2), tile_size, (MAX_SCREEN_COL / 5) * tile_size, (MAX_SCREEN_ROW / 6) * tile_size);
+
+        Color black = new Color(0, 0, 0);
+        g2D.setPaint(black);
+
+        Stroke stroke = new BasicStroke(2.0f);
+        g2D.setStroke(stroke);
+
+        g2D.drawRect(((MAX_SCREEN_COL * tile_size) / 2) - (((MAX_SCREEN_COL / 4) * tile_size) / 2) - 1, tile_size - 1, (MAX_SCREEN_COL / 4) * tile_size + 2, (MAX_SCREEN_ROW / 6) * tile_size + 2);
+
+        Color brownishBlack = new Color(35, 26, 26, 200);
+        g2D.setPaint(brownishBlack);
+
+        g2D.fillRect(((MAX_SCREEN_COL * tile_size) / 2) - (((MAX_SCREEN_COL / 4) * tile_size) / 2), tile_size, (MAX_SCREEN_COL / 4) * tile_size, (MAX_SCREEN_ROW / 6) * tile_size);
     }
 
 
