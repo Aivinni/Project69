@@ -204,10 +204,10 @@ public class GamePanel extends JPanel implements Runnable {
         sprites[1].incrementPassiveSonarScale();
 
 
-        g2D.setPaint(Color.black);
+        //g2D.setPaint(Color.black);
 
-        Stroke stroke = new BasicStroke(2.0f);
-        g2D.setStroke(stroke);
+        //Stroke stroke = new BasicStroke(2.0f);
+       // g2D.setStroke(stroke);
 
 
         int rectWidth = (MAX_SCREEN_COL / 4) * tile_size;
@@ -218,16 +218,16 @@ public class GamePanel extends JPanel implements Runnable {
         int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;
         int rectY = rectCenterY - (rectHeight / 2);
         // Draw border
-        g2D.drawRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);
+        //g2D.drawRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);
 
-        Color brownishBlack = new Color(35, 26, 26, 200);
-        g2D.setPaint(brownishBlack);
+        //Color brownishBlack = new Color(35, 26, 26, 200);
+        //g2D.setPaint(brownishBlack);
 
         // Transparent box
-        g2D.fillRect(rectX, rectY, rectWidth, rectHeight);
+        //g2D.fillRect(rectX, rectY, rectWidth, rectHeight);
 
-        g2D.setPaint(Color.white);
-        g2D.drawString("Hello World", rectX, rectCenterY);
+        //g2D.setPaint(Color.white);
+        //g2D.drawString("Hello World", rectX, rectCenterY);
     }
 
 
