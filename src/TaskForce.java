@@ -64,6 +64,6 @@ public class TaskForce extends Interactive {
     public void resetPassiveSonarScale() {
         sonarScalePassive = 0;
     }
-    //todo: make the sonar affect the tiles around it
+    //TODO: make the sonar affect the tiles around it
 
 }

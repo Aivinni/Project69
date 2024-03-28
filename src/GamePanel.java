@@ -123,7 +123,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             //x = sprites[0].getPosition()[1] * tile_size;
             //y = sprites[0].getPosition()[0] * tile_size;
-           // x2 = sprites[1].getPosition()[1] * tile_size;
+            //x2 = sprites[1].getPosition()[1] * tile_size;
             //y2 = sprites[1].getPosition()[0] * tile_size;
 
             previousTime = currentTime;
