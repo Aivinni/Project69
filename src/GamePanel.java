@@ -121,10 +121,10 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
 
-            x = sprites[0].getPosition()[1] * tile_size;
-            y = sprites[0].getPosition()[0] * tile_size;
-            x2 = sprites[1].getPosition()[1] * tile_size;
-            y2 = sprites[1].getPosition()[0] * tile_size;
+            //x = sprites[0].getPosition()[1] * tile_size;
+            //y = sprites[0].getPosition()[0] * tile_size;
+           // x2 = sprites[1].getPosition()[1] * tile_size;
+            //y2 = sprites[1].getPosition()[0] * tile_size;
 
             previousTime = currentTime;
         }
@@ -144,60 +144,52 @@ public class GamePanel extends JPanel implements Runnable {
             a.setPosition(a.getPosition()[0], a.getPosition()[1] + 1);
         }
     }
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+    public void useSonar(Graphics g, TaskForce sprite){
+        Graphics2D g2D = (Graphics2D) g;
 
-       Graphics2D g2D = (Graphics2D) g;
-
-        map = game.updateMap(sprites);
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[i].length; j++) {
-                g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
-            }
-        }
-
+        x = sprite.getPosition()[1] * tile_size;
+        y = sprite.getPosition()[0] * tile_size;
 
         double active;
         double passive;
-        if (sprites[0].isUsingSonar()) {
-            active = sprites[0].getSonarScale();
+        if (sprite.isUsingSonar()) {
+            active = sprite.getSonarScale();
             float alpha = 1 - ((float) active / 7);
             Color color = new Color(0, 1, 0, alpha);
             g2D.setPaint(color);
             g2D.drawOval((int) (x - ((tile_size * active) / 2)) + (tile_size / 2), (int) (y - ((tile_size * active) / 2)) + (tile_size / 2), (int) (tile_size * active), (int) (tile_size * active));
-            sprites[0].incrementSonarScale();
-            if (sprites[0].isActiveSonarJustUsed()) {
+            sprite.incrementSonarScale();
+            if (sprite.isActiveSonarJustUsed()) {
                 lastSonarUseTime = System.nanoTime();
             }
-            sprites[0].resetPassiveSonarScale();
+            sprite.resetPassiveSonarScale();
         } else {
-            if (!sprites[0].isActiveSonarJustUsed()) {
-                if (!sprites[0].isPassiveSonarJustUsed()) {
-                    passive = sprites[0].getPassiveSonarScale();
+            if (!sprite.isActiveSonarJustUsed()) {
+                if (!sprite.isPassiveSonarJustUsed()) {
+                    passive = sprite.getPassiveSonarScale();
                     float alpha = 1 - ((float) passive / 4);
                     Color color = new Color(0, 1, 0, alpha);
                     g2D.setPaint(color);
                     g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
-                    sprites[0].incrementPassiveSonarScale();
-                    if (sprites[0].isPassiveSonarJustUsed()) {
+                    sprite.incrementPassiveSonarScale();
+                    if (sprite.isPassiveSonarJustUsed()) {
                         lastPassivePulseTime = System.nanoTime();
                     }
                 } else {
                     long passiveDelay = 500000000;
                     if (System.nanoTime() - lastPassivePulseTime > passiveDelay) {
-                        sprites[0].setPassiveSonarJustUsed(false);
+                        sprite.setPassiveSonarJustUsed(false);
                     }
                 }
 
             } else {
                 long delay = 3;
                 if ((System.nanoTime() - lastSonarUseTime) / 1000000000 > delay) {
-                    sprites[0].setActiveSonarJustUsed(false);
+                    sprite.setActiveSonarJustUsed(false);
                 } else {
                     g.setColor(Color.CYAN);
                     g.setFont(new Font("SansSerif", Font.PLAIN, 18 ));
-                    if (sprites[0].getPosition()[0] > (MAX_SCREEN_ROW/2)-3) {
+                    if (sprite.getPosition()[0] > (MAX_SCREEN_ROW/2)-3) {
                         //for cooldown above
                         g.drawString(String.valueOf(3-(int)((System.nanoTime() - lastSonarUseTime) / 1000000000)), x + (tile_size/4) + (tile_size/5), y - (tile_size/4));
                     } else {
@@ -207,56 +199,21 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
         }
+    }
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
-        double active2;
-        double passive2;
-        if (sprites[1].isUsingSonar()) {
-            active2 = sprites[1].getSonarScale();
-            float alpha = 1 - ((float) active2 / 7);
-            Color color = new Color(0, 1, 0, alpha);
-            g2D.setPaint(color);
-            g2D.drawOval((int) (x2 - ((tile_size * active2) / 2)) + (tile_size / 2), (int) (y2 - ((tile_size * active2) / 2)) + (tile_size / 2), (int) (tile_size * active2), (int) (tile_size * active2));
-            sprites[1].incrementSonarScale();
-            if (sprites[1].isActiveSonarJustUsed()) {
-                lastSonarUseTime2 = System.nanoTime();
-            }
-            sprites[1].resetPassiveSonarScale();
-        } else {
-            if (!sprites[1].isActiveSonarJustUsed()) {
-                if (!sprites[1].isPassiveSonarJustUsed()) {
-                    passive2 = sprites[1].getPassiveSonarScale();
-                    float alpha = 1 - ((float) passive2 / 4);
-                    Color color = new Color(0, 1, 0, alpha);
-                    g2D.setPaint(color);
-                    g2D.drawOval((int) (x2 - ((tile_size * passive2) / 2)) + (tile_size / 2), (int) (y2 - ((tile_size * passive2) / 2)) + (tile_size / 2), (int) (tile_size * passive2), (int) (tile_size * passive2));
-                    sprites[1].incrementPassiveSonarScale();
-                    if (sprites[1].isPassiveSonarJustUsed()) {
-                        lastPassivePulseTime2 = System.nanoTime();
-                    }
-                } else {
-                    long passiveDelay = 500000000;
-                    if (System.nanoTime() - lastPassivePulseTime2 > passiveDelay) {
-                        sprites[1].setPassiveSonarJustUsed(false);
-                    }
-                }
-
-            } else {
-                long delay = 3;
-                if ((System.nanoTime() - lastSonarUseTime2) / 1000000000 > delay) {
-                    sprites[1].setActiveSonarJustUsed(false);
-                } else {
-                    g.setColor(Color.CYAN);
-                    g.setFont(new Font("SansSerif", Font.PLAIN, 18 ));
-                    if (sprites[1].getPosition()[0] > (MAX_SCREEN_ROW / 2) - 3) {
-                        //for cooldown above
-                        g.drawString(String.valueOf(3-(int)((System.nanoTime() - lastSonarUseTime2) / 1000000000)), x2 + (tile_size/4) + (tile_size/5), y2 - (tile_size/4));
-                    } else {
-                        //for cooldown below
-                        g.drawString(String.valueOf(3 - (int) ((System.nanoTime() - lastSonarUseTime2) / 1000000000)), x2 + (tile_size / 4) + (tile_size / 5), y2 + tile_size + (tile_size / 2));
-                    }
-                }
+        map = game.updateMap(sprites);
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
             }
         }
+
+        useSonar(g, sprites[0]);
+        useSonar(g, sprites[1]);
+
 //        passive = sprites[1].getPassiveSonarScale();
 //        float alpha = 1 - ((float) passive / 4);
 //        Color color = new Color(0, 1, 0, alpha);
@@ -264,34 +221,34 @@ public class GamePanel extends JPanel implements Runnable {
 //        g2D.drawOval((int) (x2 - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y2 - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
 //        sprites[1].incrementPassiveSonarScale();
 
-        boolean showtext = true;
-
-        if (showtext) {
-            g2D.setPaint(Color.black);
-
-            Stroke stroke = new BasicStroke(2.0f);
-            g2D.setStroke(stroke);
-
-
-            int rectWidth = (MAX_SCREEN_COL / 4) * tile_size;
-            int rectCenterX = (MAX_SCREEN_COL * tile_size) / 2;
-            int rectX = rectCenterX - (rectWidth / 2);
-
-            int rectHeight = (MAX_SCREEN_ROW / 6) * tile_size;
-            int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;
-            int rectY = rectCenterY - (rectHeight / 2);
-            // Draw border
-            g2D.drawRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);
-
-            Color brownishBlack = new Color(35, 26, 26, 200);
-            g2D.setPaint(brownishBlack);
-
-            // Transparent box
-            g2D.fillRect(rectX, rectY, rectWidth, rectHeight);
-
-            g2D.setPaint(Color.white);
-            g2D.drawString("Hello World", rectX, rectCenterY);
-        }
+//        boolean showtext = true;
+//
+//        if (showtext) {
+//            g2D.setPaint(Color.black);
+//
+//            Stroke stroke = new BasicStroke(2.0f);
+//            g2D.setStroke(stroke);
+//
+//
+//            int rectWidth = (MAX_SCREEN_COL / 4) * tile_size;
+//            int rectCenterX = (MAX_SCREEN_COL * tile_size) / 2;
+//            int rectX = rectCenterX - (rectWidth / 2);
+//
+//            int rectHeight = (MAX_SCREEN_ROW / 6) * tile_size;
+//            int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;
+//            int rectY = rectCenterY - (rectHeight / 2);
+//            // Draw border
+//            g2D.drawRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);
+//
+//            Color brownishBlack = new Color(35, 26, 26, 200);
+//            g2D.setPaint(brownishBlack);
+//
+//            // Transparent box
+//            g2D.fillRect(rectX, rectY, rectWidth, rectHeight);
+//
+//            g2D.setPaint(Color.white);
+//            g2D.drawString("Hello World", rectX, rectCenterY);
+//        }
     }
 
 
