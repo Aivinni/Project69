@@ -4,7 +4,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     private boolean wKeyPressed, sKeyPressed, aKeyPressed, dKeyPressed; // movement keys
-    private boolean fKeyPressed; // interact key
+    private boolean fKeyPressed, nKeyPressed; // interact keys
     private boolean upKeyPressed, downKeyPressed, leftKeyPressed, rightKeyPressed; // attack keys
     public KeyHandler(){}
 
@@ -46,6 +46,9 @@ public class KeyHandler implements KeyListener {
     public boolean isFKeyPressed() {
         return fKeyPressed;
     }
+    public boolean isNKeyPressed() {
+        return nKeyPressed;
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -54,11 +57,12 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_S -> sKeyPressed = true;
             case KeyEvent.VK_A -> aKeyPressed = true;
             case KeyEvent.VK_D -> dKeyPressed = true;
-            case KeyEvent.VK_F -> fKeyPressed = true;
             case KeyEvent.VK_UP -> upKeyPressed = true;
             case KeyEvent.VK_DOWN -> downKeyPressed = true;
             case KeyEvent.VK_LEFT -> leftKeyPressed = true;
             case KeyEvent.VK_RIGHT -> rightKeyPressed = true;
+            case KeyEvent.VK_F -> fKeyPressed = true;
+            case KeyEvent.VK_N -> nKeyPressed = true;
         }
     }
 
@@ -71,11 +75,12 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_S -> sKeyPressed = true;
             case KeyEvent.VK_A -> aKeyPressed = true;
             case KeyEvent.VK_D -> dKeyPressed = true;
-            case KeyEvent.VK_F -> fKeyPressed = true;
             case KeyEvent.VK_UP -> upKeyPressed = true;
             case KeyEvent.VK_DOWN -> downKeyPressed = true;
             case KeyEvent.VK_LEFT -> leftKeyPressed = true;
             case KeyEvent.VK_RIGHT -> rightKeyPressed = true;
+            case KeyEvent.VK_F -> fKeyPressed = true;
+            case KeyEvent.VK_N -> nKeyPressed = true;
         }
     }
 
@@ -91,6 +96,7 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_LEFT -> leftKeyPressed = false;
             case KeyEvent.VK_RIGHT -> rightKeyPressed = false;
             case KeyEvent.VK_F -> fKeyPressed = false;
+            case KeyEvent.VK_N -> nKeyPressed = false;
         }
     }
 }
