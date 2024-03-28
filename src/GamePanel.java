@@ -115,7 +115,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
 
             if (!sprites[1].isActiveSonarJustUsed()) {
-                if (keyH.isNKeyPressed()) {
+                if (keyH.isSlashKeyPressed()) {
                     sprites[1].toggleSonarOn();
                     sprites[1].setSonarReady(false);
                 }

@@ -4,7 +4,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     private boolean wKeyPressed, sKeyPressed, aKeyPressed, dKeyPressed; // movement keys
-    private boolean fKeyPressed, nKeyPressed; // interact keys
+    private boolean fKeyPressed, slashKeyPressed; // interact keys
     private boolean upKeyPressed, downKeyPressed, leftKeyPressed, rightKeyPressed; // attack keys
     public KeyHandler(){}
 
@@ -46,8 +46,8 @@ public class KeyHandler implements KeyListener {
     public boolean isFKeyPressed() {
         return fKeyPressed;
     }
-    public boolean isNKeyPressed() {
-        return nKeyPressed;
+    public boolean isSlashKeyPressed() {
+        return slashKeyPressed;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_LEFT -> leftKeyPressed = true;
             case KeyEvent.VK_RIGHT -> rightKeyPressed = true;
             case KeyEvent.VK_F -> fKeyPressed = true;
-            case KeyEvent.VK_N -> nKeyPressed = true;
+            case KeyEvent.VK_SLASH -> slashKeyPressed = true;
         }
     }
 
@@ -80,7 +80,7 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_LEFT -> leftKeyPressed = true;
             case KeyEvent.VK_RIGHT -> rightKeyPressed = true;
             case KeyEvent.VK_F -> fKeyPressed = true;
-            case KeyEvent.VK_N -> nKeyPressed = true;
+            case KeyEvent.VK_SLASH -> slashKeyPressed = true;
         }
     }
 
@@ -96,7 +96,7 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_LEFT -> leftKeyPressed = false;
             case KeyEvent.VK_RIGHT -> rightKeyPressed = false;
             case KeyEvent.VK_F -> fKeyPressed = false;
-            case KeyEvent.VK_N -> nKeyPressed = false;
+            case KeyEvent.VK_SLASH -> slashKeyPressed = false;
         }
     }
 }
