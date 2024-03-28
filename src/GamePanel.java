@@ -15,14 +15,9 @@ public class GamePanel extends JPanel implements Runnable {
     private TaskForce[] sprites;
     private int x;
     private int y;
-    private int x2;
-    private int y2;
 
     private long lastSonarUseTime;
     private long lastPassivePulseTime;
-
-    private long lastSonarUseTime2;
-    private long lastPassivePulseTime2;
 
 
     public GamePanel() {
