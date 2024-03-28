@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="pop up rectangle (need to make disappear most times)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="Sonar for both sprites" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -258,6 +255,7 @@
     <MESSAGE value="repaint and key handler separation" />
     <MESSAGE value="draw rectangle" />
     <MESSAGE value="pop up rectangle (need to make disappear most times)" />
-    <option name="LAST_COMMIT_MESSAGE" value="pop up rectangle (need to make disappear most times)" />
+    <MESSAGE value="Sonar for both sprites" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sonar for both sprites" />
   </component>
 </project>

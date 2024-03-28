@@ -21,6 +21,9 @@ public class GamePanel extends JPanel implements Runnable {
     private long lastSonarUseTime;
     private long lastPassivePulseTime;
 
+    private long lastSonarUseTime2;
+    private long lastPassivePulseTime2;
+
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
@@ -215,7 +218,7 @@ public class GamePanel extends JPanel implements Runnable {
             g2D.drawOval((int) (x2 - ((tile_size * active2) / 2)) + (tile_size / 2), (int) (y2 - ((tile_size * active2) / 2)) + (tile_size / 2), (int) (tile_size * active2), (int) (tile_size * active2));
             sprites[1].incrementSonarScale();
             if (sprites[1].isActiveSonarJustUsed()) {
-                lastSonarUseTime = System.nanoTime();
+                lastSonarUseTime2 = System.nanoTime();
             }
             sprites[1].resetPassiveSonarScale();
         } else {
@@ -228,28 +231,28 @@ public class GamePanel extends JPanel implements Runnable {
                     g2D.drawOval((int) (x2 - ((tile_size * passive2) / 2)) + (tile_size / 2), (int) (y2 - ((tile_size * passive2) / 2)) + (tile_size / 2), (int) (tile_size * passive2), (int) (tile_size * passive2));
                     sprites[1].incrementPassiveSonarScale();
                     if (sprites[1].isPassiveSonarJustUsed()) {
-                        lastPassivePulseTime = System.nanoTime();
+                        lastPassivePulseTime2 = System.nanoTime();
                     }
                 } else {
                     long passiveDelay = 500000000;
-                    if (System.nanoTime() - lastPassivePulseTime > passiveDelay) {
+                    if (System.nanoTime() - lastPassivePulseTime2 > passiveDelay) {
                         sprites[1].setPassiveSonarJustUsed(false);
                     }
                 }
 
             } else {
                 long delay = 3;
-                if ((System.nanoTime() - lastSonarUseTime) / 1000000000 > delay) {
+                if ((System.nanoTime() - lastSonarUseTime2) / 1000000000 > delay) {
                     sprites[1].setActiveSonarJustUsed(false);
                 } else {
                     g.setColor(Color.CYAN);
                     g.setFont(new Font("SansSerif", Font.PLAIN, 18 ));
                     if (sprites[1].getPosition()[0] > (MAX_SCREEN_ROW / 2) - 3) {
                         //for cooldown above
-                        g.drawString(String.valueOf(3-(int)((System.nanoTime() - lastSonarUseTime) / 1000000000)), x2 + (tile_size/4) + (tile_size/5), y2 - (tile_size/4));
+                        g.drawString(String.valueOf(3-(int)((System.nanoTime() - lastSonarUseTime2) / 1000000000)), x2 + (tile_size/4) + (tile_size/5), y2 - (tile_size/4));
                     } else {
                         //for cooldown below
-                        g.drawString(String.valueOf(3 - (int) ((System.nanoTime() - lastSonarUseTime) / 1000000000)), x2 + (tile_size / 4) + (tile_size / 5), y2 + tile_size + (tile_size / 2));
+                        g.drawString(String.valueOf(3 - (int) ((System.nanoTime() - lastSonarUseTime2) / 1000000000)), x2 + (tile_size / 4) + (tile_size / 5), y2 + tile_size + (tile_size / 2));
                     }
                 }
             }
