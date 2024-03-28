@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="second ship now uses slash for sonar instead of N">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="deleted extra variables" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -243,7 +240,21 @@
       <option name="project" value="LOCAL" />
       <updated>1711636372911</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="second ship now uses slash for sonar instead of N &amp; made sonar a method">
+      <created>1711637064371</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1711637064371</updated>
+    </task>
+    <task id="LOCAL-00023" summary="deleted extra variables">
+      <created>1711637198814</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1711637198814</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -267,6 +278,8 @@
     <MESSAGE value="pop up rectangle (need to make disappear most times)" />
     <MESSAGE value="Sonar for both sprites" />
     <MESSAGE value="second ship now uses slash for sonar instead of N" />
-    <option name="LAST_COMMIT_MESSAGE" value="second ship now uses slash for sonar instead of N" />
+    <MESSAGE value="second ship now uses slash for sonar instead of N &amp; made sonar a method" />
+    <MESSAGE value="deleted extra variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted extra variables" />
   </component>
 </project>

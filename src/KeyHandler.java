@@ -5,12 +5,8 @@ public class KeyHandler implements KeyListener {
 
     private boolean wKeyPressed, sKeyPressed, aKeyPressed, dKeyPressed; // movement keys
     private boolean fKeyPressed, slashKeyPressed; // interact keys
-    private boolean upKeyPressed, downKeyPressed, leftKeyPressed, rightKeyPressed; // attack keys
+    private boolean upKeyPressed, downKeyPressed, leftKeyPressed, rightKeyPressed; // aivin keys
     public KeyHandler(){}
-
-    public void releaseF() {
-        fKeyPressed = false;
-    }
 
     public boolean isUpKeyPressed() {
         return upKeyPressed;
