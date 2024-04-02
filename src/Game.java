@@ -16,7 +16,7 @@ public class Game {
     public void makeMap() {
         for (Space[] list : map) {
             for (int i = 0; i < list.length; i++) {
-                list[i] = new Water("Ocean.png");
+                list[i] = new Water();
             }
         }
     }
@@ -30,7 +30,7 @@ public class Game {
     public Space[][] updateMap(Interactive[] players, Enemy[] enemies, Treasure[] treasures) {
         for (Space[] list : map) {
             for (int i = 0; i < list.length; i++) {
-                list[i] = new Water("Ocean.png");
+                list[i] = new Water();
             }
         }
 
