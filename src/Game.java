@@ -59,7 +59,10 @@ public class Game {
         for (int i = startY; i < endY; i++) {
             for (int j = startX; j < endX; j++) {
                 if (map[i][j] instanceof Detectable) {
-                    if (Math.random() > 0.96) {
+                    double distance = Math.sqrt(Math.pow(i - spritePosition[0], 2) + Math.pow(j - spritePosition[1], 2));
+                    double detectChance = Math.sqrt(distance) / 1.3;
+                    System.out.println(detectChance);
+                    if (Math.random() > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
                     }
                 }
@@ -79,7 +82,9 @@ public class Game {
         for (int i = startY; i < endY; i++) {
             for (int j = startX; j < endX; j++) {
                 if (map[i][j] instanceof Detectable) {
-                    if (Math.random() > 0.25) {
+                    double distance = Math.sqrt(Math.pow(i - spritePosition[0], 2) + Math.pow(j - spritePosition[1], 2));
+                    double detectChance = distance / 6;
+                    if (Math.random() > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
                     }
                 }
