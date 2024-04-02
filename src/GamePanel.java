@@ -18,6 +18,8 @@ public class GamePanel extends JPanel implements Runnable {
     private Game game;
     private Space[][] map;
     private TaskForce[] sprites;
+    private Enemy[] enemies;
+    private Treasure[] treasures;
     private int x;
     private int y;
 
@@ -32,9 +34,14 @@ public class GamePanel extends JPanel implements Runnable {
 
         TaskForce char1 = new TaskForce("wasd", new int[]{0, 0}, "HMS_Hardy_badge.png");
         TaskForce char2 = new TaskForce("arrows", new int[]{2, 0}, "HMS_Jervis_badge.png");
-        Treasure treasure = new Treasure();
+
         Enemy enemy = new Enemy("enemy", new int[]{5, 7});
+
+        Treasure treasure = new Treasure("Edinburgh Wreck.png");
+
         sprites = new TaskForce[]{char1, char2};
+        enemies = new Enemy[]{enemy};
+        treasures = new Treasure[]{treasure};
 
         game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW, sprites);
         game.addToMap(treasure);
@@ -110,14 +117,12 @@ public class GamePanel extends JPanel implements Runnable {
             if (!sprites[0].isActiveSonarJustUsed()) {
                 if (keyH.isFKeyPressed()) {
                     sprites[0].toggleSonarOn();
-                    sprites[0].setSonarReady(false);
                 }
             }
 
             if (!sprites[1].isActiveSonarJustUsed()) {
                 if (keyH.isSlashKeyPressed()) {
                     sprites[1].toggleSonarOn();
-                    sprites[1].setSonarReady(false);
                 }
             }
 
@@ -153,6 +158,7 @@ public class GamePanel extends JPanel implements Runnable {
         double active;
         double passive;
         if (sprite.isUsingSonar()) {
+            // If currently using Sonar, draw oval for sonar
             active = sprite.getSonarScale();
             float alpha = 1 - ((float) active / 7);
             Color color = new Color(0, 1, 0, alpha);
@@ -161,8 +167,10 @@ public class GamePanel extends JPanel implements Runnable {
             sprite.incrementSonarScale();
             if (sprite.isActiveSonarJustUsed()) {
                 lastSonarUseTime = System.nanoTime();
+                game.detectWithActive(sprite);
+                sprite.resetPassiveSonarScale();
             }
-            sprite.resetPassiveSonarScale();
+
         } else {
             if (!sprite.isActiveSonarJustUsed()) {
                 if (!sprite.isPassiveSonarJustUsed()) {
@@ -174,9 +182,10 @@ public class GamePanel extends JPanel implements Runnable {
                     sprite.incrementPassiveSonarScale();
                     if (sprite.isPassiveSonarJustUsed()) {
                         lastPassivePulseTime = System.nanoTime();
+                        game.detectWithPassive(sprite);
                     }
                 } else {
-                    long passiveDelay = 500000000;
+                    long passiveDelay = 750000000;
                     if (System.nanoTime() - lastPassivePulseTime > passiveDelay) {
                         sprite.setPassiveSonarJustUsed(false);
                     }
@@ -204,7 +213,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        map = game.updateMap(sprites);
+        map = game.updateMap(sprites, enemies, treasures);
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
@@ -213,13 +222,6 @@ public class GamePanel extends JPanel implements Runnable {
 
         useSonar(g, sprites[0]);
         useSonar(g, sprites[1]);
-
-//        passive = sprites[1].getPassiveSonarScale();
-//        float alpha = 1 - ((float) passive / 4);
-//        Color color = new Color(0, 1, 0, alpha);
-//        g2D.setPaint(color);
-//        g2D.drawOval((int) (x2 - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y2 - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
-//        sprites[1].incrementPassiveSonarScale();
 
 //        boolean showtext = true;
 //
@@ -251,12 +253,8 @@ public class GamePanel extends JPanel implements Runnable {
 //        }
     }
 
-
-
     private void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
     }
-
-
 }

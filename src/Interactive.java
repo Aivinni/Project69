@@ -12,4 +12,9 @@ public class Interactive extends Space{
     public int[] getPosition() {
         return position;
     }
+
+    @Override
+    public void updateImage(String fileName) {
+        super.updateImage(fileName);
+    }
 }
