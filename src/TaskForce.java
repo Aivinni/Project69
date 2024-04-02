@@ -78,6 +78,5 @@ public class TaskForce extends Interactive {
     public long getLastPassivePulseTime(){
         return lastPassivePulseTime;
     }
-    //TODO: make the sonar affect the tiles around it
 
 }
