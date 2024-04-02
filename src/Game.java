@@ -69,5 +69,21 @@ public class Game {
 
     public void detectWithActive(TaskForce sprite) {
         System.out.println("detect with active");
+        int[] spritePosition = sprite.getPosition();
+
+        int startY = Math.max(0, spritePosition[0] - 2);
+        int startX = Math.max(0, spritePosition[1] - 2);
+        int endY = Math.min(map.length, spritePosition[0] + 2);
+        int endX = Math.min(map[0].length, spritePosition[1] + 2);
+
+        for (int i = startY; i < endY; i++) {
+            for (int j = startX; j < endX; j++) {
+                if (map[i][j] instanceof Detectable) {
+                    if (Math.random() > 0.25) {
+                        ((Detectable) map[i][j]).setDetected(true);
+                    }
+                }
+            }
+        }
     }
 }
