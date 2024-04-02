@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="active sonar detects">
+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="second ship now uses slash for sonar instead of N">
+      <change afterPath="$PROJECT_DIR$/src/Detectable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interactive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interactive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Treasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Treasure.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,23 +249,7 @@
       <option name="project" value="LOCAL" />
       <updated>1711636372911</updated>
     </task>
-    <task id="LOCAL-00022" summary="sonar detects">
-      <option name="closed" value="true" />
-      <created>1712065757750</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1712065757750</updated>
-    </task>
-    <task id="LOCAL-00023" summary="active sonar detects">
-      <option name="closed" value="true" />
-      <created>1712065956990</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1712065956990</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -283,8 +273,6 @@
     <MESSAGE value="pop up rectangle (need to make disappear most times)" />
     <MESSAGE value="Sonar for both sprites" />
     <MESSAGE value="second ship now uses slash for sonar instead of N" />
-    <MESSAGE value="sonar detects" />
-    <MESSAGE value="active sonar detects" />
-    <option name="LAST_COMMIT_MESSAGE" value="active sonar detects" />
+    <option name="LAST_COMMIT_MESSAGE" value="second ship now uses slash for sonar instead of N" />
   </component>
 </project>
