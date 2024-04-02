@@ -37,7 +37,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         Enemy enemy = new Enemy("enemy", new int[]{5, 7});
 
-        Treasure treasure = new Treasure("Edinburgh Wreck.png");
+        Treasure treasure = new Treasure();
 
         sprites = new TaskForce[]{char1, char2};
         enemies = new Enemy[]{enemy};
