@@ -17,4 +17,5 @@ public class Interactive extends Space{
     public void updateImage(String fileName) {
         super.updateImage(fileName);
     }
+    //TODO: MAKE THE SEA APPEAR AS THE BACKGROUND INSTEAD OF A BLACK BACKGROUND
 }
