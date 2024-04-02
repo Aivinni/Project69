@@ -23,8 +23,8 @@ public class GamePanel extends JPanel implements Runnable {
     private int x;
     private int y;
 
-    private long lastSonarUseTime;
-    private long lastPassivePulseTime;
+    //private long lastSonarUseTime;
+    //private long lastPassivePulseTime;
 
 
     public GamePanel() {
@@ -166,7 +166,8 @@ public class GamePanel extends JPanel implements Runnable {
             g2D.drawOval((int) (x - ((tile_size * active) / 2)) + (tile_size / 2), (int) (y - ((tile_size * active) / 2)) + (tile_size / 2), (int) (tile_size * active), (int) (tile_size * active));
             sprite.incrementSonarScale();
             if (sprite.isActiveSonarJustUsed()) {
-                lastSonarUseTime = System.nanoTime();
+                //lastSonarUseTime = System.nanoTime();
+                sprite.setLastSonarUseTime();
                 game.detectWithActive(sprite);
                 sprite.resetPassiveSonarScale();
             }
@@ -181,29 +182,31 @@ public class GamePanel extends JPanel implements Runnable {
                     g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));
                     sprite.incrementPassiveSonarScale();
                     if (sprite.isPassiveSonarJustUsed()) {
-                        lastPassivePulseTime = System.nanoTime();
+                        //lastPassivePulseTime = System.nanoTime();
+                        sprite.setLastPassivePulseTime();
                         game.detectWithPassive(sprite);
                     }
                 } else {
                     long passiveDelay = 750000000;
-                    if (System.nanoTime() - lastPassivePulseTime > passiveDelay) {
+                    if (System.nanoTime() - sprite.getLastPassivePulseTime() > passiveDelay) {
                         sprite.setPassiveSonarJustUsed(false);
                     }
                 }
 
             } else {
                 long delay = 3;
-                if ((System.nanoTime() - lastSonarUseTime) / 1000000000 > delay) {
+                if ((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000 > delay) {
                     sprite.setActiveSonarJustUsed(false);
+                    System.out.println("here");;
                 } else {
                     g.setColor(Color.CYAN);
                     g.setFont(new Font("SansSerif", Font.PLAIN, 18 ));
                     if (sprite.getPosition()[0] > (MAX_SCREEN_ROW/2)-3) {
                         //for cooldown above
-                        g.drawString(String.valueOf(3-(int)((System.nanoTime() - lastSonarUseTime) / 1000000000)), x + (tile_size/4) + (tile_size/5), y - (tile_size/4));
+                        g.drawString(String.valueOf(3-(int)((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000)), x + (tile_size/4) + (tile_size/5), y - (tile_size/4));
                     } else {
                         //for cooldown below
-                        g.drawString(String.valueOf(3 - (int) ((System.nanoTime() - lastSonarUseTime) / 1000000000)), x + (tile_size / 4) + (tile_size / 5), y + tile_size + (tile_size / 2));
+                        g.drawString(String.valueOf(3 - (int) ((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000)), x + (tile_size / 4) + (tile_size / 5), y + tile_size + (tile_size / 2));
                     }
                 }
             }
@@ -220,8 +223,9 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
-        useSonar(g, sprites[0]);
-        useSonar(g, sprites[1]);
+            useSonar(g, sprites[0]);
+            useSonar(g, sprites[1]);
+
 
 //        boolean showtext = true;
 //

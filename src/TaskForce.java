@@ -7,6 +7,8 @@ public class TaskForce extends Interactive {
 
     private double sonarScale;
     private double sonarScalePassive;
+    private long lastSonarUseTime;
+    private long lastPassivePulseTime;
 
     public TaskForce(String name, int[] position, String fileName) {
         super(name, position, fileName);
@@ -63,6 +65,18 @@ public class TaskForce extends Interactive {
     }
     public void resetPassiveSonarScale() {
         sonarScalePassive = 0;
+    }
+    public void setLastSonarUseTime(){
+        lastSonarUseTime = System.nanoTime();
+    }
+    public long getLastSonarUseTime(){
+        return lastSonarUseTime;
+    }
+    public void setLastPassivePulseTime(){
+        lastPassivePulseTime = System.nanoTime();
+    }
+    public long getLastPassivePulseTime(){
+        return lastPassivePulseTime;
     }
     //TODO: make the sonar affect the tiles around it
 
