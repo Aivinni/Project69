@@ -28,12 +28,7 @@ public class Game {
         map[position[0]][position[1]] = space;
     }
     public Space[][] updateMap(Interactive[] players, Enemy[] enemies, Treasure[] treasures) {
-        for (Space[] list : map) {
-            for (int i = 0; i < list.length; i++) {
-                list[i] = new Water();
-            }
-        }
-
+        makeMap();
         for (Detectable enemy : enemies) {
             addToMap(enemy);
         }
@@ -43,7 +38,6 @@ public class Game {
         for (Interactive player : players) {
             addToMap(player);
         }
-
         return map;
     }
 

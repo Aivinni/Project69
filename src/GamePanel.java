@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.geom.Arc2D;
 
 public class GamePanel extends JPanel implements Runnable {
-    public static int tile_size = 48;
+    public static int tile_size = 48; //don't change this
 
     //for aivin: 31
     //for normal people: 40
@@ -32,8 +32,8 @@ public class GamePanel extends JPanel implements Runnable {
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
 
-        TaskForce char1 = new TaskForce("wasd", new int[]{0, 0}, "HMS_Hardy_badge.png");
-        TaskForce char2 = new TaskForce("arrows", new int[]{2, 0}, "HMS_Jervis_badge.png");
+        TaskForce char1 = new TaskForce("wasd", new int[]{6, 15}, "HMS_Hardy_badge.png");
+        TaskForce char2 = new TaskForce("arrows", new int[]{9, 13}, "HMS_Jervis_badge.png");
 
         Enemy enemy = new Enemy("enemy", new int[]{5, 7});
 
@@ -197,7 +197,6 @@ public class GamePanel extends JPanel implements Runnable {
                 long delay = 3;
                 if ((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000 > delay) {
                     sprite.setActiveSonarJustUsed(false);
-                    System.out.println("here");;
                 } else {
                     g.setColor(Color.CYAN);
                     g.setFont(new Font("SansSerif", Font.PLAIN, 18 ));

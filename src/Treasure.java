@@ -2,6 +2,6 @@ import java.awt.*;
 
 public class Treasure extends Detectable {
     public Treasure(){
-        super("edinburgh shipwreck", new int[]{0, 0}, "Ocean.png", "Treasure.png");
+        super("treasure", new int[]{17, 18}, "Ocean.png", "Treasure.png");
     }
 }
