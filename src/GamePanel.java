@@ -68,7 +68,6 @@ public class GamePanel extends JPanel implements Runnable {
         long currentTime = System.nanoTime();
         long previousTime = currentTime;
         double delta = 0.0;
-        double sonarTime = 0.0;
         int FPS = 60;
         double drawInterval = 1000000000.0 / FPS;
 
@@ -81,7 +80,9 @@ public class GamePanel extends JPanel implements Runnable {
 
             if (delta % (int) delta >= 0.999995) {
                 repaint();
+
             }
+
 
             if (delta >= 6) {
                 if (keyH.isWKeyPressed()) {
@@ -111,8 +112,6 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 delta = 0;
             }
-
-            sonarTime += (double) (currentTime - previousTime) / drawInterval;
 
             if (!sprites[0].isActiveSonarJustUsed()) {
                 if (keyH.isFKeyPressed()) {
