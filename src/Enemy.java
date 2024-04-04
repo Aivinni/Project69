@@ -4,7 +4,7 @@ public class Enemy extends Detectable {
     }
     public void move(){
         int[] position = getPosition();
-        setPosition();
+        setPosition(position[1], position[0]);
         //todo: enemies move randomly every second in random directions
     }
 }
