@@ -44,8 +44,8 @@ public class GamePanel extends JPanel implements Runnable {
         treasures = new Treasure[]{treasure};
 
         game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW, sprites);
-        game.addToMap(treasure);
-        game.addToMap(enemy);
+        game.addToMap(treasures);
+        game.addToMap(enemies);
         map = game.getMap();
 
         keyH = new KeyHandler();

@@ -4,9 +4,7 @@ public class Game {
     public Game(int mapX, int mapY, Interactive[] players) {
         map = new Space[mapY][mapX];
         makeMap();
-        for (Interactive player : players) {
-            addToMap(player);
-        }
+        addToMap(players);
     }
 
     public Space[][] getMap() {
@@ -24,20 +22,16 @@ public class Game {
         int[] position = sprite.getPosition();
         map[position[0]][position[1]] = sprite;
     }
-    public void addToMap(Space space, int[] position){
-        map[position[0]][position[1]] = space;
+    public void addToMap(Interactive[] spaces){
+        for (Interactive space: spaces){
+            addToMap(space);
+        }
     }
     public Space[][] updateMap(Interactive[] players, Enemy[] enemies, Treasure[] treasures) {
         makeMap();
-        for (Detectable enemy : enemies) {
-            addToMap(enemy);
-        }
-        for (Detectable treasure : treasures) {
-            addToMap(treasure);
-        }
-        for (Interactive player : players) {
-            addToMap(player);
-        }
+        addToMap(enemies);
+        addToMap(treasures);
+        addToMap(players);
         return map;
     }
 
