@@ -9,10 +9,12 @@ public class TaskForce extends Interactive {
     private double sonarScalePassive;
     private long lastSonarUseTime;
     private long lastPassivePulseTime;
+    private boolean moveReady;
 
     public TaskForce(String name, int[] position, String fileName) {
         super(name, position, fileName);
         usingSonar = false;
+        moveReady = true;
     }
 
     public void setSonarReady(boolean sonarReady) {
@@ -46,6 +48,13 @@ public class TaskForce extends Interactive {
     }
     public boolean isPassiveSonarJustUsed() {
         return passiveSonarJustUsed;
+    }
+
+    public boolean isMoveReady() {
+        return moveReady;
+    }
+    public void setMoveReady(boolean moveReady) {
+        this.moveReady = moveReady;
     }
 
     public void incrementSonarScale() {

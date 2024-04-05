@@ -70,6 +70,8 @@ public class GamePanel extends JPanel implements Runnable {
         double delta = 0.0;
         int FPS = 60;
         double drawInterval = 1000000000.0 / FPS;
+        double moveTime1 = 0.0;
+        double moveTime2 = 0.0;
 
         while (gameThread != null) {
             // system.nanotime is java's very accurate clock or something (i dont 100% remember)
@@ -78,13 +80,9 @@ public class GamePanel extends JPanel implements Runnable {
             // the time between now and the last time this looped
             delta += (double) (currentTime - previousTime) / drawInterval;
 
-            if (delta % (int) delta >= 0.999995) {
+
+            if (delta >= 1) {
                 repaint();
-
-            }
-
-
-            if (delta >= 6) {
                 if (keyH.isWKeyPressed()) {
                     move("Up", 0);
                 }
@@ -113,6 +111,20 @@ public class GamePanel extends JPanel implements Runnable {
                 delta = 0;
             }
 
+            moveTime1 += (double) (currentTime - previousTime) / drawInterval;
+            moveTime2 += (double) (currentTime - previousTime) / drawInterval;
+
+            if (moveTime1 >= 10) {
+                sprites[0].setMoveReady(true);
+                moveTime1 = 0;
+            }
+
+            if (moveTime2 >= 10) {
+                sprites[1].setMoveReady(true);
+                moveTime2 = 0;
+            }
+
+
             if (!sprites[0].isActiveSonarJustUsed()) {
                 if (keyH.isFKeyPressed()) {
                     sprites[0].toggleSonarOn();
@@ -133,19 +145,23 @@ public class GamePanel extends JPanel implements Runnable {
             previousTime = currentTime;
         }
     }
-    private void move(String direction, int sprite){
-        Interactive a = sprites[sprite];
-        if (direction.equalsIgnoreCase("Up")&& a.getPosition()[0] > 0) {
-            a.setPosition(a.getPosition()[0] - 1, a.getPosition()[1]);
+    private void move(String direction, int spriteIdx){
+        TaskForce sprite = sprites[spriteIdx];
+        if (direction.equalsIgnoreCase("Up") && sprite.getPosition()[0] > 0 && sprite.isMoveReady()) {
+            sprite.setPosition(sprite.getPosition()[0] - 1, sprite.getPosition()[1]);
+            sprite.setMoveReady(false);
         }
-        if (direction.equalsIgnoreCase("Left")&& a.getPosition()[1] > 0) {
-            a.setPosition(a.getPosition()[0], a.getPosition()[1] - 1);
+        if (direction.equalsIgnoreCase("Left") && sprite.getPosition()[1] > 0 && sprite.isMoveReady()) {
+            sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] - 1);
+            sprite.setMoveReady(false);
         }
-        if (direction.equalsIgnoreCase("Down")&& a.getPosition()[0] < MAX_SCREEN_ROW - 1) {
-            a.setPosition(a.getPosition()[0] + 1, a.getPosition()[1]);
+        if (direction.equalsIgnoreCase("Down") && sprite.getPosition()[0] < MAX_SCREEN_ROW - 1 && sprite.isMoveReady()) {
+            sprite.setPosition(sprite.getPosition()[0] + 1, sprite.getPosition()[1]);
+            sprite.setMoveReady(false);
         }
-        if (direction.equalsIgnoreCase("Right")&& a.getPosition()[1] < MAX_SCREEN_COL - 1) {
-            a.setPosition(a.getPosition()[0], a.getPosition()[1] + 1);
+        if (direction.equalsIgnoreCase("Right") && sprite.getPosition()[1] < MAX_SCREEN_COL - 1 && sprite.isMoveReady()) {
+            sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] + 1);
+            sprite.setMoveReady(false);
         }
     }
     public void useSonar(Graphics g, TaskForce sprite){

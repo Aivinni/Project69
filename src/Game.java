@@ -46,7 +46,14 @@ public class Game {
 
         for (int i = startY; i < endY; i++) {
             for (int j = startX; j < endX; j++) {
-                if (map[i][j] instanceof Detectable) {
+                if (map[i][j] instanceof Treasure) {
+                    double distance = Math.sqrt(Math.pow(i - spritePosition[0], 2) + Math.pow(j - spritePosition[1], 2));
+                    double detectChance = Math.sqrt(distance) / 1.2d;
+                    System.out.println(detectChance);
+                    if (Math.random() > detectChance) {
+                        ((Detectable) map[i][j]).setDetected(true);
+                    }
+                } if (map[i][j] instanceof Enemy) {
                     double distance = Math.sqrt(Math.pow(i - spritePosition[0], 2) + Math.pow(j - spritePosition[1], 2));
                     double detectChance = Math.sqrt(distance) / 1.3;
                     System.out.println(detectChance);
