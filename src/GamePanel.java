@@ -1,52 +1,61 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Arc2D;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GamePanel extends JPanel implements Runnable {
     public static int tile_size = 48; //don't change this
 
     //for aivin: 31
     //for normal people: 40
-    public static final int MAX_SCREEN_COL = 40;
+    public static final int MAX_SCREEN_COL = 31;
     //for aivin: 18
     //for normal people: 21
-    public static final int MAX_SCREEN_ROW = 21;
+    public static final int MAX_SCREEN_ROW = 18;
 
     private Thread gameThread;
     private KeyHandler keyH;
 
     private Game game;
     private Space[][] map;
-    private TaskForce[] sprites;
-    private Enemy[] enemies;
-    private Treasure[] treasures;
+    private ArrayList<TaskForce> sprites;
+    private ArrayList<Enemy> enemies;
+    private ArrayList<Treasure> treasures;
     private int x;
     private int y;
-
-    //private long lastSonarUseTime;
-    //private long lastPassivePulseTime;
-
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
 
-        TaskForce char1 = new TaskForce("wasd", new int[]{6, 15}, "HMS_Hardy_badge.png");
-        TaskForce char2 = new TaskForce("arrows", new int[]{9, 13}, "HMS_Jervis_badge.png");
-
-        Enemy enemy = new Enemy("enemy", new int[]{5, 7});
-
-        Treasure treasure = new Treasure();
-
-        sprites = new TaskForce[]{char1, char2};
-        enemies = new Enemy[]{enemy};
-        treasures = new Treasure[]{treasure};
-
-        game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW, sprites);
-        game.addToMap(treasures);
-        game.addToMap(enemies);
+        game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW);
         map = game.getMap();
+
+        TaskForce char1 = new TaskForce("Player1", new int[]{0, 0}, "HMS_Hardy_badge.png", game);
+        TaskForce char2 = new TaskForce("Player2", new int[]{0, 0}, "HMS_Jervis_badge.png", game);
+        sprites = new ArrayList<>(Arrays.asList(char1, char2));
+
+        game.addSprites(sprites);
+
+        enemies = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            int enemyX = (int) (Math.random() * (MAX_SCREEN_COL - 5)) + 5;
+            int enemyY = (int) (Math.random() * (MAX_SCREEN_ROW - 5)) + 5;
+            Enemy enemy = new Enemy("enemy", new int[]{enemyY, enemyX}, game);
+            enemies.add(enemy);
+        }
+
+        game.addEnemies(enemies);
+
+        int treasureX = (int) (Math.random() * (MAX_SCREEN_COL - 5)) + 5;
+        int treasureY = (int) (Math.random() * (MAX_SCREEN_ROW - 5)) + 5;
+        Treasure treasure = new Treasure(new int[]{treasureY, treasureX}, game);
+        treasure.setDetected(true);
+        System.out.println(Arrays.toString(treasure.getPosition()));
+        treasures = new ArrayList<>(Arrays.asList(treasure));
+
+        game.addTreasures(treasures);
 
         keyH = new KeyHandler();
         this.addKeyListener(keyH);
@@ -72,6 +81,7 @@ public class GamePanel extends JPanel implements Runnable {
         double drawInterval = 1000000000.0 / FPS;
         double moveTime1 = 0.0;
         double moveTime2 = 0.0;
+        double enemyMove = 0.0;
 
         while (gameThread != null) {
             // system.nanotime is java's very accurate clock or something (i dont 100% remember)
@@ -79,7 +89,6 @@ public class GamePanel extends JPanel implements Runnable {
 
             // the time between now and the last time this looped
             delta += (double) (currentTime - previousTime) / drawInterval;
-
 
             if (delta >= 1) {
                 repaint();
@@ -109,60 +118,78 @@ public class GamePanel extends JPanel implements Runnable {
                     move("Left", 1);
                 }
                 delta = 0;
+
+                for (TaskForce sprite : sprites) {
+                    if (sprite.getMoveDelay() >= 6) {
+                        sprite.setMoveDelay(sprite.getMoveDelay() - 1);
+                    } else {
+                        sprite.setMoveDelay(0);
+                        sprite.setMove(null);
+                    }
+                }
             }
 
             moveTime1 += (double) (currentTime - previousTime) / drawInterval;
             moveTime2 += (double) (currentTime - previousTime) / drawInterval;
+            enemyMove += (double) (currentTime - previousTime) / drawInterval;
 
-            if (moveTime1 >= 10) {
-                sprites[0].setMoveReady(true);
+            if (moveTime1 >= 20) {
+                sprites.get(0).setMoveReady(true);
                 moveTime1 = 0;
             }
 
-            if (moveTime2 >= 10) {
-                sprites[1].setMoveReady(true);
+            if (moveTime2 >= 20) {
+                sprites.get(1).setMoveReady(true);
                 moveTime2 = 0;
             }
 
+            if (enemyMove >= 35) {
+                for (Enemy enemy : enemies) {
+                    enemy.move();
+                    enemy.setDetected(true);
+                }
+                enemyMove = 0;
+            }
 
-            if (!sprites[0].isActiveSonarJustUsed()) {
+
+            if (!sprites.get(0).isActiveSonarJustUsed()) {
                 if (keyH.isFKeyPressed()) {
-                    sprites[0].toggleSonarOn();
+                    sprites.get(0).toggleSonarOn();
                 }
             }
 
-            if (!sprites[1].isActiveSonarJustUsed()) {
+            if (!sprites.get(1).isActiveSonarJustUsed()) {
                 if (keyH.isSlashKeyPressed()) {
-                    sprites[1].toggleSonarOn();
+                    sprites.get(1).toggleSonarOn();
                 }
             }
-
-            //x = sprites[0].getPosition()[1] * tile_size;
-            //y = sprites[0].getPosition()[0] * tile_size;
-            //x2 = sprites[1].getPosition()[1] * tile_size;
-            //y2 = sprites[1].getPosition()[0] * tile_size;
 
             previousTime = currentTime;
         }
     }
     private void move(String direction, int spriteIdx){
-        TaskForce sprite = sprites[spriteIdx];
+        TaskForce sprite = sprites.get(spriteIdx);
         if (direction.equalsIgnoreCase("Up") && sprite.getPosition()[0] > 0 && sprite.isMoveReady()) {
             sprite.setPosition(sprite.getPosition()[0] - 1, sprite.getPosition()[1]);
+            sprite.setMove("up");
             sprite.setMoveReady(false);
         }
         if (direction.equalsIgnoreCase("Left") && sprite.getPosition()[1] > 0 && sprite.isMoveReady()) {
             sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] - 1);
             sprite.setMoveReady(false);
+            sprite.setMove("left");
         }
         if (direction.equalsIgnoreCase("Down") && sprite.getPosition()[0] < MAX_SCREEN_ROW - 1 && sprite.isMoveReady()) {
             sprite.setPosition(sprite.getPosition()[0] + 1, sprite.getPosition()[1]);
             sprite.setMoveReady(false);
+            sprite.setMove("down");
         }
         if (direction.equalsIgnoreCase("Right") && sprite.getPosition()[1] < MAX_SCREEN_COL - 1 && sprite.isMoveReady()) {
             sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] + 1);
             sprite.setMoveReady(false);
+            sprite.setMove("right");
         }
+        sprite.setMoveDelay(24);
     }
     public void useSonar(Graphics g, TaskForce sprite){
         Graphics2D g2D = (Graphics2D) g;
@@ -181,10 +208,19 @@ public class GamePanel extends JPanel implements Runnable {
             g2D.drawOval((int) (x - ((tile_size * active) / 2)) + (tile_size / 2), (int) (y - ((tile_size * active) / 2)) + (tile_size / 2), (int) (tile_size * active), (int) (tile_size * active));
             sprite.incrementSonarScale();
             if (sprite.isActiveSonarJustUsed()) {
-                //lastSonarUseTime = System.nanoTime();
+                // lastSonarUseTime = System.nanoTime();
                 sprite.setLastSonarUseTime();
                 game.detectWithActive(sprite);
                 sprite.resetPassiveSonarScale();
+                for (Enemy enemy : enemies) {
+                    if (enemy.isTargetReached()) {
+                        int[] tempPos = new int[sprite.getPosition().length];
+                        for (int i = 0; i < sprite.getPosition().length; i++) {
+                            tempPos[i] = sprite.getPosition()[i];
+                        }
+                        enemy.setPositionTarget(tempPos);
+                    }
+                }
             }
 
         } else {
@@ -230,15 +266,35 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        map = game.updateMap(sprites, enemies, treasures);
+        map = game.updateMap();
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
-                g.drawImage(map[i][j].getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
+                Space tile = map[i][j];
+                if (tile instanceof Interactive interactiveTile) {
+                    if (!(interactiveTile.getMove() == null)) {
+                        switch (interactiveTile.getMove()) {
+                            case "up" ->
+//                            g.drawImage(tile.getImage(), j * tile_size, i * tile_size + interactiveTile.getMoveDelay(), tile_size, tile_size, null);
+                                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
+                            case "down" ->
+                                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
+                            case "left" ->
+                                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
+                            case "right" ->
+                                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
+                        }
+                    } else {
+                        g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
+                    }
+
+                } else {
+                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);
+                }
             }
         }
 
-            useSonar(g, sprites[0]);
-            useSonar(g, sprites[1]);
+        useSonar(g, sprites.get(0));
+        useSonar(g, sprites.get(1));
 
 
 //        boolean showtext = true;

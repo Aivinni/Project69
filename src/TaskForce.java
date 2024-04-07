@@ -11,8 +11,8 @@ public class TaskForce extends Interactive {
     private long lastPassivePulseTime;
     private boolean moveReady;
 
-    public TaskForce(String name, int[] position, String fileName) {
-        super(name, position, fileName);
+    public TaskForce(String name, int[] position, String fileName, Game game) {
+        super(name, position, fileName, game);
         usingSonar = false;
         moveReady = true;
     }
