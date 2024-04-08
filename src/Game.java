@@ -2,9 +2,10 @@ import java.util.ArrayList;
 
 public class Game {
     private static Space[][] map;
-    private ArrayList<TaskForce> sprites;
-    private ArrayList<Enemy> enemies;
-    private ArrayList<Treasure> treasures;
+    private ArrayList<TaskForce> sprites = new ArrayList<>();
+    private ArrayList<Enemy> enemies = new ArrayList<>();
+    private ArrayList<Treasure> treasures = new ArrayList<>();
+    private ArrayList<Interactive> list = new ArrayList<>();
 
     public Game(int mapX, int mapY) {
         map = new Space[mapY][mapX];
@@ -19,6 +20,17 @@ public class Game {
     }
     public void addTreasures(ArrayList<Treasure> treasures) {
         this.treasures = treasures;
+    }
+    public void makeList(){
+        for (Treasure treasure : treasures) {
+            list.add(treasure);
+        }
+        for (Enemy enemy : enemies) {
+            list.add(enemy);
+        }
+        for (TaskForce sprite : sprites) {
+            list.add(sprite);
+        }
     }
 
     public ArrayList<TaskForce> getSprites() {
