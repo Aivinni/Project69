@@ -168,6 +168,9 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
             for (TaskForce sprite : sprites) {
+                if (sprite == null) {
+                    break;
+                }
                 sprite.setMoveTime(sprite.getMoveTime() + timePassed);
                 if (sprite.getMoveTime() >= 20) {
                     sprite.setMoveReady(true);
