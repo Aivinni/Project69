@@ -8,10 +8,10 @@ public class GamePanel extends JPanel implements Runnable {
 
     //for aivin: 31
     //for normal people: 40
-    public static final int MAX_SCREEN_COL = 31;
+    public static final int MAX_SCREEN_COL = 40;
     //for aivin: 18
     //for normal people: 21
-    public static final int MAX_SCREEN_ROW = 18;
+    public static final int MAX_SCREEN_ROW = 21;
 
     private Thread gameThread;
     private KeyHandler keyH;
@@ -186,7 +186,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             enemyMove += timePassed;
 
-            if (enemyMove >= 25) {
+            if (enemyMove >= 20) {
                 for (Enemy enemy : enemies) {
                     enemy.move();
                 }
