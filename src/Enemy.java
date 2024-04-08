@@ -2,8 +2,10 @@ public class Enemy extends Detectable {
     int[] positionTarget;
     boolean targetReached;
 
-    public Enemy(String name, int[] position, Game game){
-        super(name, position, "Ocean.png", "154.png", game);
+    int movesWhileDetected = 0;
+
+    public Enemy(String name, int[] position, String hiddenImage, Game game){
+        super(name, position, "Ocean.png", hiddenImage, game);
         targetReached = true;
     }
 
@@ -13,6 +15,13 @@ public class Enemy extends Detectable {
     }
     public boolean isTargetReached() {
         return targetReached;
+    }
+
+    public void setMovesWhileDetected(int movesWhileDetected) {
+        this.movesWhileDetected = movesWhileDetected;
+    }
+    public int getMovesWhileDetected() {
+        return movesWhileDetected;
     }
 
     public void move(){
@@ -45,6 +54,7 @@ public class Enemy extends Detectable {
                     }
                }
             }
+            movesWhileDetected++;
         } else {
             if (!targetReached) {
                 if (positionTarget != null) {

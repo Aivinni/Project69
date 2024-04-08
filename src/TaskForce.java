@@ -11,6 +11,7 @@ public class TaskForce extends Interactive {
     private final String sonarKey, upKey, downKey, leftKey, rightKey;
 
     private double moveTime = 0.0;
+    private boolean enemyNear = false;
 
     public TaskForce(String name, int[] position, Game game, String fileName, String sonarKey, String upKey, String downKey, String leftKey, String rightKey) {
         super(name, position, fileName, game);
@@ -45,6 +46,13 @@ public class TaskForce extends Interactive {
     }
     public double getMoveTime() {
         return moveTime;
+    }
+
+    public void setEnemyNear(boolean enemyNear) {
+        this.enemyNear = enemyNear;
+    }
+    public boolean isEnemyNear() {
+        return enemyNear;
     }
 
     public boolean isUsingSonar(){
@@ -90,7 +98,7 @@ public class TaskForce extends Interactive {
         }
     }
     public void incrementPassiveSonarScale(){
-        sonarScalePassive += (0.2 - Math.sqrt(sonarScalePassive / 100));
+        sonarScalePassive += (0.2 - Math.sqrt(sonarScalePassive / 120));
         if (sonarScalePassive >= 3.0) {
             sonarScalePassive = 0;
             passiveSonarJustUsed = true;

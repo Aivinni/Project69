@@ -39,14 +39,23 @@ public class GamePanel extends JPanel implements Runnable {
         game.addSprites(sprites);
 
         enemies = new ArrayList<>();
+
+        int enemyX = (int) (Math.random() * (MAX_SCREEN_COL - 5)) + 5;
+        int enemyY = (int) (Math.random() * (MAX_SCREEN_ROW - 5)) + 5;
+        Enemy enemy = new Enemy("ace", new int[]{enemyY, enemyX},"154.png", game);
+        enemies.add(enemy);
         for (int i = 0; i < 3; i++) {
-            int enemyX = (int) (Math.random() * (MAX_SCREEN_COL - 5)) + 5;
-            int enemyY = (int) (Math.random() * (MAX_SCREEN_ROW - 5)) + 5;
-            Enemy enemy = new Enemy("enemy", new int[]{enemyY, enemyX}, game);
+            enemyX = (int) (Math.random() * (MAX_SCREEN_COL - 5)) + 5;
+            enemyY = (int) (Math.random() * (MAX_SCREEN_ROW - 5)) + 5;
+            enemy = new Enemy("enemy", new int[]{enemyY, enemyX},"Uboat.png", game);
             enemies.add(enemy);
         }
 
         game.addEnemies(enemies);
+
+        for (Enemy enemy1 : enemies) {
+            enemy1.setDetected(true);
+        }
 
         int treasureX = (int) (Math.random() * (MAX_SCREEN_COL - 5)) + 5;
         int treasureY = (int) (Math.random() * (MAX_SCREEN_ROW - 5)) + 5;
@@ -92,16 +101,18 @@ public class GamePanel extends JPanel implements Runnable {
                 repaint();
 
                 for (int i = 0; i < sprites.size(); i++) {
-                    String key = keyH.getMovementKey(i);
+                    String[] key = keyH.getMovementKey();
                     TaskForce sprite = sprites.get(i);
-                    if (key.equalsIgnoreCase(sprite.getUpKey())) {
-                        move("Up", i);
-                    } else if (key.equalsIgnoreCase(sprite.getDownKey())) {
-                        move("Down", i);
-                    } else if (key.equalsIgnoreCase(sprite.getLeftKey())) {
-                        move("Left", i);
-                    } else if (key.equalsIgnoreCase(sprite.getRightKey())) {
-                        move("Right", i);
+                    for (String s : key) {
+                        if (s.equalsIgnoreCase(sprite.getUpKey())) {
+                            move("Up", i);
+                        } else if (s.equalsIgnoreCase(sprite.getDownKey())) {
+                            move("Down", i);
+                        } else if (s.equalsIgnoreCase(sprite.getLeftKey())) {
+                            move("Left", i);
+                        } else if (s.equalsIgnoreCase(sprite.getRightKey())) {
+                            move("Right", i);
+                        }
                     }
                 }
                 delta = 0;
@@ -130,8 +141,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             if (enemyMove >= 35) {
                 for (Enemy enemy : enemies) {
-                    enemy.move();
-//                    enemy.setDetected(true);
+//                    enemy.move();
                 }
                 enemyMove = 0;
             }
@@ -234,7 +244,7 @@ public class GamePanel extends JPanel implements Runnable {
                     g.setFont(new Font("SansSerif", Font.PLAIN, 18 ));
                     if (sprite.getPosition()[0] > (MAX_SCREEN_ROW/2)-3) {
                         //for cooldown above
-                        g.drawString(String.valueOf(3-(int)((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000)), x + (tile_size/4) + (tile_size/5), y - (tile_size/4));
+                        g.drawString(String.valueOf(3-(int)((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000)), x + (tile_size / 4) + (tile_size / 5), y - (tile_size / 4));
                     } else {
                         //for cooldown below
                         g.drawString(String.valueOf(3 - (int) ((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000)), x + (tile_size / 4) + (tile_size / 5), y + tile_size + (tile_size / 2));
@@ -276,36 +286,45 @@ public class GamePanel extends JPanel implements Runnable {
 
         for (TaskForce sprite : sprites) {
             useSonar(g, sprite);
+            if (sprite.isEnemyNear()) {
+                g.setColor(Color.RED);
+                g.setFont(new Font("SansSerif", Font.PLAIN, 18 ));
+                if (sprite.getPosition()[0] > (MAX_SCREEN_ROW/2)-3) {
+                    //for cooldown above
+                    g.drawString("Enemy Near", x - (tile_size / 4), y - (tile_size / 2));
+                } else {
+                    //for cooldown below
+                    g.drawString("Enemy Near", x - (tile_size / 4), y + tile_size + (tile_size / 2));
+                }
+            }
         }
 
-//        boolean showtext = true;
-//
-//        if (showtext) {
-//            g2D.setPaint(Color.black);
-//
-//            Stroke stroke = new BasicStroke(2.0f);
-//            g2D.setStroke(stroke);
-//
-//
-//            int rectWidth = (MAX_SCREEN_COL / 4) * tile_size;
-//            int rectCenterX = (MAX_SCREEN_COL * tile_size) / 2;
-//            int rectX = rectCenterX - (rectWidth / 2);
-//
-//            int rectHeight = (MAX_SCREEN_ROW / 6) * tile_size;
-//            int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;
-//            int rectY = rectCenterY - (rectHeight / 2);
-//            // Draw border
-//            g2D.drawRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);
-//
-//            Color brownishBlack = new Color(35, 26, 26, 200);
-//            g2D.setPaint(brownishBlack);
-//
-//            // Transparent box
-//            g2D.fillRect(rectX, rectY, rectWidth, rectHeight);
-//
-//            g2D.setPaint(Color.white);
-//            g2D.drawString("Hello World", rectX, rectCenterY);
-//        }
+        boolean showtext = true;
+
+        if (showtext) {
+            Color black = new Color(0, 0, 0, 100);
+            g.setColor(black);
+
+            int rectWidth = (MAX_SCREEN_COL / 4) * tile_size;
+            int rectCenterX = (MAX_SCREEN_COL * tile_size) / 2;
+            int rectX = rectCenterX - (rectWidth / 2);
+
+            int rectHeight = (MAX_SCREEN_ROW / 6) * tile_size;
+            int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;
+            int rectY = rectCenterY - (rectHeight / 2);
+            // Draw border
+            g.fillRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);
+
+            Color brownishBlack = new Color(35, 26, 26, 200);
+            g.setColor(brownishBlack);
+
+            // Transparent box
+            g.fillRect(rectX, rectY, rectWidth, rectHeight);
+
+            g.setColor(Color.white);
+            g.setFont(new Font("Times", Font.PLAIN, 12));
+            g.drawString("Hello World", rectX, rectCenterY);
+        }
     }
 
     private void startGameThread() {

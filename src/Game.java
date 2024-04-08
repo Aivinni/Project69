@@ -81,6 +81,20 @@ public class Game {
             }
         }
 
+        for (TaskForce sprite : sprites) {
+            sprite.setEnemyNear(false);
+            for (Enemy enemy : enemies) {
+                double distance = getDistance(sprite.getPosition(), enemy.getPosition());
+                if (distance <= Math.sqrt(8) && !enemy.getName().equalsIgnoreCase("ace")) {
+                    sprite.setEnemyNear(true);
+                }
+                if (distance > Math.sqrt(2) && enemy.getMovesWhileDetected() > 10) {
+                    enemy.setDetected(false);
+                    enemy.setMovesWhileDetected(0);
+                }
+            }
+        }
+
         return map;
     }
 
@@ -95,14 +109,15 @@ public class Game {
 
         for (int i = startY; i < endY; i++) {
             for (int j = startX; j < endX; j++) {
+                int[] position = new int[]{i, j};
                 if (map[i][j] instanceof Treasure) {
-                    double distance = Math.sqrt(Math.pow(i - spritePosition[0], 2) + Math.pow(j - spritePosition[1], 2));
+                    double distance = getDistance(position, spritePosition);
                     double detectChance = Math.sqrt(distance) / 1.2;
                     if (Math.random() > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
                     }
                 } if (map[i][j] instanceof Enemy) {
-                    double distance = Math.sqrt(Math.pow(i - spritePosition[0], 2) + Math.pow(j - spritePosition[1], 2));
+                    double distance = getDistance(position, spritePosition);
                     double detectChance = Math.sqrt(distance) / 1.5;
                     if (Math.random() > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
@@ -118,14 +133,21 @@ public class Game {
 
         int startY = Math.max(0, spritePosition[0] - 2);
         int startX = Math.max(0, spritePosition[1] - 2);
-        int endY = Math.min(map.length, spritePosition[0] + 2);
-        int endX = Math.min(map[0].length, spritePosition[1] + 2);
+        int endY = Math.min(map.length, spritePosition[0] + 3);
+        int endX = Math.min(map[0].length, spritePosition[1] + 3);
+
+        System.out.println(endY - startY);
+        System.out.println(endX - startX);
 
         for (int i = startY; i < endY; i++) {
             for (int j = startX; j < endX; j++) {
+                int[] position = new int[]{i, j};
                 if (map[i][j] instanceof Detectable) {
-                    double distance = Math.sqrt(Math.pow(i - spritePosition[0], 2) + Math.pow(j - spritePosition[1], 2));
-                    double detectChance = distance / 12;
+                    double distance = getDistance(position, spritePosition);
+                    double detectChance = distance / 6;
+                    if (map[i][j].getName().equalsIgnoreCase("ace")) {
+                        detectChance *= 2;
+                    }
                     System.out.println(detectChance);
                     if (Math.random() > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
@@ -141,12 +163,16 @@ public class Game {
         for (TaskForce sprite : sprites) {
             int[] positionSprite = sprite.getPosition();
             int[] positionEnemy = enemy.getPosition();
-            double distance = Math.sqrt(Math.pow(positionEnemy[0] - positionSprite[0], 2) + Math.pow(positionEnemy[1] - positionSprite[1], 2));
+            double distance = getDistance(positionEnemy, positionSprite);
             if (distance < distanceClosest) {
                 distanceClosest = distance;
                 closest = sprite;
             }
         }
         return closest;
+    }
+
+    public static double getDistance(int[] pos1, int[] pos2) {
+        return Math.sqrt(Math.pow(pos1[0] - pos2[0], 2) + Math.pow(pos1[1] - pos2[1], 2));
     }
 }

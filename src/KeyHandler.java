@@ -14,8 +14,8 @@ public class KeyHandler implements KeyListener {
         Arrays.fill(movementKey, "");
     }
 
-    public String getMovementKey(int index) {
-        return movementKey[index];
+    public String[] getMovementKey() {
+        return movementKey;
     }
     public String getInteractKeyPressed() {
         return interactKeyPressed;
