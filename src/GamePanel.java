@@ -328,46 +328,46 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
 
-            if (message.isVisible()) {
-                Color black = new Color(0, 0, 0, 100);
-                g.setColor(black);
-
-                int rectWidth = (MAX_SCREEN_COL / 3) * tile_size;
-                int rectCenterX = (MAX_SCREEN_COL * tile_size) / 2;
-                int rectX = rectCenterX - (rectWidth / 2);
-
-                int rectHeight = (MAX_SCREEN_ROW / 8) * tile_size;
-                int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;
-                int rectY = rectCenterY - (rectHeight / 2);
-                // Draw border
-                g.fillRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);
-
-                Color brownishBlack = new Color(35, 26, 26, 200);
-                g.setColor(brownishBlack);
-
-                // Transparent box
-                g.fillRect(rectX, rectY, rectWidth, rectHeight);
-
-                g.setColor(Color.white);
-                g.setFont(new Font("Times", Font.PLAIN, 10));
-
-                // Split text into lines
-                String[] lines = message.getMessage().split("\n");
-
-                int x = rectX;
-                int y = rectCenterY - (rectHeight / 4);
-                // Draw each line
-                for (String line : lines) {
-                    if (line.contains("Warning")) {
-                        g.setColor(Color.red);
-                    } else {
-                        g.setColor(Color.white);
-                    }
-                    g.drawString(line, x, y);
-                    // Move to the next line
-                    y += g.getFontMetrics().getHeight();
-                }
-            }
+//            if (message.isVisible()) {
+//                Color black = new Color(0, 0, 0, 100);
+//                g.setColor(black);
+//
+//                int rectWidth = (MAX_SCREEN_COL / 3) * tile_size;
+//                int rectCenterX = (MAX_SCREEN_COL * tile_size) / 2;
+//                int rectX = rectCenterX - (rectWidth / 2);
+//
+//                int rectHeight = (MAX_SCREEN_ROW / 8) * tile_size;
+//                int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;
+//                int rectY = rectCenterY - (rectHeight / 2);
+//                // Draw border
+//                g.fillRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);
+//
+//                Color brownishBlack = new Color(35, 26, 26, 200);
+//                g.setColor(brownishBlack);
+//
+//                // Transparent box
+//                g.fillRect(rectX, rectY, rectWidth, rectHeight);
+//
+//                g.setColor(Color.white);
+//                g.setFont(new Font("Times", Font.PLAIN, 10));
+//
+//                // Split text into lines
+//                String[] lines = message.getMessage().split("\n");
+//
+//                int x = rectX;
+//                int y = rectCenterY - (rectHeight / 4);
+//                // Draw each line
+//                for (String line : lines) {
+//                    if (line.contains("Warning")) {
+//                        g.setColor(Color.red);
+//                    } else {
+//                        g.setColor(Color.white);
+//                    }
+//                    g.drawString(line, x, y);
+//                    // Move to the next line
+//                    y += g.getFontMetrics().getHeight();
+//                }
+//            }
 
             if (treasureFound) {
                 for (TaskForce sprite : sprites) {

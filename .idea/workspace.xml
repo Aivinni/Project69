@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="Game Finish" />
+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="Game Finish actually" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -286,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712549808100</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Game Finish actually">
+      <option name="closed" value="true" />
+      <created>1712550010364</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1712550010364</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -301,7 +309,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="unknown changes" />
     <MESSAGE value="size change" />
     <MESSAGE value="Add classes" />
     <MESSAGE value="commit" />
@@ -326,6 +333,7 @@
     <MESSAGE value="Enemy movement complete" />
     <MESSAGE value="working" />
     <MESSAGE value="Game Finish" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game Finish" />
+    <MESSAGE value="Game Finish actually" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game Finish actually" />
   </component>
 </project>
