@@ -168,18 +168,20 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
             for (TaskForce sprite : sprites) {
-                sprite.moving = true;
-                sprite.setMoveTime(sprite.getMoveTime() + timePassed);
-                if (sprite.getMoveTime() >= 10) {
-                    sprite.setMoveReady(true);
-                    sprite.setMoveTime(0);
-                }
-                if (!sprite.isActiveSonarJustUsed()) {
-                    if (keyH.getInteractKeyPressed().equals(sprite.getSonarKey())) {
-                        sprite.toggleSonarOn();
+                if (sprite != null) {
+                    sprite.moving = true;
+                    sprite.setMoveTime(sprite.getMoveTime() + timePassed);
+                    if (sprite.getMoveTime() >= 10) {
+                        sprite.setMoveReady(true);
+                        sprite.setMoveTime(0);
                     }
+                    if (!sprite.isActiveSonarJustUsed()) {
+                        if (keyH.getInteractKeyPressed().equals(sprite.getSonarKey())) {
+                            sprite.toggleSonarOn();
+                        }
+                    }
+                    sprite.moving = false;
                 }
-                sprite.moving = false;
             }
 
             enemyMove += timePassed;
