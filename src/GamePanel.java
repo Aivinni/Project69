@@ -32,8 +32,8 @@ public class GamePanel extends JPanel implements Runnable {
         game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW);
         map = game.getMap();
 
-        TaskForce char1 = new TaskForce("Player1", new int[]{0, 0}, "HMS_Hardy_badge.png", game);
-        TaskForce char2 = new TaskForce("Player2", new int[]{0, 0}, "HMS_Jervis_badge.png", game);
+        TaskForce char1 = new TaskForce("Player1", new int[]{0, 0}, game, "HMS_Hardy_badge.png", "f", "w", "s", "a", "d");
+        TaskForce char2 = new TaskForce("Player2", new int[]{0, 0}, game, "HMS_Jervis_badge.png", "/", "up", "down", "left", "right");
         sprites = new ArrayList<>(Arrays.asList(char1, char2));
 
         game.addSprites(sprites);
@@ -57,7 +57,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         game.addTreasures(treasures);
 
-        keyH = new KeyHandler();
+        keyH = new KeyHandler(game);
         this.addKeyListener(keyH);
         this.setFocusable(true);
         startGameThread();
@@ -79,8 +79,6 @@ public class GamePanel extends JPanel implements Runnable {
         double delta = 0.0;
         int FPS = 60;
         double drawInterval = 1000000000.0 / FPS;
-        double moveTime1 = 0.0;
-        double moveTime2 = 0.0;
         double enemyMove = 0.0;
 
         while (gameThread != null) {
@@ -92,30 +90,19 @@ public class GamePanel extends JPanel implements Runnable {
 
             if (delta >= 1) {
                 repaint();
-                if (keyH.isWKeyPressed()) {
-                    move("Up", 0);
-                }
-                if (keyH.isSKeyPressed()) {
-                    move("Down", 0);
-                }
-                if (keyH.isDKeyPressed()) {
-                    move("Right", 0);
-                }
-                if (keyH.isAKeyPressed()) {
-                    move("Left", 0);
-                }
 
-                if (keyH.isUpKeyPressed()){
-                    move("Up", 1);
-                }
-                if (keyH.isDownKeyPressed()){
-                    move("Down", 1);
-                }
-                if (keyH.isRightKeyPressed()){
-                    move("Right", 1);
-                }
-                if (keyH.isLeftKeyPressed()){
-                    move("Left", 1);
+                for (int i = 0; i < sprites.size(); i++) {
+                    String key = keyH.getMovementKey(i);
+                    TaskForce sprite = sprites.get(i);
+                    if (key.equalsIgnoreCase(sprite.getUpKey())) {
+                        move("Up", i);
+                    } else if (key.equalsIgnoreCase(sprite.getDownKey())) {
+                        move("Down", i);
+                    } else if (key.equalsIgnoreCase(sprite.getLeftKey())) {
+                        move("Left", i);
+                    } else if (key.equalsIgnoreCase(sprite.getRightKey())) {
+                        move("Right", i);
+                    }
                 }
                 delta = 0;
 
@@ -129,38 +116,32 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
 
-            moveTime1 += (double) (currentTime - previousTime) / drawInterval;
-            moveTime2 += (double) (currentTime - previousTime) / drawInterval;
+            for (TaskForce sprite : sprites) {
+                sprite.setMoveTime(sprite.getMoveTime() + ((double) (currentTime - previousTime) / drawInterval));
+            }
             enemyMove += (double) (currentTime - previousTime) / drawInterval;
 
-            if (moveTime1 >= 20) {
-                sprites.get(0).setMoveReady(true);
-                moveTime1 = 0;
-            }
-
-            if (moveTime2 >= 20) {
-                sprites.get(1).setMoveReady(true);
-                moveTime2 = 0;
+            for (TaskForce sprite : sprites) {
+                if (sprite.getMoveTime() >= 20) {
+                    sprite.setMoveReady(true);
+                    sprite.setMoveTime(0);
+                }
             }
 
             if (enemyMove >= 35) {
                 for (Enemy enemy : enemies) {
                     enemy.move();
-                    enemy.setDetected(true);
+//                    enemy.setDetected(true);
                 }
                 enemyMove = 0;
             }
 
 
-            if (!sprites.get(0).isActiveSonarJustUsed()) {
-                if (keyH.isFKeyPressed()) {
-                    sprites.get(0).toggleSonarOn();
-                }
-            }
-
-            if (!sprites.get(1).isActiveSonarJustUsed()) {
-                if (keyH.isSlashKeyPressed()) {
-                    sprites.get(1).toggleSonarOn();
+            for (TaskForce sprite : sprites) {
+                if (!sprite.isActiveSonarJustUsed()) {
+                    if (keyH.getInteractKeyPressed().equals(sprite.getSonarKey())) {
+                        sprite.toggleSonarOn();
+                    }
                 }
             }
 
@@ -293,9 +274,9 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
-        useSonar(g, sprites.get(0));
-        useSonar(g, sprites.get(1));
-
+        for (TaskForce sprite : sprites) {
+            useSonar(g, sprite);
+        }
 
 //        boolean showtext = true;
 //

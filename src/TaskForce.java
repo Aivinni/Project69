@@ -1,28 +1,52 @@
 public class TaskForce extends Interactive {
-    private boolean sonarReady;
     private boolean usingSonar;
 
-    private boolean activeSonarJustUsed;
-    private boolean passiveSonarJustUsed;
+    private boolean activeSonarJustUsed, passiveSonarJustUsed;
 
-    private double sonarScale;
-    private double sonarScalePassive;
-    private long lastSonarUseTime;
-    private long lastPassivePulseTime;
+    private double sonarScale, sonarScalePassive;
+
+    private long lastSonarUseTime, lastPassivePulseTime;
+
     private boolean moveReady;
+    private final String sonarKey, upKey, downKey, leftKey, rightKey;
 
-    public TaskForce(String name, int[] position, String fileName, Game game) {
+    private double moveTime = 0.0;
+
+    public TaskForce(String name, int[] position, Game game, String fileName, String sonarKey, String upKey, String downKey, String leftKey, String rightKey) {
         super(name, position, fileName, game);
         usingSonar = false;
         moveReady = true;
+        this.sonarKey = sonarKey;
+        this.upKey = upKey;
+        this.downKey = downKey;
+        this.leftKey = leftKey;
+        this.rightKey = rightKey;
     }
 
-    public void setSonarReady(boolean sonarReady) {
-        this.sonarReady = sonarReady;
+    public String getSonarKey() {
+        return sonarKey;
     }
-    public boolean isSonarReady() {
-        return sonarReady;
+
+    public String getUpKey() {
+        return upKey;
     }
+    public String getDownKey() {
+        return downKey;
+    }
+    public String getLeftKey() {
+        return leftKey;
+    }
+    public String getRightKey() {
+        return rightKey;
+    }
+
+    public void setMoveTime(double moveTime) {
+        this.moveTime = moveTime;
+    }
+    public double getMoveTime() {
+        return moveTime;
+    }
+
     public boolean isUsingSonar(){
         return usingSonar;
     }

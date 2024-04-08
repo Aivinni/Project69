@@ -21,6 +21,10 @@ public class Game {
         this.treasures = treasures;
     }
 
+    public ArrayList<TaskForce> getSprites() {
+        return sprites;
+    }
+
     public Space[][] getMap() {
         return map;
     }
@@ -99,7 +103,7 @@ public class Game {
                     }
                 } if (map[i][j] instanceof Enemy) {
                     double distance = Math.sqrt(Math.pow(i - spritePosition[0], 2) + Math.pow(j - spritePosition[1], 2));
-                    double detectChance = Math.sqrt(distance) / 1.4;
+                    double detectChance = Math.sqrt(distance) / 1.5;
                     if (Math.random() > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
                     }
@@ -121,7 +125,8 @@ public class Game {
             for (int j = startX; j < endX; j++) {
                 if (map[i][j] instanceof Detectable) {
                     double distance = Math.sqrt(Math.pow(i - spritePosition[0], 2) + Math.pow(j - spritePosition[1], 2));
-                    double detectChance = distance / 6;
+                    double detectChance = distance / 12;
+                    System.out.println(detectChance);
                     if (Math.random() > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
                     }
