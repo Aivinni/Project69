@@ -32,13 +32,6 @@ public class Interactive extends Space{
         return move;
     }
 
-    public void setSunk(boolean sunk) {
-        this.sunk = sunk;
-    }
-    public boolean isSunk() {
-        return sunk;
-    }
-
     public Game getGame() {
         return game;
     }

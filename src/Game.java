@@ -6,10 +6,12 @@ public class Game {
     private ArrayList<Enemy> enemies = new ArrayList<>();
     private ArrayList<Treasure> treasures = new ArrayList<>();
     private ArrayList<Interactive> list = new ArrayList<>();
+    private GamePanel gamePanel;
 
-    public Game(int mapX, int mapY) {
+    public Game(int mapX, int mapY, GamePanel gamePanel) {
         map = new Space[mapY][mapX];
         makeMap();
+        this.gamePanel = gamePanel;
     }
 
     public void addSprites(ArrayList<TaskForce> sprites) {
@@ -82,11 +84,13 @@ public class Game {
                 TaskForce player = sprites.get(j);
                 if (enemy.getPosition()[0] == player.getPosition()[0] && enemy.getPosition()[1] == player.getPosition()[1]) {
                     if (enemy.isDetected()) {
-                        enemy.setSunk(true);
                         enemies.remove(i);
+                        Message message = new Message(enemy.getName() + " sunk! \n Well Done!", true, 0);
+                        gamePanel.setMessage(message);
                     } else {
-                        player.setSunk(true);
                         sprites.remove(j);
+                        Message message = new Message(player.getName() + " sunk!", true, 0);
+                        gamePanel.setMessage(message);
                     }
                     break;
                 }
@@ -97,12 +101,27 @@ public class Game {
             sprite.setEnemyNear(false);
             for (Enemy enemy : enemies) {
                 double distance = getDistance(sprite.getPosition(), enemy.getPosition());
-                if (distance <= Math.sqrt(8) && !enemy.getName().equalsIgnoreCase("ace")) {
+                if (distance <= Math.sqrt(8) && !enemy.getName().equalsIgnoreCase("U-boat ace")) {
                     sprite.setEnemyNear(true);
                 }
                 if (distance > Math.sqrt(2) && enemy.getMovesWhileDetected() > 10) {
                     enemy.setDetected(false);
                     enemy.setMovesWhileDetected(0);
+                }
+            }
+
+            for (int i = 0; i < treasures.size(); i++) {
+                Treasure treasure = treasures.get(i);
+                if (treasure.isDetected() && treasure.getPosition()[0] == sprite.getPosition()[0] && treasure.getPosition()[1] == sprite.getPosition()[1]) {
+                    treasures.remove(i);
+                    i--;
+                    gamePanel.setTreasureFound(true);
+                    gamePanel.setTreasureOn(sprite);
+                    Message message = new Message("Gold retrieved! \nWarning: U-boats in Area have been alerted to your position \nReturn to (0, 0) to win the game!", true, 0);
+                    gamePanel.setMessage(message);
+                    for (Enemy enemy : enemies) {
+                        enemy.setPositionTarget(sprite.getPosition());
+                    }
                 }
             }
         }
@@ -125,14 +144,24 @@ public class Game {
                 if (map[i][j] instanceof Treasure) {
                     double distance = getDistance(position, spritePosition);
                     double detectChance = Math.sqrt(distance) / 1.2;
-                    if (Math.random() > detectChance) {
+                    double chance = Math.random();
+                    if (chance > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
+                        Message message = new Message("Wreck of HMS Edinburgh Located! \nWarning: U-boats in Area have been alerted to your position", true, 0);
+                        gamePanel.setMessage(message);
+                        for (Enemy enemy : enemies) {
+                            enemy.setPositionTarget(spritePosition);
+                        }
                     }
-                } if (map[i][j] instanceof Enemy) {
+                }
+                if (map[i][j] instanceof Enemy) {
                     double distance = getDistance(position, spritePosition);
                     double detectChance = Math.sqrt(distance) / 1.5;
-                    if (Math.random() > detectChance) {
+                    double chance = Math.random();
+                    if (chance > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
+                        Message message = new Message(map[i][j].getName() + " detected! \nMoving over the enemy while they are detected \nwill result in their sinking", true, 0);
+                        gamePanel.setMessage(message);
                     }
                 }
             }
@@ -148,9 +177,6 @@ public class Game {
         int endY = Math.min(map.length, spritePosition[0] + 3);
         int endX = Math.min(map[0].length, spritePosition[1] + 3);
 
-        System.out.println(endY - startY);
-        System.out.println(endX - startX);
-
         for (int i = startY; i < endY; i++) {
             for (int j = startX; j < endX; j++) {
                 int[] position = new int[]{i, j};
@@ -160,9 +186,17 @@ public class Game {
                     if (map[i][j].getName().equalsIgnoreCase("ace")) {
                         detectChance *= 2;
                     }
-                    System.out.println(detectChance);
-                    if (Math.random() > detectChance) {
+                    double chance = Math.random();
+                    if (chance > detectChance) {
                         ((Detectable) map[i][j]).setDetected(true);
+                        if (map[i][j] instanceof Treasure) {
+                            Message message = new Message("Wreck of HMS Edinburgh Located! \n Warning: U-boats in Area have been alerted to your position", true, 0);
+                            gamePanel.setMessage(message);
+                        }
+                        if (map[i][j] instanceof Enemy) {
+                            Message message = new Message(map[i][j].getName() + " detected! \nMoving over the enemy while they are detected \nwill result in their sinking", true, 0);
+                            gamePanel.setMessage(message);
+                        }
                     }
                 }
             }

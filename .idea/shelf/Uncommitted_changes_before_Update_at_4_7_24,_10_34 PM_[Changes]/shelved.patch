@@ -1,0 +1,287 @@
+Index: src/GamePanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\nimport java.awt.*;\nimport java.util.ArrayList;\nimport java.util.Arrays;\n\npublic class GamePanel extends JPanel implements Runnable {\n    public static int tile_size = 48; //don't change this\n\n    //for aivin: 31\n    //for normal people: 40\n    public static final int MAX_SCREEN_COL = 31;\n    //for aivin: 18\n    //for normal people: 21\n    public static final int MAX_SCREEN_ROW = 18;\n\n    private Thread gameThread;\n    private KeyHandler keyH;\n\n    private Game game;\n    private Space[][] map;\n    private ArrayList<TaskForce> sprites;\n    private ArrayList<Enemy> enemies;\n    private ArrayList<Treasure> treasures;\n    private int x;\n    private int y;\n\n    public GamePanel() {\n        this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));\n        this.setBackground(Color.BLACK);\n        this.setDoubleBuffered(true);\n\n        game = new Game(MAX_SCREEN_COL, MAX_SCREEN_ROW);\n        map = game.getMap();\n\n        TaskForce char1 = new TaskForce(\"Player1\", new int[]{0, 0}, game, \"HMS_Hardy_badge.png\", \"f\", \"w\", \"s\", \"a\", \"d\");\n        TaskForce char2 = new TaskForce(\"Player2\", new int[]{0, 0}, game, \"HMS_Jervis_badge.png\", \"/\", \"up\", \"down\", \"left\", \"right\");\n        sprites = new ArrayList<>(Arrays.asList(char1, char2));\n\n        game.addSprites(sprites);\n\n        enemies = new ArrayList<>();\n\n        int enemyX = (int) (Math.random() * (MAX_SCREEN_COL - 5)) + 5;\n        int enemyY = (int) (Math.random() * (MAX_SCREEN_ROW - 5)) + 5;\n        Enemy enemy = new Enemy(\"ace\", new int[]{enemyY, enemyX},\"154.png\", game);\n        enemies.add(enemy);\n        for (int i = 0; i < 3; i++) {\n            enemyX = (int) (Math.random() * (MAX_SCREEN_COL - 5)) + 5;\n            enemyY = (int) (Math.random() * (MAX_SCREEN_ROW - 5)) + 5;\n            enemy = new Enemy(\"enemy\", new int[]{enemyY, enemyX},\"Uboat.png\", game);\n            enemies.add(enemy);\n        }\n\n        game.addEnemies(enemies);\n\n        for (Enemy enemy1 : enemies) {\n            enemy1.setDetected(true);\n        }\n\n        int treasureX = (int) (Math.random() * (MAX_SCREEN_COL - 5)) + 5;\n        int treasureY = (int) (Math.random() * (MAX_SCREEN_ROW - 5)) + 5;\n        Treasure treasure = new Treasure(new int[]{treasureY, treasureX}, game);\n        treasure.setDetected(true);\n        System.out.println(Arrays.toString(treasure.getPosition()));\n        treasures = new ArrayList<>(Arrays.asList(treasure));\n\n        game.addTreasures(treasures);\n\n        keyH = new KeyHandler(game);\n        this.addKeyListener(keyH);\n        this.setFocusable(true);\n        startGameThread();\n        setUpWindow();\n    }\n\n    private void setUpWindow() {\n        JFrame window = new JFrame(\"2D GAME\");\n        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);\n        window.add(this);\n        window.pack();\n        window.setVisible(true);\n    }\n    @Override\n    public void run() {\n        // variables needed to ensure its locked at 60 fps and below\n        long currentTime = System.nanoTime();\n        long previousTime = currentTime;\n        double delta = 0.0;\n        int FPS = 60;\n        double drawInterval = 1000000000.0 / FPS;\n        double enemyMove = 0.0;\n\n        while (gameThread != null) {\n            // system.nanotime is java's very accurate clock or something (i dont 100% remember)\n            currentTime = System.nanoTime();\n\n            // the time between now and the last time this looped\n            delta += (double) (currentTime - previousTime) / drawInterval;\n\n            if (delta >= 1) {\n                repaint();\n\n                for (int i = 0; i < sprites.size(); i++) {\n                    String[] key = keyH.getMovementKey();\n                    TaskForce sprite = sprites.get(i);\n                    for (String s : key) {\n                        if (s.equalsIgnoreCase(sprite.getUpKey())) {\n                            move(\"Up\", i);\n                        } else if (s.equalsIgnoreCase(sprite.getDownKey())) {\n                            move(\"Down\", i);\n                        } else if (s.equalsIgnoreCase(sprite.getLeftKey())) {\n                            move(\"Left\", i);\n                        } else if (s.equalsIgnoreCase(sprite.getRightKey())) {\n                            move(\"Right\", i);\n                        }\n                    }\n                }\n                delta = 0;\n\n                for (TaskForce sprite : sprites) {\n                    if (sprite.getMoveDelay() >= 6) {\n                        sprite.setMoveDelay(sprite.getMoveDelay() - 1);\n                    } else {\n                        sprite.setMoveDelay(0);\n                        sprite.setMove(null);\n                    }\n                }\n            }\n\n            for (TaskForce sprite : sprites) {\n                sprite.setMoveTime(sprite.getMoveTime() + ((double) (currentTime - previousTime) / drawInterval));\n            }\n            enemyMove += (double) (currentTime - previousTime) / drawInterval;\n\n            for (TaskForce sprite : sprites) {\n                if (sprite.getMoveTime() >= 20) {\n                    sprite.setMoveReady(true);\n                    sprite.setMoveTime(0);\n                }\n            }\n\n            if (enemyMove >= 35) {\n                for (Enemy enemy : enemies) {\n//                    enemy.move();\n                }\n                enemyMove = 0;\n            }\n\n\n            for (TaskForce sprite : sprites) {\n                if (!sprite.isActiveSonarJustUsed()) {\n                    if (keyH.getInteractKeyPressed().equals(sprite.getSonarKey())) {\n                        sprite.toggleSonarOn();\n                    }\n                }\n            }\n\n            previousTime = currentTime;\n        }\n    }\n    private void move(String direction, int spriteIdx){\n        TaskForce sprite = sprites.get(spriteIdx);\n        if (direction.equalsIgnoreCase(\"Up\") && sprite.getPosition()[0] > 0 && sprite.isMoveReady()) {\n            sprite.setPosition(sprite.getPosition()[0] - 1, sprite.getPosition()[1]);\n            sprite.setMove(\"up\");\n            sprite.setMoveReady(false);\n        }\n        if (direction.equalsIgnoreCase(\"Left\") && sprite.getPosition()[1] > 0 && sprite.isMoveReady()) {\n            sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] - 1);\n            sprite.setMoveReady(false);\n            sprite.setMove(\"left\");\n        }\n        if (direction.equalsIgnoreCase(\"Down\") && sprite.getPosition()[0] < MAX_SCREEN_ROW - 1 && sprite.isMoveReady()) {\n            sprite.setPosition(sprite.getPosition()[0] + 1, sprite.getPosition()[1]);\n            sprite.setMoveReady(false);\n            sprite.setMove(\"down\");\n        }\n        if (direction.equalsIgnoreCase(\"Right\") && sprite.getPosition()[1] < MAX_SCREEN_COL - 1 && sprite.isMoveReady()) {\n            sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] + 1);\n            sprite.setMoveReady(false);\n            sprite.setMove(\"right\");\n        }\n        sprite.setMoveDelay(24);\n    }\n    public void useSonar(Graphics g, TaskForce sprite){\n        Graphics2D g2D = (Graphics2D) g;\n\n        x = sprite.getPosition()[1] * tile_size;\n        y = sprite.getPosition()[0] * tile_size;\n\n        double active;\n        double passive;\n        if (sprite.isUsingSonar()) {\n            // If currently using Sonar, draw oval for sonar\n            active = sprite.getSonarScale();\n            float alpha = 1 - ((float) active / 7);\n            Color color = new Color(0, 1, 0, alpha);\n            g2D.setPaint(color);\n            g2D.drawOval((int) (x - ((tile_size * active) / 2)) + (tile_size / 2), (int) (y - ((tile_size * active) / 2)) + (tile_size / 2), (int) (tile_size * active), (int) (tile_size * active));\n            sprite.incrementSonarScale();\n            if (sprite.isActiveSonarJustUsed()) {\n                // lastSonarUseTime = System.nanoTime();\n                sprite.setLastSonarUseTime();\n                game.detectWithActive(sprite);\n                sprite.resetPassiveSonarScale();\n                for (Enemy enemy : enemies) {\n                    if (enemy.isTargetReached()) {\n                        int[] tempPos = new int[sprite.getPosition().length];\n                        for (int i = 0; i < sprite.getPosition().length; i++) {\n                            tempPos[i] = sprite.getPosition()[i];\n                        }\n                        enemy.setPositionTarget(tempPos);\n                    }\n                }\n            }\n\n        } else {\n            if (!sprite.isActiveSonarJustUsed()) {\n                if (!sprite.isPassiveSonarJustUsed()) {\n                    passive = sprite.getPassiveSonarScale();\n                    float alpha = 1 - ((float) passive / 4);\n                    Color color = new Color(0, 1, 0, alpha);\n                    g2D.setPaint(color);\n                    g2D.drawOval((int) (x - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (y - ((tile_size * passive) / 2)) + (tile_size / 2), (int) (tile_size * passive), (int) (tile_size * passive));\n                    sprite.incrementPassiveSonarScale();\n                    if (sprite.isPassiveSonarJustUsed()) {\n                        //lastPassivePulseTime = System.nanoTime();\n                        sprite.setLastPassivePulseTime();\n                        game.detectWithPassive(sprite);\n                    }\n                } else {\n                    long passiveDelay = 750000000;\n                    if (System.nanoTime() - sprite.getLastPassivePulseTime() > passiveDelay) {\n                        sprite.setPassiveSonarJustUsed(false);\n                    }\n                }\n\n            } else {\n                long delay = 3;\n                if ((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000 > delay) {\n                    sprite.setActiveSonarJustUsed(false);\n                } else {\n                    g.setColor(Color.CYAN);\n                    g.setFont(new Font(\"SansSerif\", Font.PLAIN, 18 ));\n                    if (sprite.getPosition()[0] > (MAX_SCREEN_ROW/2)-3) {\n                        //for cooldown above\n                        g.drawString(String.valueOf(3-(int)((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000)), x + (tile_size / 4) + (tile_size / 5), y - (tile_size / 4));\n                    } else {\n                        //for cooldown below\n                        g.drawString(String.valueOf(3 - (int) ((System.nanoTime() - sprite.getLastSonarUseTime()) / 1000000000)), x + (tile_size / 4) + (tile_size / 5), y + tile_size + (tile_size / 2));\n                    }\n                }\n            }\n        }\n    }\n    @Override\n    public void paintComponent(Graphics g) {\n        super.paintComponent(g);\n\n        map = game.updateMap();\n        for (int i = 0; i < map.length; i++) {\n            for (int j = 0; j < map[i].length; j++) {\n                Space tile = map[i][j];\n                if (tile instanceof Interactive interactiveTile) {\n                    if (!(interactiveTile.getMove() == null)) {\n                        switch (interactiveTile.getMove()) {\n                            case \"up\" ->\n//                            g.drawImage(tile.getImage(), j * tile_size, i * tile_size + interactiveTile.getMoveDelay(), tile_size, tile_size, null);\n                                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);\n                            case \"down\" ->\n                                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);\n                            case \"left\" ->\n                                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);\n                            case \"right\" ->\n                                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);\n                        }\n                    } else {\n                        g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);\n                    }\n\n                } else {\n                    g.drawImage(tile.getImage(), j * tile_size, i * tile_size, tile_size, tile_size, null);\n                }\n            }\n        }\n\n        for (TaskForce sprite : sprites) {\n            useSonar(g, sprite);\n            if (sprite.isEnemyNear()) {\n                g.setColor(Color.RED);\n                g.setFont(new Font(\"SansSerif\", Font.PLAIN, 18 ));\n                if (sprite.getPosition()[0] > (MAX_SCREEN_ROW/2)-3) {\n                    //for cooldown above\n                    g.drawString(\"Enemy Near\", x - (tile_size / 4), y - (tile_size / 2));\n                } else {\n                    //for cooldown below\n                    g.drawString(\"Enemy Near\", x - (tile_size / 4), y + tile_size + (tile_size / 2));\n                }\n            }\n        }\n\n        boolean showtext = true;\n\n        if (showtext) {\n            Color black = new Color(0, 0, 0, 100);\n            g.setColor(black);\n\n            int rectWidth = (MAX_SCREEN_COL / 4) * tile_size;\n            int rectCenterX = (MAX_SCREEN_COL * tile_size) / 2;\n            int rectX = rectCenterX - (rectWidth / 2);\n\n            int rectHeight = (MAX_SCREEN_ROW / 6) * tile_size;\n            int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;\n            int rectY = rectCenterY - (rectHeight / 2);\n            // Draw border\n            g.fillRect(rectX - 1, rectY - 1, rectWidth + 2, rectHeight + 2);\n\n            Color brownishBlack = new Color(35, 26, 26, 200);\n            g.setColor(brownishBlack);\n\n            // Transparent box\n            g.fillRect(rectX, rectY, rectWidth, rectHeight);\n\n            g.setColor(Color.white);\n            g.setFont(new Font(\"Times\", Font.PLAIN, 12));\n            g.drawString(\"Hello World\", rectX, rectCenterY);\n        }\n    }\n\n    private void startGameThread() {\n        gameThread = new Thread(this);\n        gameThread.start();\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GamePanel.java b/src/GamePanel.java
+--- a/src/GamePanel.java	(revision 62775c6badd5b57f1a95028a5ab10059bf4b5f63)
++++ b/src/GamePanel.java	(date 1712543695279)
+@@ -24,6 +24,8 @@
+     private int x;
+     private int y;
+ 
++    private Message message;
++
+     public GamePanel() {
+         this.setPreferredSize(new Dimension(tile_size * MAX_SCREEN_COL, tile_size * MAX_SCREEN_ROW));
+         this.setBackground(Color.BLACK);
+@@ -66,6 +68,8 @@
+ 
+         game.addTreasures(treasures);
+ 
++        message = new Message("", false, 0);
++
+         keyH = new KeyHandler(game);
+         this.addKeyListener(keyH);
+         this.setFocusable(true);
+@@ -73,6 +77,10 @@
+         setUpWindow();
+     }
+ 
++    public void setMessage(Message message) {
++        this.message = message;
++    }
++
+     private void setUpWindow() {
+         JFrame window = new JFrame("2D GAME");
+         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+@@ -80,6 +88,30 @@
+         window.pack();
+         window.setVisible(true);
+     }
++    private void move(String direction, int spriteIdx){
++        TaskForce sprite = sprites.get(spriteIdx);
++        if (direction.equalsIgnoreCase("Up") && sprite.getPosition()[0] > 0 && sprite.isMoveReady()) {
++            sprite.setPosition(sprite.getPosition()[0] - 1, sprite.getPosition()[1]);
++            sprite.setMove("up");
++            sprite.setMoveReady(false);
++        }
++        if (direction.equalsIgnoreCase("Left") && sprite.getPosition()[1] > 0 && sprite.isMoveReady()) {
++            sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] - 1);
++            sprite.setMoveReady(false);
++            sprite.setMove("left");
++        }
++        if (direction.equalsIgnoreCase("Down") && sprite.getPosition()[0] < MAX_SCREEN_ROW - 1 && sprite.isMoveReady()) {
++            sprite.setPosition(sprite.getPosition()[0] + 1, sprite.getPosition()[1]);
++            sprite.setMoveReady(false);
++            sprite.setMove("down");
++        }
++        if (direction.equalsIgnoreCase("Right") && sprite.getPosition()[1] < MAX_SCREEN_COL - 1 && sprite.isMoveReady()) {
++            sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] + 1);
++            sprite.setMoveReady(false);
++            sprite.setMove("right");
++        }
++        sprite.setMoveDelay(24);
++    }
+     @Override
+     public void run() {
+         // variables needed to ensure its locked at 60 fps and below
+@@ -94,8 +126,9 @@
+             // system.nanotime is java's very accurate clock or something (i dont 100% remember)
+             currentTime = System.nanoTime();
+ 
++            double timePassed = (double) (currentTime - previousTime) / drawInterval
+             // the time between now and the last time this looped
+-            delta += (double) (currentTime - previousTime) / drawInterval;
++            delta += timePassed;
+ 
+             if (delta >= 1) {
+                 repaint();
+@@ -126,18 +159,20 @@
+                     }
+                 }
+             }
+-
+             for (TaskForce sprite : sprites) {
+-                sprite.setMoveTime(sprite.getMoveTime() + ((double) (currentTime - previousTime) / drawInterval));
+-            }
+-            enemyMove += (double) (currentTime - previousTime) / drawInterval;
+-
+-            for (TaskForce sprite : sprites) {
++                sprite.setMoveTime(sprite.getMoveTime() + timePassed);
+                 if (sprite.getMoveTime() >= 20) {
+                     sprite.setMoveReady(true);
+                     sprite.setMoveTime(0);
+                 }
++                if (!sprite.isActiveSonarJustUsed()) {
++                    if (keyH.getInteractKeyPressed().equals(sprite.getSonarKey())) {
++                        sprite.toggleSonarOn();
++                    }
++                }
+             }
++
++            enemyMove += timePassed;
+ 
+             if (enemyMove >= 35) {
+                 for (Enemy enemy : enemies) {
+@@ -146,43 +181,15 @@
+                 enemyMove = 0;
+             }
+ 
+-
+-            for (TaskForce sprite : sprites) {
+-                if (!sprite.isActiveSonarJustUsed()) {
+-                    if (keyH.getInteractKeyPressed().equals(sprite.getSonarKey())) {
+-                        sprite.toggleSonarOn();
+-                    }
+-                }
++            if (message.getTimeShown() >= 20) {
++                message.
+             }
+ 
+             previousTime = currentTime;
+         }
+     }
+-    private void move(String direction, int spriteIdx){
+-        TaskForce sprite = sprites.get(spriteIdx);
+-        if (direction.equalsIgnoreCase("Up") && sprite.getPosition()[0] > 0 && sprite.isMoveReady()) {
+-            sprite.setPosition(sprite.getPosition()[0] - 1, sprite.getPosition()[1]);
+-            sprite.setMove("up");
+-            sprite.setMoveReady(false);
+-        }
+-        if (direction.equalsIgnoreCase("Left") && sprite.getPosition()[1] > 0 && sprite.isMoveReady()) {
+-            sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] - 1);
+-            sprite.setMoveReady(false);
+-            sprite.setMove("left");
+-        }
+-        if (direction.equalsIgnoreCase("Down") && sprite.getPosition()[0] < MAX_SCREEN_ROW - 1 && sprite.isMoveReady()) {
+-            sprite.setPosition(sprite.getPosition()[0] + 1, sprite.getPosition()[1]);
+-            sprite.setMoveReady(false);
+-            sprite.setMove("down");
+-        }
+-        if (direction.equalsIgnoreCase("Right") && sprite.getPosition()[1] < MAX_SCREEN_COL - 1 && sprite.isMoveReady()) {
+-            sprite.setPosition(sprite.getPosition()[0], sprite.getPosition()[1] + 1);
+-            sprite.setMoveReady(false);
+-            sprite.setMove("right");
+-        }
+-        sprite.setMoveDelay(24);
+-    }
+-    public void useSonar(Graphics g, TaskForce sprite){
++
++    private void useSonar(Graphics g, TaskForce sprite){
+         Graphics2D g2D = (Graphics2D) g;
+ 
+         x = sprite.getPosition()[1] * tile_size;
+@@ -290,18 +297,16 @@
+                 g.setColor(Color.RED);
+                 g.setFont(new Font("SansSerif", Font.PLAIN, 18 ));
+                 if (sprite.getPosition()[0] > (MAX_SCREEN_ROW/2)-3) {
+-                    //for cooldown above
++                    //for above
+                     g.drawString("Enemy Near", x - (tile_size / 4), y - (tile_size / 2));
+                 } else {
+-                    //for cooldown below
++                    //for below
+                     g.drawString("Enemy Near", x - (tile_size / 4), y + tile_size + (tile_size / 2));
+                 }
+             }
+         }
+ 
+-        boolean showtext = true;
+-
+-        if (showtext) {
++        if (message.isVisible()) {
+             Color black = new Color(0, 0, 0, 100);
+             g.setColor(black);
+ 
+@@ -309,7 +314,7 @@
+             int rectCenterX = (MAX_SCREEN_COL * tile_size) / 2;
+             int rectX = rectCenterX - (rectWidth / 2);
+ 
+-            int rectHeight = (MAX_SCREEN_ROW / 6) * tile_size;
++            int rectHeight = (MAX_SCREEN_ROW / 8) * tile_size;
+             int rectCenterY = (MAX_SCREEN_ROW * tile_size) / 6;
+             int rectY = rectCenterY - (rectHeight / 2);
+             // Draw border
+@@ -323,7 +328,7 @@
+ 
+             g.setColor(Color.white);
+             g.setFont(new Font("Times", Font.PLAIN, 12));
+-            g.drawString("Hello World", rectX, rectCenterY);
++            g.drawString(message.getMessage(), rectX, rectCenterY);
+         }
+     }
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"working\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/Enemy.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Enemy.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/Game.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Game.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/GamePanel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GamePanel.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/KeyHandler.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/KeyHandler.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/TaskForce.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/TaskForce.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;Aivinni&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">\n    <option name=\"selectedUrlAndAccountId\">\n      <UrlAndAccount>\n        <option name=\"accountId\" value=\"5536e75f-eb7d-4787-b5af-22c60da04add\" />\n        <option name=\"url\" value=\"https://github.com/Aivinni/Project69.git\" />\n      </UrlAndAccount>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 2\n}</component>\n  <component name=\"ProjectId\" id=\"2dalF6p3BV9lRPd3COLJSXHR3FG\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\n      <module name=\"Project69\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"fdc42366-b47f-4955-9487-fccb0f5f764b\" name=\"Changes\" comment=\"\" />\n      <created>1710253964652</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1710253964652</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"messing around\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710255501874</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710255501874</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"messing around\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710255607498</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710255607498</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"unknown changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710337073152</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710337073152</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"size change\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710339980689</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710339980689</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Add classes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710340920997</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710340920997</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710341631163</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710341631163</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"movement update\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710423393567</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710423393567</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710425902134</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710425902134</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"images\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710511071630</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710511071630</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"edits\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710512881377</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710512881377</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710723709192</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710723709192</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"refactoring\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710731132444</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710731132444</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"Movement changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710731367336</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710731367336</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"Exceptions eliminated\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710770701045</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710770701045</updated>\n    </task>\n    <task id=\"LOCAL-00015\" summary=\"Sonar working. (don't ask how)\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710819041887</created>\n      <option name=\"number\" value=\"00015\" />\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710819041887</updated>\n    </task>\n    <task id=\"LOCAL-00016\" summary=\"sonar expansion\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710855603173</created>\n      <option name=\"number\" value=\"00016\" />\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710855603173</updated>\n    </task>\n    <task id=\"LOCAL-00017\" summary=\"fade\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710857251774</created>\n      <option name=\"number\" value=\"00017\" />\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710857251774</updated>\n    </task>\n    <task id=\"LOCAL-00018\" summary=\"repaint and key handler separation\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1710857657262</created>\n      <option name=\"number\" value=\"00018\" />\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1710857657262</updated>\n    </task>\n    <task id=\"LOCAL-00019\" summary=\"draw rectangle\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1711465009676</created>\n      <option name=\"number\" value=\"00019\" />\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1711465009676</updated>\n    </task>\n    <task id=\"LOCAL-00020\" summary=\"pop up rectangle (need to make disappear most times)\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1711510523059</created>\n      <option name=\"number\" value=\"00020\" />\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1711510523059</updated>\n    </task>\n    <task id=\"LOCAL-00021\" summary=\"second ship now uses slash for sonar instead of N\">\n      <created>1711636372911</created>\n      <option name=\"number\" value=\"00021\" />\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1711636372911</updated>\n    </task>\n    <task id=\"LOCAL-00022\" summary=\"second ship now uses slash for sonar instead of N &amp; made sonar a method\">\n      <created>1711637064371</created>\n      <option name=\"number\" value=\"00022\" />\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1711637064371</updated>\n    </task>\n    <task id=\"LOCAL-00023\" summary=\"deleted extra variables\">\n      <created>1711637198814</created>\n      <option name=\"number\" value=\"00023\" />\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1711637198814</updated>\n    </task>\n    <task id=\"LOCAL-00024\" summary=\"smoother movement\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1712290174101</created>\n      <option name=\"number\" value=\"00024\" />\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1712290174101</updated>\n    </task>\n    <task id=\"LOCAL-00025\" summary=\"Enemy movement complete\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1712531008468</created>\n      <option name=\"number\" value=\"00025\" />\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1712531008468</updated>\n    </task>\n    <task id=\"LOCAL-00026\" summary=\"working\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1712534613884</created>\n      <option name=\"number\" value=\"00026\" />\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1712534613884</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"27\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"messing around\" />\n    <MESSAGE value=\"unknown changes\" />\n    <MESSAGE value=\"size change\" />\n    <MESSAGE value=\"Add classes\" />\n    <MESSAGE value=\"commit\" />\n    <MESSAGE value=\"movement update\" />\n    <MESSAGE value=\"images\" />\n    <MESSAGE value=\"edits\" />\n    <MESSAGE value=\"changes\" />\n    <MESSAGE value=\"refactoring\" />\n    <MESSAGE value=\"Movement changes\" />\n    <MESSAGE value=\"Exceptions eliminated\" />\n    <MESSAGE value=\"Sonar working. (don't ask how)\" />\n    <MESSAGE value=\"sonar expansion\" />\n    <MESSAGE value=\"fade\" />\n    <MESSAGE value=\"repaint and key handler separation\" />\n    <MESSAGE value=\"draw rectangle\" />\n    <MESSAGE value=\"pop up rectangle (need to make disappear most times)\" />\n    <MESSAGE value=\"Sonar for both sprites\" />\n    <MESSAGE value=\"second ship now uses slash for sonar instead of N\" />\n    <MESSAGE value=\"second ship now uses slash for sonar instead of N &amp; made sonar a method\" />\n    <MESSAGE value=\"deleted extra variables\" />\n    <MESSAGE value=\"smoother movement\" />\n    <MESSAGE value=\"Enemy movement complete\" />\n    <MESSAGE value=\"working\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"working\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 62775c6badd5b57f1a95028a5ab10059bf4b5f63)
++++ b/.idea/workspace.xml	(date 1712543050741)
+@@ -4,13 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="working">
++    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="enemies done">
++      <change afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeyHandler.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/TaskForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskForce.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -285,11 +282,18 @@
+       <option name="project" value="LOCAL" />
+       <updated>1712534613884</updated>
+     </task>
+-    <option name="localTasksCounter" value="27" />
++    <task id="LOCAL-00027" summary="enemies done">
++      <option name="closed" value="true" />
++      <created>1712542174180</created>
++      <option name="number" value="00027" />
++      <option name="presentableId" value="LOCAL-00027" />
++      <option name="project" value="LOCAL" />
++      <updated>1712542174180</updated>
++    </task>
++    <option name="localTasksCounter" value="28" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="messing around" />
+     <MESSAGE value="unknown changes" />
+     <MESSAGE value="size change" />
+     <MESSAGE value="Add classes" />
+@@ -314,6 +318,7 @@
+     <MESSAGE value="smoother movement" />
+     <MESSAGE value="Enemy movement complete" />
+     <MESSAGE value="working" />
+-    <option name="LAST_COMMIT_MESSAGE" value="working" />
++    <MESSAGE value="enemies done" />
++    <option name="LAST_COMMIT_MESSAGE" value="enemies done" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/Message.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Message.java b/src/Message.java
+new file mode 100644
+--- /dev/null	(date 1712543695281)
++++ b/src/Message.java	(date 1712543695281)
+@@ -0,0 +1,24 @@
++public class Message {
++    private String message;
++    private boolean visible;
++    private double timeShown;
++
++    public Message(String message, boolean visible, double timeShown) {
++        this.message = message;
++        this.visible = visible;
++        this.timeShown = timeShown;
++    }
++
++    public String getMessage() {
++        return message;
++    }
++    public boolean isVisible() {
++        return visible;
++    }
++    public double getTimeShown() {
++        return timeShown;
++    }
++    public void setTimeShown(double timeShown) {
++        this.timeShown = timeShown;
++    }
++}
