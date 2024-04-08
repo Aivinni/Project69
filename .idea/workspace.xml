@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="Game Finish actually" />
+    <list default="true" id="fdc42366-b47f-4955-9487-fccb0f5f764b" name="Changes" comment="textbox commented out">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -294,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712550010364</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="textbox commented out">
+      <option name="closed" value="true" />
+      <created>1712583459610</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1712583459610</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,7 +320,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="size change" />
     <MESSAGE value="Add classes" />
     <MESSAGE value="commit" />
     <MESSAGE value="movement update" />
@@ -334,6 +344,7 @@
     <MESSAGE value="working" />
     <MESSAGE value="Game Finish" />
     <MESSAGE value="Game Finish actually" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game Finish actually" />
+    <MESSAGE value="textbox commented out" />
+    <option name="LAST_COMMIT_MESSAGE" value="textbox commented out" />
   </component>
 </project>
