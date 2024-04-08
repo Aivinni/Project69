@@ -13,6 +13,8 @@ public class TaskForce extends Interactive {
     private double moveTime = 0.0;
     private boolean enemyNear = false;
 
+    public boolean moving = false;
+
     public TaskForce(String name, int[] position, Game game, String fileName, String sonarKey, String upKey, String downKey, String leftKey, String rightKey) {
         super(name, position, fileName, game);
         usingSonar = false;

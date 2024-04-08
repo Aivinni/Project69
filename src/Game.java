@@ -87,7 +87,7 @@ public class Game {
                         enemies.remove(i);
                         Message message = new Message(enemy.getName() + " sunk! \n Well Done!", true, 0);
                         gamePanel.setMessage(message);
-                    } else {
+                    } else if (!sprites.get(j).moving) {
                         sprites.remove(j);
                         Message message = new Message(player.getName() + " sunk!", true, 0);
                         gamePanel.setMessage(message);

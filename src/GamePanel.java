@@ -168,11 +168,9 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
             for (TaskForce sprite : sprites) {
-                if (sprite == null) {
-                    break;
-                }
+                sprite.moving = true;
                 sprite.setMoveTime(sprite.getMoveTime() + timePassed);
-                if (sprite.getMoveTime() >= 20) {
+                if (sprite.getMoveTime() >= 10) {
                     sprite.setMoveReady(true);
                     sprite.setMoveTime(0);
                 }
@@ -181,11 +179,12 @@ public class GamePanel extends JPanel implements Runnable {
                         sprite.toggleSonarOn();
                     }
                 }
+                sprite.moving = false;
             }
 
             enemyMove += timePassed;
 
-            if (enemyMove >= 35) {
+            if (enemyMove >= 25) {
                 for (Enemy enemy : enemies) {
                     enemy.move();
                 }
